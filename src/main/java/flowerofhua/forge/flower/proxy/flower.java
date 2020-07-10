@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 /**
  *
  */
-@Mod(modid = flower.MODID, name = flower.NAME, version = flower.VERSION, acceptedMinecraftVersions = "1.8.9")
+@Mod(modid = flower.MODID, name = flower.NAME, version = flower.VERSION, acceptedMinecraftVersions = "1.12.2")
 public class flower
 {
     public static final String MODID = "fmltutor";
