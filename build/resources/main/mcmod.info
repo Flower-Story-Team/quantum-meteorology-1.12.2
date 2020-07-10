@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "hua",
+    "name": "My First Mod",
+    "description": "Just a demo mod",
+    "version": "${1.0}",
+    "url": "http://example.net",
+    "authorList": ["Some random guy"],
+    "credits": "Forge guys",
+    "logoFile": "logo.png",
+    "screenshots": [],
+    "useDependencyInformation": true,
+    "requiredMods": [],
+    "dependencies": []
+  }
+]
