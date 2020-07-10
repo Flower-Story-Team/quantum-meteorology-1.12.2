@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
- * @author ustc_zzzz
+ *
  */
 @Mod(modid = flower.MODID, name = flower.NAME, version = flower.VERSION, acceptedMinecraftVersions = "1.8.9")
 public class flower
