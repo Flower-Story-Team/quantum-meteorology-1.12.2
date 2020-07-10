@@ -2,13 +2,13 @@
 
 ##先把季节框架做出来 ，和植物材质 
 ————————————————————————————
-这是摄氏度 华氏度的百科
+— —这是摄氏度 华氏度的百科
 https://baike.baidu.com/item/%E6%91%84%E6%B0%8F%E5%BA%A6
 ————————————————————————————
 这是 serene season 的参考代码
  https://github.com/Glitchfiend/SereneSeasons
 ————————————————————————————
-这是通用季节的参考代码
+这是通用机器的参考代码
 https://github.com/mekanism/Mekanism
 ————————————————————————————
 这是虚无世界的参考代码 capability， 在calabilities 和 utili/player里
