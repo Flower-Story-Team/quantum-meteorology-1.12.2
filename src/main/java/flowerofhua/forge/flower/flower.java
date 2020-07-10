@@ -33,7 +33,7 @@ public class flower
 
 
     @Instance(value = flower.MODID, owner = flower.MODID)
-    public static flower instance;
+    public static flower INSTANCE;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
