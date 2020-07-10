@@ -1,5 +1,6 @@
-package flowerofhua.forge.flower.proxy;
+package flowerofhua.forge.flower;
 
+import flowerofhua.forge.flower.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -7,6 +8,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -16,26 +19,37 @@ public class flower
 {
     public static final String MODID = "flower";
     public static final String NAME = "Flower Of Hua";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.  0";
 
-    @Instance(flower.MODID)
+    private Logger logger = LogManager.getLogger(flower.NAME);
+
+
+    public Logger getLogger() {
+        return logger;
+    }
+    @SidedProxy(clientSide = "flowerofhua.forge.flower.proxy.ClientProxy",
+            serverSide = "flowerofhua.forge.flower.proxy.ServerProxy")
+    public static CommonProxy proxy;
+
+
+    @Instance(value = flower.MODID, owner = flower.MODID)
     public static flower instance;
 
-    @EventHandler
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        // TODO
+        proxy.preInit(event);
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        // TODO
+        proxy.init(event);
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        // TODO
+        proxy.postInit(event);
     }
 }
