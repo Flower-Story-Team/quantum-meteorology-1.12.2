@@ -1,4 +1,4 @@
-package com.konpi.flower.capabilities;
+package com.konpi.flower.capabilities.temperature;
 /*
 
 *下面这些仅供参考 ，先做框架

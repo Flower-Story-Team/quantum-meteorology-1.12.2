@@ -1,4 +1,4 @@
-package com.konpi.flower.capabilities;
+package com.konpi.flower.capabilities.temperature;
 /*
 去看flowerplayerP。
 import net.minecraft.entity.Entity;

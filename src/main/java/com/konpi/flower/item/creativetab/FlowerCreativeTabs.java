@@ -3,6 +3,7 @@ package com.konpi.flower.item.creativetab;
 import com.konpi.flower.Flower;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -11,9 +12,10 @@ import net.minecraft.item.ItemStack;
 public class FlowerCreativeTabs {
 
     public static final CreativeTabs FOOD = new CreativeTabs(getLabel("food")) {
+
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.APPLE);
+            return null;
         }
     };
 

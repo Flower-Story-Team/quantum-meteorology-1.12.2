@@ -22,6 +22,8 @@ public class ItemRegistry {
         //向一些固定类型的集合里添加一些东西
         Flower.logger.info("initializing normal items");
         simpleItemList.add(new ModFoodBase("rice", 1, 1, false));
+        Flower.logger.info("initializing normal items");
+        simpleItemList.add(new ModFoodBase("corn", 1, 1, false));
     }
 
     /**
@@ -47,7 +49,8 @@ public class ItemRegistry {
         //注册物品后这个会自动变成对应物品的引用
         @ObjectHolder("rice")
         public static final Item RICE = null;
-
+        @ObjectHolder("corn")
+        public static final Item CORN = null;
     }
 
 }
