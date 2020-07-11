@@ -18,11 +18,10 @@ public class ModelRegistry {
 
     @SubscribeEvent
     public static void onModelRegistry(ModelRegistryEvent event) {
-        //注册普通物品的模型
-        registerModel(ItemRegistry.RICE);
-
-        //注册ItemBlock的模型
-
+        //只有一个模型的物品
+        for (Item i : ItemRegistry.simpleItemList) {
+            registerModel(i);
+        }
     }
 
     /**

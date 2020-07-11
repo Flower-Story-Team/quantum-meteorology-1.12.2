@@ -2,15 +2,22 @@ package com.konpi.flower.init;
 
 import com.konpi.flower.Flower;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
-@GameRegistry.ObjectHolder(Flower.MODID)
+import java.util.ArrayList;
+
 @Mod.EventBusSubscriber
 public class BlockRegistry {
+
+    //没有subItem的普通方块
+    public static final ArrayList<Block> simpleBlockList = new ArrayList<>();
+
+    static {
+        //向集合中添加对象
+    }
 
     /**
      * 注册Block
@@ -21,9 +28,13 @@ public class BlockRegistry {
         //event.getRegistry().register(...);
     }
 
-    @SubscribeEvent
-    public static void onItemBlockRegister(RegistryEvent.Register<Item> event) {
-        Flower.logger.info("registering block items");
+    @ObjectHolder(Flower.MODID)
+    public static class BlockHolder {
+
+        //注册方块后这个会自动变成对应方块的引用
+        //@ObjectHolder(registryName)
+        //public static final Block NAME = null;
+
     }
 
 }
