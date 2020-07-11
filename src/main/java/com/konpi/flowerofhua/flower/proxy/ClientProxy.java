@@ -1,4 +1,4 @@
-package flowerofhua.forge.flower.proxy;
+package com.konpi.flowerofhua.flower.proxy;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

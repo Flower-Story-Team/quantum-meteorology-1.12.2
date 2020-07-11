@@ -1,4 +1,4 @@
-package flowerofhua.forge.flower.capabilities;
+package com.konpi.flowerofhua.flower.capabilities;
 /*
 
 *下面这些仅供参考 ，先做框架

@@ -1,4 +1,4 @@
-package flowerofhua.forge.flower.capabilities;
+package com.konpi.flowerofhua.flower.capabilities;
 /*
 import net.minecraft.entity.player.EntityPlayer;
 

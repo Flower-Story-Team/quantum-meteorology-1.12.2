@@ -1,4 +1,4 @@
-package flowerofhua.forge.flower.capabilities;
+package com.konpi.flowerofhua.flower.capabilities;
 /* 特性在这
 *https://github.com/Tslat/Advent-Of-Ascension/blob/master/source/utils/player/PlayerDataManager.java
 * 这是虚无的链接请去参考

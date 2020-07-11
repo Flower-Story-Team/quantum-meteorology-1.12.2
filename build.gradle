@@ -24,7 +24,7 @@ apply plugin: 'maven-publish'
 
 //项目基础
 version = '1.0.0'
-group = 'flowerofhua.forge.flower'
+group = 'com.konpi.flowerofhua.flower'
 archivesBaseName = 'flowerofhua'
 
 
