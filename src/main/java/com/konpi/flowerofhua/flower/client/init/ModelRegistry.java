@@ -1,6 +1,5 @@
 package com.konpi.flowerofhua.flower.client.init;
 
-import com.konpi.flowerofhua.flower.Flower;
 import com.konpi.flowerofhua.flower.init.ItemRegistry;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

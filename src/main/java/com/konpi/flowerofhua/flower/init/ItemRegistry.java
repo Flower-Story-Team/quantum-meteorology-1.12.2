@@ -8,10 +8,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
+@ObjectHolder(Flower.MODID)
 @Mod.EventBusSubscriber
 public class ItemRegistry {
 
-    @ObjectHolder("flower:rice")
+    //注册物品后这个会自动变成对应物品的引用
+    @ObjectHolder("rice")
     public static final Item  RICE = null;
 
     /**
