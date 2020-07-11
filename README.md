@@ -6,6 +6,8 @@ thinks:https://www.mcbbs.net/forum.php?mod=viewthread&tid=1063599&page=1#pid1860
 ----------------------------
 None~
 
+gradle版本：4.8.1
+
 MCP版本: stable_39
 
 forge版本: 1.12.2-14.23.5.2847
