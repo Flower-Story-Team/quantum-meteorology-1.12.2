@@ -1,99 +1,68 @@
-//FlowerOfHua-1.12.2
+//FlowerOfHua-1.12.2 花之物语 
 
 
 //构建脚本
 buildscript
 {
     repositories
-    {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+	{
         jcenter()
-        mavenCentral()
+        maven { url = "https://files.minecraftforge.net/maven" }
     }
     dependencies
-    {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+	{
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
 
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 //项目基础
-version = '1.0.0'
-group = 'com.konpi.flowerofhua.flower'
-archivesBaseName = 'flowerofhua'
+version = "1.0.0"
+group = "com.konpi" 
+archivesBaseName = "Flower of Hua"
 
-
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
-
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava
+{
+    sourceCompatibility = targetCompatibility = '1.8'
+}
 
 minecraft
 {
-    mappings channel: 'snapshot', version: '20171003-1.12'
-    runs
-    {
-        client
-        {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-        }
-        
-        server
-        {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-        }
-    }
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
 }
 
 
 //项目依赖
 dependencies
 {
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
 }
 
-
-jar
+processResources
 {
-    manifest
-    {
-        attributes([
-            "Specification-Title": "examplemod",
-            "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs)
+	{
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs)
+	{
+        exclude 'mcmod.info'
     }
 }
 
 
-jar.finalizedBy('reobfJar') 
 
 
-publishing
-{
-    publications
-    {
-        mavenJava(MavenPublication)
-        {
-            artifact jar
-        }
-    }
-    repositories
-    {
-        maven
-        {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
+
+
+
+
 

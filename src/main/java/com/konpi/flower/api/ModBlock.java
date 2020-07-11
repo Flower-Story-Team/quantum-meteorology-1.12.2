@@ -1,4 +1,4 @@
-package com.konpi.flowerofhua.flower.api;
+package com.konpi.flower.api;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,16 +6,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * ModItem annotation.
- * For auto register items.
- * Use on class extends Item.
+ * ModBlock annotation.
+ * For auto register blocks.
+ * Use on class extends Block.
  * @author Infinity_rain
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ModItem {
+public @interface ModBlock {
     /**
-     * Registry name of item
+     * Registry name of block
      * @return RegistryName
      */
     String name();

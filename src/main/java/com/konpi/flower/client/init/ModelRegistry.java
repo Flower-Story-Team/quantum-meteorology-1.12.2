@@ -1,7 +1,6 @@
-package com.konpi.flowerofhua.flower.client.init;
+package com.konpi.flower.client.init;
 
-import com.konpi.flowerofhua.flower.Flower;
-import com.konpi.flowerofhua.flower.init.ItemRegistry;
+import com.konpi.flower.init.ItemRegistry;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -19,7 +18,10 @@ public class ModelRegistry {
 
     @SubscribeEvent
     public static void onModelRegistry(ModelRegistryEvent event) {
-        registerModel(ItemRegistry.RICE);
+        //只有一个模型的物品
+        for (Item i : ItemRegistry.simpleItemList) {
+            registerModel(i);
+        }
     }
 
     /**
