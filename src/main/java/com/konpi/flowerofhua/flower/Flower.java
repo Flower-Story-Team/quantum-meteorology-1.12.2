@@ -19,11 +19,6 @@ public class Flower
     
     public static Logger logger = LogManager.getLogger(Flower.NAME);
     
-    public Logger getLogger()
-    {
-        return logger;
-    }
-    
     @SidedProxy(clientSide = "com.konpi.flowerofhua.flower.proxy.ClientProxy", serverSide = "com.konpi.flowerofhua.flower.proxy.CommonProxy")
     public static CommonProxy proxy;
     
@@ -44,4 +39,5 @@ public class Flower
     {
         proxy.postInit(event);
     }
+
 }
