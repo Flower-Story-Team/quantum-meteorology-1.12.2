@@ -23,9 +23,3 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
-
-build.gradle
-.gitignore
-gradlew
-gradlew.bat
-build.gradle
