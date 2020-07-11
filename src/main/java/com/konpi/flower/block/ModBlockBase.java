@@ -1,6 +1,6 @@
-package com.konpi.flowerofhua.flower.block;
+package com.konpi.flower.block;
 
-import com.konpi.flowerofhua.flower.Flower;
+import com.konpi.flower.Flower;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

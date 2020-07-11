@@ -1,5 +1,6 @@
-package com.konpi.flowerofhua.flower;
+package com.konpi.flower;
 
+import com.konpi.flower.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -7,8 +8,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.konpi.flowerofhua.flower.proxy.CommonProxy;
 
 @Mod(modid = Flower.MODID, name = Flower.NAME, version = Flower.VERSION, acceptedMinecraftVersions = "1.12.2")
 public class Flower
@@ -19,7 +18,7 @@ public class Flower
     
     public static Logger logger = LogManager.getLogger(Flower.NAME);
     
-    @SidedProxy(clientSide = "com.konpi.flowerofhua.flower.proxy.ClientProxy", serverSide = "com.konpi.flowerofhua.flower.proxy.CommonProxy")
+    @SidedProxy(clientSide = "com.konpi.flower.proxy.ClientProxy", serverSide = "com.konpi.flower.proxy.CommonProxy")
     public static CommonProxy proxy;
     
     @Mod.EventHandler

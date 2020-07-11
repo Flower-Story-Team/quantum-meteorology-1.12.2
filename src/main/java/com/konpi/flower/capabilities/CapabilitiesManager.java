@@ -1,4 +1,4 @@
-package com.konpi.flowerofhua.flower.capabilities;
+package com.konpi.flower.capabilities;
 /*
 去看flowerplayerP。
 import net.minecraft.entity.Entity;

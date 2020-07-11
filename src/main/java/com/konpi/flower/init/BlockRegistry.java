@@ -1,6 +1,6 @@
-package com.konpi.flowerofhua.flower.init;
+package com.konpi.flower.init;
 
-import com.konpi.flowerofhua.flower.Flower;
+import com.konpi.flower.Flower;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;

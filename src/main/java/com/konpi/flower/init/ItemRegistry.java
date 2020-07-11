@@ -1,7 +1,7 @@
-package com.konpi.flowerofhua.flower.init;
+package com.konpi.flower.init;
 
-import com.konpi.flowerofhua.flower.Flower;
-import com.konpi.flowerofhua.flower.item.ModFoodBase;
+import com.konpi.flower.Flower;
+import com.konpi.flower.item.ModFoodBase;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,7 +14,7 @@ public class ItemRegistry {
 
     //注册物品后这个会自动变成对应物品的引用
     @ObjectHolder("rice")
-    public static final Item  RICE = null;
+    public static final Item RICE = null;
 
     /**
      * 注册Item

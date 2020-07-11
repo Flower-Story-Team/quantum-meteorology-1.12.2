@@ -1,99 +1,60 @@
-//FlowerOfHua-1.12.2
-
-
-//构建脚本
-buildscript
-{
-    repositories
-    {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+buildscript {
+    repositories {
         jcenter()
-        mavenCentral()
+        maven { url = "https://files.minecraftforge.net/maven" }
     }
-    dependencies
-    {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+version = "1.0.0"
+group = "com.konpi" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "Flower of Hua"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }
 
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation 'org.jetbrains:annotations:15.0'
+}
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
 
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
 
-//项目基础
-version = '1.0.0'
-group = 'com.konpi.flowerofhua.flower'
-archivesBaseName = 'flowerofhua'
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
 
-
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
-
-
-minecraft
-{
-    mappings channel: 'snapshot', version: '20171003-1.12'
-    runs
-    {
-        client
-        {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-        }
-        
-        server
-        {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-        }
+    // copy everything else except the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
     }
 }
 
-
-//项目依赖
-dependencies
-{
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
-
-
-jar
-{
-    manifest
-    {
-        attributes([
-            "Specification-Title": "examplemod",
-            "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-}
-
-
-jar.finalizedBy('reobfJar') 
-
-
-publishing
-{
-    publications
-    {
-        mavenJava(MavenPublication)
-        {
-            artifact jar
-        }
-    }
-    repositories
-    {
-        maven
-        {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
-

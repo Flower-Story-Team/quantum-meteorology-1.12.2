@@ -1,6 +1,6 @@
-package com.konpi.flowerofhua.flower.item.creativetab;
+package com.konpi.flower.item.creativetab;
 
-import com.konpi.flowerofhua.flower.Flower;
+import com.konpi.flower.Flower;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
