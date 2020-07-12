@@ -7,19 +7,21 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.*;
 
 import java.util.Objects;
 
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber
-public class ModelRegistry {
+public class ModelRegistry
+{
 
     @SubscribeEvent
-    public static void onModelRegistry(ModelRegistryEvent event) {
+    public static void onModelRegistry(ModelRegistryEvent event)
+    {
         //只有一个模型的物品
-        for (Item i : ItemRegistry.simpleItemList) {
+        for (Item i : ItemRegistry.simpleItemList)
+        {
             registerModel(i);
         }
     }
@@ -27,7 +29,8 @@ public class ModelRegistry {
     /**
      * 注册一般物品的模型
      */
-    private static void registerModel(Item item) {
+    private static void registerModel(Item item)
+    {
         ModelLoader.setCustomModelResourceLocation(item, 0,
                 new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()),
                         "inventory"));

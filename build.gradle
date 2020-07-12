@@ -38,27 +38,63 @@ minecraft
 }
 
 
+//----------------------------------------------
+
+
+
 //项目依赖
 dependencies
 {
+	// JEI
+	deobfCompile "mezz.jei:jei_1.12.2:4.15.0.293"
+	//deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
+	
+	
+	//deobfCompile "mezz.jei:jei_1.12.2:4.15.0.293"
+	
+	
+	
+	//jei_1.12.2-4.15.0.293.jar
+	//4.12.0.215
 }
+repositories
+{
+	maven
+	{
+		// JEI
+		name 'progwm\'s maven'
+		url 'http://dvs1.progwml6.com/files/maven'
+	}
+}
+
+
+
+//----------------------------------------------
+
 
 processResources
 {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
+    
     from(sourceSets.main.resources.srcDirs)
 	{
         include 'mcmod.info'
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
+    
     from(sourceSets.main.resources.srcDirs)
 	{
         exclude 'mcmod.info'
     }
+    
+    //编译使用utf8
+    tasks.withType(JavaCompile)
+    {
+        options.encoding = "UTF-8"
+    }
+    
 }
-
-
 
 
 

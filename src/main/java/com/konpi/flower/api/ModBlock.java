@@ -13,7 +13,8 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ModBlock {
+public @interface ModBlock
+{
     /**
      * Registry name of block
      * @return RegistryName
