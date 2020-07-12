@@ -13,12 +13,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import java.util.ArrayList;
 
 @Mod.EventBusSubscriber
-public class ItemRegistry {
+public class ItemRegistry
+{
 
     //一些普通的物品，它们只有一个模型
     public static final ArrayList<Item> simpleItemList = new ArrayList<>();
 
-    static {
+    static
+    {
         //向一些固定类型的集合里添加一些东西
         Flower.logger.info("initializing normal items");
         simpleItemList.add(new ModFoodBase("rice", 1, 1, false));
@@ -28,10 +30,12 @@ public class ItemRegistry {
      * 注册Item
      */
     @SubscribeEvent
-    public static void onItemRegister(RegistryEvent.Register<Item> event) {
+    public static void onItemRegister(RegistryEvent.Register<Item> event)
+    {
         //实例化方块物品
         Flower.logger.info("initializing block items");
-        for (Block b : BlockRegistry.simpleBlockList) {
+        for (Block b : BlockRegistry.simpleBlockList)
+        {
             event.getRegistry().register(new ModItemBlockBase(b));
         }
 
@@ -42,7 +46,8 @@ public class ItemRegistry {
     }
 
     @ObjectHolder(Flower.MODID)
-    public static class ItemHolder {
+    public static class ItemHolder
+    {
 
         //注册物品后这个会自动变成对应物品的引用
         @ObjectHolder("rice")
