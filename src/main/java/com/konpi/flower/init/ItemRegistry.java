@@ -52,7 +52,7 @@ public class ItemRegistry
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));	//水稻种子
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[1]));	//大米
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[2]));	//碗
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));	//碗
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));	//辣椒
 
     }
     
