@@ -59,6 +59,13 @@ processResources
 }
 
 
+//编译使用utf8
+tasks.withType(JavaCompile)
+{
+    options.encoding = "UTF-8"  
+}
+
+
 
 
 
