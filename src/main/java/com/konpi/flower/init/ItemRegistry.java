@@ -15,14 +15,13 @@ import java.util.ArrayList;
 @Mod.EventBusSubscriber
 public class ItemRegistry
 {
-
-    //一些普通的物品，它们只有一个模型
+	//一些普通的物品，它们只有一个模型
     public static final ArrayList<Item> simpleItemList = new ArrayList<>();
 
     static
     {
         //向一些固定类型的集合里添加一些东西
-        Flower.logger.info("initializing normal items");
+    	Flower.logger.info("initializing normal items");
         
         
         simpleItemList.add(new ModFoodBase("rice_seed", 1, 1, false));	//水稻种子
@@ -58,13 +57,17 @@ public class ItemRegistry
     @ObjectHolder(Flower.MODID)
     public static class ItemHolder
     {
+    	//水稻种子
+    	@ObjectHolder("rice_seed")	
+        public static final Item RICE_SEED = null;
     	
-    	@ObjectHolder("rice_seed")	//水稻种子
-        public static final Item RICE_SEED = null;	//水稻种子
+    	//大米
         @ObjectHolder("rice")
         public static final Item RICE = null;
-        @ObjectHolder("bowl")	//碗
-        public static final Item BOWL = null;	//碗
+        
+        //碗
+        @ObjectHolder("bowl")
+        public static final Item BOWL = null;
 
     }
 
