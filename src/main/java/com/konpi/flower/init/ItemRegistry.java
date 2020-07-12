@@ -15,7 +15,7 @@ import java.util.ArrayList;
 @Mod.EventBusSubscriber
 public class ItemRegistry
 {
-	//一些普通的物品，它们只有一个模型
+	//一些普通的物品，它们只有一个模型.
     public static final ArrayList<Item> simpleItemList = new ArrayList<>();
 
     static
@@ -62,7 +62,7 @@ public class ItemRegistry
     public static class ItemHolder
     {
     	//水稻种子
-    	@ObjectHolder("rice_seed")	
+    	@ObjectHolder("rice_seed")
         public static final Item RICE_SEED = null;
     	
     	//大米
