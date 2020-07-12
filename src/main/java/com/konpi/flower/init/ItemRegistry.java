@@ -25,9 +25,12 @@ public class ItemRegistry
         
         
         simpleItemList.add(new ModFoodBase("rice_seed", 1, 1, false));	//水稻种子
+        
         simpleItemList.add(new ModFoodBase("rice", 1, 1, false));	//大米
+        
         simpleItemList.add(new ModFoodBase("bowl", 1, 1, false));	//碗
-        simpleItemList.add(new ModFoodBase("pepperchili", 1, 1, false)); //辣椒
+        
+        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false)); //辣椒
         
     }
     
@@ -69,6 +72,7 @@ public class ItemRegistry
         //碗
         @ObjectHolder("bowl")
         public static final Item BOWL = null;
+        
         //辣椒
         @ObjectHolder("pepper_chili")
         public static final Item PEPPERCHILI = null;

@@ -18,4 +18,5 @@ public class ModFoodBase extends ItemFood
         this.setTranslationKey(Flower.MODID + "." + registryName);
         this.setCreativeTab(FlowerCreativeTabs.FOOD);
     }
+    
 }
