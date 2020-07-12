@@ -86,6 +86,10 @@ public class ItemRegistry
         //白菜
         @ObjectHolder("cabbage")
         public static final Item CABBAGE = null;
+        
+        //玉米
+        @ObjectHolder("corn")
+        public static final Item CORN = null;
     }
 
 }
