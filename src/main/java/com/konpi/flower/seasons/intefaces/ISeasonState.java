@@ -1,10 +1,4 @@
-/*******************************************************************************
- * Copyright 2016, the Biomes O' Plenty Team
- *
- * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
- *
- * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
- ******************************************************************************/
+
 package com.konpi.flower.seasons.intefaces;
 
 
@@ -17,13 +11,6 @@ public interface ISeasonState
      * @return The duration in ticks
      */
     int getDayDuration();
-
-    /**
-     * 一个季节的tick.
-     *
-     * @return The duration in ticks
-     */
-    int getSubSeasonDuration();
 
     /**
      * 一个季节的tick.
@@ -46,13 +33,7 @@ public interface ISeasonState
      *
      * @return The time in ticks
      */
-    int getSeasonCycleTicks();
 
-    /**
-     *
-     *
-     * @return The current day
-     */
     int getDay();
 
 
