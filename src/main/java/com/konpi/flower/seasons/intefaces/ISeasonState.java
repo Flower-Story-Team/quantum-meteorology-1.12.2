@@ -2,6 +2,8 @@
 package com.konpi.flower.seasons.intefaces;
 
 
+import com.konpi.flower.seasons.Season;
+
 public interface ISeasonState
 {
     /**
@@ -36,6 +38,12 @@ public interface ISeasonState
 
     int getDay();
 
+    /*
+    *
+    *
+     */
+
+    Season getSeason();
 
 
 }
