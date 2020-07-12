@@ -38,10 +38,29 @@ minecraft
 }
 
 
+//----------------------------------------------
+
+
 //项目依赖
+/*
 dependencies
 {
+	deobfCompile "mezz.jei:jei_1.12.2:${jei_version}"
 }
+repositories
+{
+	maven
+	{
+		// JEI
+		name 'progwm\'s maven'
+		url 'http://dvs1.progwml6.com/files/maven'
+	}
+}
+*/
+
+
+//----------------------------------------------
+
 
 processResources
 {
