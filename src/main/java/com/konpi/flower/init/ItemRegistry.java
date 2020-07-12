@@ -32,6 +32,8 @@ public class ItemRegistry
         
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false)); //辣椒
         
+        simpleItemList.add(new ModFoodBase("cabbage", 1, 1, false)); //白菜
+        
     }
     
     /**注册Item*/
@@ -53,6 +55,7 @@ public class ItemRegistry
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[1]));	//大米
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[2]));	//碗
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));	//辣椒
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[4]));	//白菜
 
     }
     
@@ -75,8 +78,11 @@ public class ItemRegistry
         
         //辣椒
         @ObjectHolder("pepper_chili")
-        public static final Item PEPPERCHILI = null;
-
+        public static final Item PEPPER_CHILI = null;
+        
+        //白菜
+        @ObjectHolder("cabbage")
+        public static final Item CABBAGE = null;
     }
 
 }
