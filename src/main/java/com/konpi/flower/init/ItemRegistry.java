@@ -3,6 +3,7 @@ package com.konpi.flower.init;
 import com.konpi.flower.Flower;
 import com.konpi.flower.item.ModFoodBase;
 import com.konpi.flower.item.ModItemBase;
+import com.konpi.flower.item.ModItemBase2;
 import com.konpi.flower.item.ModItemBlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -29,7 +30,7 @@ public class ItemRegistry
         
         simpleItemList.add(new ModFoodBase("rice", 1, 1, false));	//大米
         
-        simpleItemList.add(new ModItemBase("bowl"));	//碗
+        simpleItemList.add(new ModItemBase2("bowl"));	//碗 物品堆叠是1个
         
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false)); //辣椒
         
@@ -53,13 +54,12 @@ public class ItemRegistry
         //注册普通物品
         Flower.logger.info("registering items");
         
-        
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));	//水稻种子
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[1]));	//大米
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[2]));	//碗
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));	//辣椒
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[4]));	//白菜
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[5]));	//玉米
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[1]));
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[2]));
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[4]));
+        event.getRegistry().registerAll(simpleItemList.toArray(new Item[5]));
 
     }
     
