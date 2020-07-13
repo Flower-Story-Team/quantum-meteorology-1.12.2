@@ -26,7 +26,7 @@ public class ItemRegistry
     	Flower.logger.info("initializing normal items");
         
     	//基础种子
-    	simpleItemList.add(new ModItemBase("rice_seed"));	//水稻种子
+    	simpleItemList.add(new ModItemBase("rice_seed", 64));	//水稻种子
     	
     	//基础餐具
         simpleItemList.add(new ModTablewareBase("bowl", 64));	//碗
@@ -37,9 +37,7 @@ public class ItemRegistry
         
         //蔬菜
         simpleItemList.add(new ModFoodBase("pepper_chili", 64, 1, 1, false)); //辣椒
-        
         simpleItemList.add(new ModFoodBase("cabbage", 64, 1, 1, false)); //白菜
-
         simpleItemList.add(new ModFoodBase("corn", 64, 1, 1, false)); //玉米
     }
     
