@@ -30,7 +30,7 @@ public class ItemRegistry
         
         
         //食材
-        simpleItemList.add(new ModFoodBase("chinese_cabbage	", 1, 0.6F, false));		//白菜			
+        simpleItemList.add(new ModFoodBase("chinese_cabbage", 1, 0.6F, false));		//白菜			
         simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false));                  //番茄	
         simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false));                  //花生	
         simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //大米
