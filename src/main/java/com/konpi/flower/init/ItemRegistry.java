@@ -34,6 +34,10 @@ public class ItemRegistry
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
         simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜
         simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false)); //番茄
+        
+        simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false)); //花生
+        
+        
         simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
 
         
@@ -43,7 +47,7 @@ public class ItemRegistry
         
     	//餐具
         simpleItemList.add(new ModTablewareBase("bowl").setMaxStackSize(16)); //碗
-
+        
         
         //实例化方块物品
         Flower.logger.info("initializing block items");
@@ -86,7 +90,8 @@ public class ItemRegistry
         @ObjectHolder("tomato")		//番茄
         public static final Item TOMATO = null;
         
-        
+        @ObjectHolder("peanut")		//花生
+        public static final Item PEANUT = null;
         
         
         
