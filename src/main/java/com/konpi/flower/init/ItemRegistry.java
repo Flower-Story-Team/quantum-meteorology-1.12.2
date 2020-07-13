@@ -25,14 +25,17 @@ public class ItemRegistry
         //向一些固定类型的集合里添加一些东西
     	Flower.logger.info("initializing normal items");
         
-        
-        simpleItemList.add(new ModItemBase("rice_seed"));	//水稻种子
-        
-        simpleItemList.add(new ModTablewareBase("bowl"));	//碗 物品堆叠是1个
+    	//基础种子
+    	simpleItemList.add(new ModItemBase("rice_seed"));	//水稻种子
+    	
+    	//基础餐具
+        simpleItemList.add(new ModTablewareBase("bowl"));	//碗
         
         //基础食物
-        simpleItemList.add(new ModFoodBase("rice", 1, 1, false, 1));	//大米
+        simpleItemList.add(new ModFoodBase("rice", 1, 1, false, 1));	//大米(不是米饭)
         
+        
+        //蔬菜
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false, 64)); //辣椒
         
         simpleItemList.add(new ModFoodBase("cabbage", 1, 1, false, 64)); //白菜
