@@ -12,9 +12,9 @@ public class ModTablewareBase extends Item//Food
 {
 	//有参数构建函数
 	/**ModItemBase([字符串型,物品注册名(ID)]）*/
-    public ModTablewareBase(String registryName)
+    public ModTablewareBase(String registryName, int maxStackSize)
     {
-    	this.maxStackSize = 1;
+    	this.setMaxStackSize(maxStackSize);
         //super(amount, saturation, isWolfFood);
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);

@@ -29,18 +29,18 @@ public class ItemRegistry
     	simpleItemList.add(new ModItemBase("rice_seed"));	//水稻种子
     	
     	//基础餐具
-        simpleItemList.add(new ModTablewareBase("bowl"));	//碗
+        simpleItemList.add(new ModTablewareBase("bowl", 64));	//碗
         
         //基础食物
-        simpleItemList.add(new ModFoodBase("rice", 1, 1, false, 1));	//大米(不是米饭)
+        simpleItemList.add(new ModFoodBase("rice", 64, 1, 1, false));	//大米(不是米饭)
         
         
         //蔬菜
-        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false, 64)); //辣椒
+        simpleItemList.add(new ModFoodBase("pepper_chili", 64, 1, 1, false)); //辣椒
         
-        simpleItemList.add(new ModFoodBase("cabbage", 1, 1, false, 64)); //白菜
+        simpleItemList.add(new ModFoodBase("cabbage", 64, 1, 1, false)); //白菜
 
-        simpleItemList.add(new ModFoodBase("corn", 1, 1, false, 64)); //玉米
+        simpleItemList.add(new ModFoodBase("corn", 64, 1, 1, false)); //玉米
     }
     
     /**注册Item*/

@@ -15,6 +15,7 @@ public class ModItemBase extends Item//Food
     public ModItemBase(String registryName)
     {
         //super(amount, saturation, isWolfFood);
+    	
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);
         //this.setCreativeTab(FlowerCreativeTabs.FOOD);
