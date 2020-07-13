@@ -3,7 +3,7 @@ package com.konpi.flower.init;
 import com.konpi.flower.Flower;
 import com.konpi.flower.item.ModFoodBase;
 import com.konpi.flower.item.ModItemBase;
-import com.konpi.flower.item.ModItemBase2;
+import com.konpi.flower.item.ModTablewareBase;
 import com.konpi.flower.item.ModItemBlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -30,7 +30,7 @@ public class ItemRegistry
         
         simpleItemList.add(new ModFoodBase("rice", 1, 1, false));	//大米
         
-        simpleItemList.add(new ModItemBase2("bowl"));	//碗 物品堆叠是1个
+        simpleItemList.add(new ModTablewareBase("bowl"));	//碗 物品堆叠是1个
         
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false)); //辣椒
         
