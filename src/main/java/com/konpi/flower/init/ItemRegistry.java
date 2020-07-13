@@ -27,21 +27,25 @@ public class ItemRegistry
     	
     	//种子
         simpleItemList.add(new ModItemBase("rice_seed").setCreativeTab(ModCreativeTabs.MISC)); //水稻种子
-
+        
         
         //食材
-        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜1
-        simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false)); //番茄2
-        simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false)); //花生3
-        simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //生大米4
-        simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米5
-        
-        
-        
-        simpleItemList.add(new ModFoodBase("onion", 1, 0.5F, false)); //大葱6
-        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
-        
-        
+        simpleItemList.add(new ModFoodBase("chinese_cabbage	", 1, 0.6F, false));		//白菜			
+        simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false));                  //番茄	
+        simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false));                  //花生	
+        simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //大米
+        simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false));                    //玉米	
+        simpleItemList.add(new ModFoodBase("eggplant", 1, 0.6F, false));                //茄子	
+        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false));                 //卷心菜	
+        simpleItemList.add(new ModFoodBase("scallion", 1, 0.6F, false));                //葱		
+        simpleItemList.add(new ModFoodBase("ginger", 1, 0.6F, false));                  //生姜	
+        simpleItemList.add(new ModFoodBase("cauliflower", 1, 0.6F, false));             //花菜	
+        simpleItemList.add(new ModFoodBase("chili", 1, 0.6F, false));                   //辣椒	
+        simpleItemList.add(new ModFoodBase("pepper", 1, 0.6F, false));                  //花椒	
+        simpleItemList.add(new ModFoodBase("sweet_pepper", 1, 0.6F, false));            //甜椒	
+        simpleItemList.add(new ModFoodBase("onion", 1, 0.6F, false));                   //洋葱	
+        simpleItemList.add(new ModFoodBase("lentil", 1, 0.6F, false));                  //扁豆	
+        simpleItemList.add(new ModFoodBase("garlic", 1, 0.6F, false));                  //大蒜	
         
         
         
@@ -77,43 +81,73 @@ public class ItemRegistry
     @ObjectHolder(Flower.MODID)
     public static class ItemHolder
     {
+    	//种子
     	@ObjectHolder("rice_seed")	//水稻种子
         public static final Item RICE_SEED = null;
     	
+    	//餐具
         @ObjectHolder("bowl")	//碗
         public static final Item BOWL = null;
         
-        
-        
-        
-        @ObjectHolder("cabbage")	//白菜1
-        public static final Item CABBAGE = null;
-        
-        @ObjectHolder("tomato")		//番茄2
-        public static final Item TOMATO = null;
-        
-        @ObjectHolder("peanut")		//花生3
-        public static final Item PEANUT = null;
-        
-        @ObjectHolder("rice")	//大米4
-        public static final Item RICE = null;
-
-        @ObjectHolder("corn")	//玉米5
-        public static final Item CORN = null;
-        
-        
-        
-        @ObjectHolder("pepper_chili")	//辣椒
-        public static final Item PEPPER_CHILI = null;
-        
-        
-
-
-        @ObjectHolder("onion")      //大葱
-        public static final Item ONION = null;
-        
+        //熟食
         @ObjectHolder("steamed_rice")	//米饭
         public static final Item STEAMED_RICE = null;
+        
+        
+        
+        
+        
+        
+        //食材
+        @ObjectHolder("chinese_cabbage")	//白菜
+        public static final Item CHINESE_CABBAGE = null;
+        
+        @ObjectHolder("tomato")		//番茄
+        public static final Item TOMATO = null;
+        
+        @ObjectHolder("peanut")		//花生
+        public static final Item PEANUT = null;
+        
+        @ObjectHolder("rice")		//大米
+        public static final Item RICE = null;
+        
+        @ObjectHolder("corn")		//玉米
+        public static final Item CORN = null;
+        
+        @ObjectHolder("eggplant")	//茄子
+        public static final Item EGGPLANT = null;
+        
+        @ObjectHolder("cabbage")	//卷心菜
+        public static final Item CABBAGE = null;
+        
+        @ObjectHolder("scallion")	//葱
+        public static final Item SCALLION = null;
+        
+        @ObjectHolder("ginger")		//姜
+        public static final Item GINGER = null;
+        
+        @ObjectHolder("cauliflower")	//花菜
+        public static final Item CAULIFLOWER = null;
+        
+        @ObjectHolder("chili")		//辣椒
+        public static final Item CHILI = null;
+        
+        @ObjectHolder("pepper")		//花椒
+        public static final Item PEPPER = null;
+        
+        @ObjectHolder("sweet_pepper")		//甜椒
+        public static final Item SWEET_PEPPER = null;
+        
+        @ObjectHolder("onion")			//洋葱
+        public static final Item ONION = null;
+        
+        @ObjectHolder("lentil")			//扁豆
+        public static final Item LENTIL = null;
+        
+        @ObjectHolder("garlic")			//大蒜
+        public static final Item GARLIC = null;
+        
+        
     }
 
 }
