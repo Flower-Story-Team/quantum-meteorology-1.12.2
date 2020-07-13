@@ -34,7 +34,6 @@ public class ItemRegistry
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
         simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜
         simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false)); //番茄
-        
         simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false)); //花生
         
         
