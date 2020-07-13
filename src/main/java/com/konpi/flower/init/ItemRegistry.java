@@ -37,10 +37,10 @@ public class ItemRegistry
         simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
 
         //熟食
-        simpleItemList.add(new ModFoodBase("steamed_rice", 1, 0.6F, false)); //米饭
+        simpleItemList.add(new ModFoodBase("steamed_rice", 1, 0.6F, false).setMaxStackSize(1)); //米饭
     	
     	//餐具
-        simpleItemList.add(new ModTablewareBase("bowl")); //碗
+        simpleItemList.add(new ModTablewareBase("bowl").setMaxStackSize(16)); //碗
 
     }
     
