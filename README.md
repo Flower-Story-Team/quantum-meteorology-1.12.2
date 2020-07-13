@@ -12,6 +12,7 @@
 + DoctorIDD
 + shaokeyibb
 
+
 Thinks from [here](https://www.mcbbs.net/forum.php?mod=viewthread&tid=1063599&page=1#pid18600862)
 
 - - -
@@ -22,7 +23,7 @@ Gradle Ver：`4.8.1`
 
 MCP Ver: `stable_39`
 
-forge Ver: `1.12.2-14.23.5.2847`
+Forge Ver: `1.12.2-14.23.5.2847`
 
 ### Download Snapshot Artifact
 
