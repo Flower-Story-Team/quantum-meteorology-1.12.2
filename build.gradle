@@ -47,15 +47,7 @@ dependencies
 {
 	// JEI
 	deobfCompile "mezz.jei:jei_1.12.2:4.15.0.293"
-	//deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
 	
-	
-	//deobfCompile "mezz.jei:jei_1.12.2:4.15.0.293"
-	
-	
-	
-	//jei_1.12.2-4.15.0.293.jar
-	//4.12.0.215
 }
 repositories
 {
@@ -87,10 +79,19 @@ processResources
 	{
         exclude 'mcmod.info'
     }
-}
     
-//编译使用utf8
-tasks.withType(JavaCompile)
-{
-    options.encoding = "UTF-8"
+    
+    //编译使用utf8
+	tasks.withType(JavaCompile)
+	{
+	    options.encoding = "UTF-8"
+	}
 }
+
+/*
+	//编译使用utf8
+	tasks.withType(JavaCompile)
+	{
+	    options.encoding = "UTF-8"
+	}
+*/
