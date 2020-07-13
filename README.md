@@ -17,3 +17,7 @@ MCP Ver: `stable_39`
 
 forge Ver: `1.12.2-14.23.5.2847`
 
+### Download Snapshot Artifact
+
+[from Github Actions](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2/actions)
+
