@@ -9,8 +9,12 @@ import net.minecraft.item.ItemFood;
  */
 public class ModFoodBase extends ItemFood
 {
-	//有参数构建函数
-	/**ModFoodBase([字符串型,物品注册名(ID)],[整数型，回复的饥饿值(2点=一个鸡腿)],[小数型,添加的饱和度(用于回血)],[布尔值,能否给驯服的狼吃]),[整数型,物品最大堆叠数量])*/
+    /**
+     * @param registryName 注册名
+     * @param amount 回复饥饿值
+     * @param saturation 回复饱和度
+     * @param isWolfFood 是否能给狼吃
+     */
     public ModFoodBase(String registryName, int amount, float saturation, boolean isWolfFood)
     {
         super(amount, saturation, isWolfFood);

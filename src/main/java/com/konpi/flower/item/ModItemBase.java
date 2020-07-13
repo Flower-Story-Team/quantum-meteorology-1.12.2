@@ -9,8 +9,9 @@ import net.minecraft.item.Item;
  */
 public class ModItemBase extends Item
 {
-	//有参数构建函数
-	/**ModItemBase([字符串型,物品注册名(ID)]）*/
+    /**
+     * @param registryName 注册名
+     */
     public ModItemBase(String registryName)
     {
         super();

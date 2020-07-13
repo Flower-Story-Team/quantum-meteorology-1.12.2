@@ -10,15 +10,16 @@ import net.minecraft.item.Item;
  */
 public class ModTablewareBase extends Item
 {
-	//有参数构建函数
-	/**ModItemBase([字符串型,物品注册名(ID)]）*/
+    /**
+     * @param registryName 注册名
+     */
     public ModTablewareBase(String registryName)
     {
         super();
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);
         this.setCreativeTab(ModCreativeTabs.TABLEWARE);
-        this.setMaxStackSize(1);
+        this.setMaxStackSize(16);
     }
     
 }

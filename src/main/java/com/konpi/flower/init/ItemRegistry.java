@@ -27,19 +27,21 @@ public class ItemRegistry
         //向一些固定类型的集合里添加一些东西
     	Flower.logger.info("initializing normal items");
         
-        
+    	//种子
         simpleItemList.add(new ModItemBase("rice_seed").setCreativeTab(ModCreativeTabs.MISC));	//水稻种子
-        
-        simpleItemList.add(new ModTablewareBase("bowl"));	//碗 物品堆叠是1个
-        
-        //基础食物
-        simpleItemList.add(new ModFoodBase("rice", 1, 0.6F, false).setMaxStackSize(1));	//米饭
-        
-        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
-        
-        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜
 
+        //食材
+    	simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //生米
+        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
+        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜
         simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
+
+        //熟食
+        simpleItemList.add(new ModFoodBase("steamed_rice", 1, 0.6F, false)); //米饭
+    	
+    	//餐具
+        simpleItemList.add(new ModTablewareBase("bowl")); //碗
+
     }
     
     /**注册Item*/
@@ -55,7 +57,6 @@ public class ItemRegistry
 
         //注册普通物品
         Flower.logger.info("registering items");
-        
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));
 
     }
@@ -65,29 +66,33 @@ public class ItemRegistry
     @ObjectHolder(Flower.MODID)
     public static class ItemHolder
     {
-    	//水稻种子
-    	@ObjectHolder("rice_seed")
+    	
+    	@ObjectHolder("rice_seed")	//水稻种子
         public static final Item RICE_SEED = null;
     	
-    	//大米
-        @ObjectHolder("rice")
+    	
+        @ObjectHolder("rice")	//大米
         public static final Item RICE = null;
         
-        //碗
-        @ObjectHolder("bowl")
+        
+        @ObjectHolder("bowl")	//碗
         public static final Item BOWL = null;
         
-        //辣椒
-        @ObjectHolder("pepper_chili")
+        
+        @ObjectHolder("pepper_chili")	//辣椒
         public static final Item PEPPER_CHILI = null;
         
-        //白菜
-        @ObjectHolder("cabbage")
+        
+        @ObjectHolder("cabbage")	//白菜
         public static final Item CABBAGE = null;
         
-        //玉米
-        @ObjectHolder("corn")
+        
+        @ObjectHolder("corn")	//玉米
         public static final Item CORN = null;
+        
+        
+        @ObjectHolder("steamed_rice")	//米饭
+        public static final Item STEAMED_RICE = null;
     }
 
 }
