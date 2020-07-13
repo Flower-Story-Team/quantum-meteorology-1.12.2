@@ -25,7 +25,7 @@ public class ItemRegistry
     	Flower.logger.info("initializing normal items");
         
         
-        simpleItemList.add(new ModFoodBase("rice_seed", 1, 1, false));	//水稻种子
+        simpleItemList.add(new ModItemBase("rice_seed"));	//水稻种子
         
         simpleItemList.add(new ModFoodBase("rice", 1, 1, false));	//大米
         
