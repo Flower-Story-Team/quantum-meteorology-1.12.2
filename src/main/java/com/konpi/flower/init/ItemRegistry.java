@@ -39,6 +39,7 @@ public class ItemRegistry
         
         
         simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
+        simpleItemList.add(new ModFoodBase("onion", 1, 0.5F, false)); //大葱
 
         
         //熟食
@@ -89,6 +90,7 @@ public class ItemRegistry
         
         @ObjectHolder("tomato")		//番茄
         public static final Item TOMATO = null;
+
         
         @ObjectHolder("peanut")		//花生
         public static final Item PEANUT = null;
@@ -99,6 +101,11 @@ public class ItemRegistry
         
         
         
+
+
+        @ObjectHolder("onion")      //大葱
+        public static final Item ONION = null;
+
 
         @ObjectHolder("corn")	//玉米
         public static final Item CORN = null;
