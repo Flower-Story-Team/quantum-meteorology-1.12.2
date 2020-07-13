@@ -28,5 +28,5 @@ jobs:
       uses: actions/upload-artifact@v2
       if: success()
       with:
-        name: FlowerOfHua-1.12.2
-        path: \home\runner\work\FlowerOfHua-1.12.2\FlowerOfHua-1.12.2\libs\Flower of Hua-1.0.0.jar
+        name: Flower of Hua-1.0.0
+        path: build\libs\Flower of Hua-1.0.0.jar
