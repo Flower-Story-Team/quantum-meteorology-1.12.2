@@ -37,7 +37,7 @@ public class ItemRegistry
         simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
 
         //熟食
-        simpleItemList.add(new ModFoodBase("steamed_rice", 1, 0.6F, false)); //米饭
+        simpleItemList.add(new ModFoodBase("steamed_rice", 1, 0.6F, false).setMaxStackSize(1)); //米饭
     	
     	//餐具
         simpleItemList.add(new ModTablewareBase("bowl")); //碗
@@ -66,31 +66,24 @@ public class ItemRegistry
     @ObjectHolder(Flower.MODID)
     public static class ItemHolder
     {
-    	
     	@ObjectHolder("rice_seed")	//水稻种子
         public static final Item RICE_SEED = null;
-    	
-    	
+
         @ObjectHolder("rice")	//大米
         public static final Item RICE = null;
-        
-        
+
         @ObjectHolder("bowl")	//碗
         public static final Item BOWL = null;
-        
-        
+
         @ObjectHolder("pepper_chili")	//辣椒
         public static final Item PEPPER_CHILI = null;
-        
-        
+
         @ObjectHolder("cabbage")	//白菜
         public static final Item CABBAGE = null;
-        
-        
+
         @ObjectHolder("corn")	//玉米
         public static final Item CORN = null;
-        
-        
+
         @ObjectHolder("steamed_rice")	//米饭
         public static final Item STEAMED_RICE = null;
     }

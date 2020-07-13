@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 @SuppressWarnings("all")
 public class ModCreativeTabs
 {
+    //餐具
 	public static final CreativeTabs TABLEWARE = new CreativeTabs(getLabel("tableware"))
 	{
 	    @Override
@@ -19,7 +20,7 @@ public class ModCreativeTabs
 	        return new ItemStack(ItemRegistry.ItemHolder.BOWL);
 	    }
 	};
-	
+	//食物
     public static final CreativeTabs FOOD = new CreativeTabs(getLabel("food"))
     {
         @Override
@@ -28,7 +29,7 @@ public class ModCreativeTabs
             return new ItemStack(ItemRegistry.ItemHolder.CORN);
         }
     };
-
+    //杂项
     public static final CreativeTabs MISC = new CreativeTabs(getLabel("misc"))
     {
         @Override
@@ -42,7 +43,5 @@ public class ModCreativeTabs
     {
         return Flower.MODID + "." + name;
     }
-    
-    
 
 }
