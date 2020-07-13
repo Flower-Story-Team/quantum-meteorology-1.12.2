@@ -31,8 +31,14 @@ public class ItemRegistry
     	//基础餐具
         simpleItemList.add(new ModTablewareBase("bowl", 64));	//碗
         
+        
+        simpleItemList.add(new ModItemBase("rice", 64));	//大米
+        
         //基础食物
-        simpleItemList.add(new ModFoodBase("rice", 64, 1, 1, false));	//大米(不是米饭)
+        //simpleItemList.add(new ModFoodBase("rice", 64, 1, 1, false));	//大米(不是米饭)
+        
+        
+        simpleItemList.add(new ModFoodBase("steamed_rice", 1, 1, 1, false));	//大米(不是米饭)
         
         
         //蔬菜
