@@ -57,12 +57,3 @@ processResources
         exclude 'mcmod.info'
     }
 }
-
-
-
-
-
-
-
-
-
