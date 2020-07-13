@@ -19,7 +19,7 @@ public class ModTablewareBase extends Item
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);
         this.setCreativeTab(ModCreativeTabs.TABLEWARE);
-        this.setMaxStackSize(16);
+        //this.setMaxStackSize(16);
     }
     
 }
