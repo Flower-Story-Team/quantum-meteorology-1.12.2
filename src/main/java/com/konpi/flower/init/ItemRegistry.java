@@ -56,14 +56,8 @@ public class ItemRegistry
 
         //注册普通物品
         Flower.logger.info("registering items");
-        
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[1]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[2]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[4]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[5]));
-
+        
     }
     
     
