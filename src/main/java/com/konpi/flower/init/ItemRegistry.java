@@ -30,16 +30,21 @@ public class ItemRegistry
 
         
         //食材
-    	simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //生米
+        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜1
+        simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false)); //番茄2
+        simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false)); //花生3
+        simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //生大米4
+        simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米5
+        
+        
+        
+        simpleItemList.add(new ModFoodBase("onion", 1, 0.5F, false)); //大葱6
         simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
-        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜
-        simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false)); //番茄
-        simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false)); //花生
         
         
-        simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
-        simpleItemList.add(new ModFoodBase("onion", 1, 0.5F, false)); //大葱
-
+        
+        
+        
         
         //熟食
         simpleItemList.add(new ItemFoodInBowl("steamed_rice", 1, 0.6F, false)); //米饭
@@ -74,41 +79,39 @@ public class ItemRegistry
     {
     	@ObjectHolder("rice_seed")	//水稻种子
         public static final Item RICE_SEED = null;
-
-        @ObjectHolder("rice")	//大米
-        public static final Item RICE = null;
-
+    	
         @ObjectHolder("bowl")	//碗
         public static final Item BOWL = null;
-
-        @ObjectHolder("pepper_chili")	//辣椒
-        public static final Item PEPPER_CHILI = null;
-
-        @ObjectHolder("cabbage")	//白菜
+        
+        
+        
+        
+        @ObjectHolder("cabbage")	//白菜1
         public static final Item CABBAGE = null;
         
-        @ObjectHolder("tomato")		//番茄
+        @ObjectHolder("tomato")		//番茄2
         public static final Item TOMATO = null;
-
         
-        @ObjectHolder("peanut")		//花生
+        @ObjectHolder("peanut")		//花生3
         public static final Item PEANUT = null;
         
+        @ObjectHolder("rice")	//大米4
+        public static final Item RICE = null;
+
+        @ObjectHolder("corn")	//玉米5
+        public static final Item CORN = null;
         
         
         
-        
+        @ObjectHolder("pepper_chili")	//辣椒
+        public static final Item PEPPER_CHILI = null;
         
         
 
 
         @ObjectHolder("onion")      //大葱
         public static final Item ONION = null;
-
-
-        @ObjectHolder("corn")	//玉米
-        public static final Item CORN = null;
-
+        
         @ObjectHolder("steamed_rice")	//米饭
         public static final Item STEAMED_RICE = null;
     }
