@@ -5,7 +5,9 @@ import com.konpi.flower.item.ModFoodBase;
 import com.konpi.flower.item.ModItemBase;
 import com.konpi.flower.item.ModTablewareBase;
 import com.konpi.flower.item.ModItemBlockBase;
+import com.konpi.flower.item.creativetab.ModCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,18 +28,18 @@ public class ItemRegistry
     	Flower.logger.info("initializing normal items");
         
         
-        simpleItemList.add(new ModItemBase("rice_seed"));	//水稻种子
+        simpleItemList.add(new ModItemBase("rice_seed").setCreativeTab(ModCreativeTabs.MISC));	//水稻种子
         
         simpleItemList.add(new ModTablewareBase("bowl"));	//碗 物品堆叠是1个
         
         //基础食物
-        simpleItemList.add(new ModFoodBase("rice", 1, 1, false, 1));	//大米
+        simpleItemList.add(new ModFoodBase("rice", 1, 0.6F, false).setMaxStackSize(1));	//米饭
         
-        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 1, false, 64)); //辣椒
+        simpleItemList.add(new ModFoodBase("pepper_chili", 1, 0.6F, false)); //辣椒
         
-        simpleItemList.add(new ModFoodBase("cabbage", 1, 1, false, 64)); //白菜
+        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false)); //白菜
 
-        simpleItemList.add(new ModFoodBase("corn", 1, 1, false, 64)); //玉米
+        simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false)); //玉米
     }
     
     /**注册Item*/
@@ -55,11 +57,6 @@ public class ItemRegistry
         Flower.logger.info("registering items");
         
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[1]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[2]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[3]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[4]));
-        event.getRegistry().registerAll(simpleItemList.toArray(new Item[5]));
 
     }
     
