@@ -11,6 +11,8 @@ Thinks from [here](https://www.mcbbs.net/forum.php?mod=viewthread&tid=1063599&pa
 
 ###Build
 Gradle Ver：`4.8.1`
+
 MCP Ver: `stable_39`
+
 forge Ver: `1.12.2-14.23.5.2847`
 
