@@ -4,8 +4,13 @@
 *A* **Flower Team** *Project*
 
 **Contributor:** 
-![contributors](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2/graphs/contributors)
-
++ beanflame
++ 333konpi333
++ mpecc
++ SQwatermark
++ tangguoQAQ
++ DoctorIDD
++ shaokeyibb
 
 Thinks from [here](https://www.mcbbs.net/forum.php?mod=viewthread&tid=1063599&page=1#pid18600862)
 
