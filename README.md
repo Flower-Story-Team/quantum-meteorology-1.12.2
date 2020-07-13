@@ -11,3 +11,5 @@ gradle版本：4.8.1
 MCP版本: stable_39
 
 forge版本: 1.12.2-14.23.5.2847
+
+![Java CI with Gradle](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2/workflows/Java%20CI%20with%20Gradle/badge.svg)

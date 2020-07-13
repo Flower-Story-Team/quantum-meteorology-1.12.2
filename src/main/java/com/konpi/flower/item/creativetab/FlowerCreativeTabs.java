@@ -10,7 +10,15 @@ import net.minecraft.item.ItemStack;
  */
 public class FlowerCreativeTabs
 {
-
+	public static final CreativeTabs TABLEWARE = new CreativeTabs(getLabel("tableware"))
+	{
+	    @Override
+	    public ItemStack createIcon()
+	    {
+	        return new ItemStack(Items.APPLE);
+	    }
+	};
+	
     public static final CreativeTabs FOOD = new CreativeTabs(getLabel("food"))
     {
         @Override
@@ -24,5 +32,7 @@ public class FlowerCreativeTabs
     {
         return Flower.MODID + "." + name;
     }
+    
+    
 
 }
