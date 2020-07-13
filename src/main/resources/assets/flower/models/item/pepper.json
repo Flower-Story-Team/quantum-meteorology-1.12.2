@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "flower:items/pepper_chili"
+    "layer0": "flower:items/pepper"
   }
 }
