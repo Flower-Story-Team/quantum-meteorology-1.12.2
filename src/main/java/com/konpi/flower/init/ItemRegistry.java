@@ -92,6 +92,10 @@ public class ItemRegistry
         //玉米
         @ObjectHolder("corn")
         public static final Item CORN = null;
+        
+        //米饭
+        @ObjectHolder("steamed_rice")
+        public static final Item STEAMED_RICE = null;
     }
 
 }
