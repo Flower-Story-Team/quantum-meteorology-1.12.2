@@ -1,17 +1,12 @@
 package com.konpi.flower.config;
 
 import com.konpi.flower.Flower;
-
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-/**
- * TODO:把Flower的所有作物都加进来
- *
- */
 @Config(modid = Flower.MODID, name = Flower.NAME + "/plant", category = "")
 @Mod.EventBusSubscriber
 public class PlantConfig {
