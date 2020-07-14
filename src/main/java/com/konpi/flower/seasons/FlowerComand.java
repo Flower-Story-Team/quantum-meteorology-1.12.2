@@ -74,8 +74,6 @@ public class FlowerComand extends CommandBase {
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos) {
 		if (args.length == 1) {
 			return getListOfStringsMatchingLastWord(args, "setseason");
-		} else if (args.length == 2) {
-			return getListOfStringsMatchingLastWord(args, SeasonState.VALUES.toString());
 		}
 
 		return null;
