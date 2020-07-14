@@ -53,7 +53,7 @@ public class ColorHandler {
 							: ColorizerFoliage.getFoliageColorBasic();
 				}
 			}
-		}, Blocks.LEAVES, Blocks.LEAVES2);
+		}, Blocks.LEAVES);
 
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
