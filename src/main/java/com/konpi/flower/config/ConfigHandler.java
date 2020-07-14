@@ -1,12 +1,10 @@
 package com.konpi.flower.config;
 
 import java.io.File;
-
 import com.konpi.flower.Flower;
 import com.konpi.flower.api.config.ISyncedOption;
 import com.konpi.flower.api.config.SyncedConfig;
 import com.konpi.flower.init.ModConfig;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
