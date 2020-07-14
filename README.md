@@ -1,5 +1,6 @@
 # FlowerOfHua 花之物语 (1.12.2)
 ![Java CI with Gradle](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2/workflows/Java%20CI%20with%20Gradle/badge.svg)
+![Download Mod](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2)
 
 *A* **Flower Team** *Project*
 
