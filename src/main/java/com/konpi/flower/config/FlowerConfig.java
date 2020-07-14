@@ -1,7 +1,6 @@
 package com.konpi.flower.config;
 
 import java.io.File;
-
 import com.konpi.flower.Flower;
 import com.konpi.flower.api.config.FlowerOption;
 
