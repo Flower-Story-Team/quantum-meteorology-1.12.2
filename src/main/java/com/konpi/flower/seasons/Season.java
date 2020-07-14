@@ -3,7 +3,7 @@ package com.konpi.flower.seasons;
 import com.konpi.flower.seasons.intefaces.ISeasonColor;
 
 /**
- * ylll
+ * according to sereneseason
  *
  */
 public enum Season 
