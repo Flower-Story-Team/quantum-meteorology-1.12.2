@@ -26,7 +26,7 @@ public class PlantConfig {
 		public static String[] spring_crops = new String[] { "minecraft:potato", "minecraft:carrot",
 				"minecraft:sapling", "minecraft:nether_wart", "minecraft:tallgrass", "minecraft:grass",
 				"minecraft:red_mushroom", "minecraft:brown_mushroom", "flower:tomato", "flower:corn",
-				"flower:chinese_cabbage", "flower:chili", "flower:pepper"};
+				"flower:chinese_cabbage", "flower:chili", "flower:pepper", "flower:scallion"};
 
 		@Config.Comment({
 				"Crops growable in Summer (List either the seed item for the crop, or the crop block itself)" })
