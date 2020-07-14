@@ -1,5 +1,7 @@
 # itemGroups
-itemGroup.flower.food=itemGroup.flower.food
+itemGroup.flower.food=Foods
+itemGroup.flower.misc=Misc
+itemGroup.flower.tableware=Table Ware
 
 # items
 item.flower.rice.name=Rice

@@ -1,13 +1,15 @@
 # 物品栏
-itemGroup.flower.food=itemGroup.flower.food
-
+itemGroup.flower.food=食物
+itemGroup.flower.misc=杂项
+itemGroup.flower.tableware=餐具
 
 # 物品
+
 item.flower.rice_seed.name=水稻种子
 item.flower.bowl.name=碗
 item.flower.steamed_rice.name=米饭
 
-
+# 食物
 
 item.flower.chinese_cabbage.name=白菜
 item.flower.tomato.name=番茄

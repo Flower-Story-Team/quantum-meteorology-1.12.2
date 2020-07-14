@@ -25,20 +25,21 @@ public class PlantConfig {
 				"Crops growable in Spring (List either the seed item for the crop, or the crop block itself)" })
 		public static String[] spring_crops = new String[] { "minecraft:potato", "minecraft:carrot",
 				"minecraft:sapling", "minecraft:nether_wart", "minecraft:tallgrass", "minecraft:grass",
-				"minecraft:red_mushroom", "minecraft:brown_mushroom" };
+				"minecraft:red_mushroom", "minecraft:brown_mushroom", "flower:tomato", "flower:corn",
+				"flower:chinese_cabbage", "flower:chili", "flower:pepper"};
 
 		@Config.Comment({
 				"Crops growable in Summer (List either the seed item for the crop, or the crop block itself)" })
 		public static String[] summer_crops = new String[] { "minecraft:melon_seeds", "minecraft:wheat_seeds",
 				"minecraft:reeds", "minecraft:cocoa", "minecraft:cactus", "minecraft:sapling", "minecraft:nether_wart",
 				"minecraft:tallgrass", "minecraft:grass", "minecraft:red_mushroom", "minecraft:brown_mushroom",
-				"simplecorn:kernels" };
+				"simplecorn:kernels", "flower:tomato", "flower:eggplant","flower:chili", "flower:pepper" };
 
 		@Config.Comment({
 				"Crops growable in Autumn (List either the seed item for the crop, or the crop block itself)" })
 		public static String[] autumn_crops = new String[] { "minecraft:carrot", "minecraft:pumpkin_seeds",
 				"minecraft:wheat_seeds", "minecraft:beetroot_seeds", "minecraft:sapling", "minecraft:nether_wart",
-				"minecraft:grass", "minecraft:red_mushroom", "minecraft:brown_mushroom" };
+				"minecraft:grass", "minecraft:red_mushroom", "minecraft:brown_mushroom", "flower:corn" };
 
 		@Config.Comment({
 				"Crops growable in Winter (List either the seed item for the crop, or the crop block itself)" })
