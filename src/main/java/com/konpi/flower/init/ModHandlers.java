@@ -6,7 +6,6 @@ import com.konpi.flower.seasons.Handler.SeasonHandler;
 import com.konpi.flower.seasons.Handler.SeasonalCropGrawthHandler;
 import com.konpi.flower.seasons.Handler.SleepHandler;
 import com.konpi.flower.seasons.intefaces.SeasonHelper;
-
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -35,8 +34,7 @@ public class ModHandlers {
 		// registerSeasonColourHandlers();
 		// }
 	}
-	// TODO:forge版本问题？这是season源码
-	// 我现在用方块染色重写
+	// TODO:用方块染色重写
 
 	// @SideOnly(Side.CLIENT)
 	// private static BiomeColorHelper.ColorResolver originalGrassColorResolver;
