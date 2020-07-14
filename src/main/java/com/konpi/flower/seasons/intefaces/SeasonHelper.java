@@ -10,7 +10,7 @@ public class SeasonHelper {
 	public static ISeasonDataProvider dataProvider;
 
 	/**
-	 * 获得关于世界季节周期状态的数据。这在客户端和服务器上都可以工作。
+	 * 获得关于世界季节周期状态的数据
 	 * 
 	 */
 	public static ISeasonState getSeasonState(World world) {
