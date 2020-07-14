@@ -29,9 +29,7 @@ public enum Season
 
         private Season season;
         private int grassOverlay;
-        private float grassSaturationMultiplier;
         private int foliageOverlay;
-        private float foliageSaturationMultiplier;
         private int birchColor;
         
         SeasonState(Season season, int grassColour, int foliageColour, int birchColor)
