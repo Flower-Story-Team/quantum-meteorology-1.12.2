@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.konpi.flower.api.config.FlowerOption;
 import com.konpi.flower.api.config.SyncedConfig;
+import com.konpi.flower.proxy.network.SeasonCycleMessage;
 import com.konpi.flower.seasons.Season.SeasonState;
 import com.konpi.flower.seasons.intefaces.ISeasonState;
 import com.konpi.flower.seasons.intefaces.SeasonHelper;
@@ -50,7 +51,7 @@ public class SeasonHandler implements ISeasonDataProvider {
 	public void onPlayerLogin(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
 		World world = player.world;
-
+        sendSeasonUpdate(world);
 	}
 
 	private SeasonState lastSeason = null;
@@ -112,6 +113,15 @@ public class SeasonHandler implements ISeasonDataProvider {
 			}
 		}
 	}
+	
+	public static void sendSeasonUpdate(World world)
+    {
+        if (!world.isRemote)
+        {
+            SeasonSaveData savedData = getSeasonSavedData(world);
+            PacketHandler.instance.sendToAll(new SeasonCycleMessage(world.provider.getDimension(), savedData.seasonCycleTicks));
+        }
+    }
 
 	public static SeasonSaveData getSeasonSavedData(World world) {
 		MapStorage mapStorage = world.getPerWorldStorage();
@@ -151,4 +161,5 @@ public class SeasonHandler implements ISeasonDataProvider {
 		Integer i = clientSeasonCycleTicks.get(0);
 		return new SeasonTime(i == null ? 0 : i);
 	}
+	
 }

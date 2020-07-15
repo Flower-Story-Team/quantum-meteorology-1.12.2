@@ -16,8 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = Flower.MODID, name = Flower.NAME, version = Flower.VERSION, acceptedMinecraftVersions = "1.12.2")
-public class Flower
-{
+public class Flower {
 	public static final String MODID = "flower";
 	public static final String NAME = "Flower of Hua";
 	public static final String VERSION = "1.0.0";
@@ -30,32 +29,27 @@ public class Flower
 	public static File configDirectory;
 
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
-		configDirectory = new File(event.getModConfigurationDirectory(), "flower");
-
+	public void preInit(FMLPreInitializationEvent event) {
+		configDirectory = new File(event.getModConfigurationDirectory(), this.NAME);
+		ModConfig.preInit(configDirectory);
 		proxy.preInit(event);
-		ModHandlers.init();
 	}
 
 	@Mod.EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		ModConfig.preInit(configDirectory);
+	public void init(FMLInitializationEvent event) {
+		ModHandlers.init();
 		proxy.init(event);
 	}
 
 	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
+	public void postInit(FMLPostInitializationEvent event) {
 		ModFertility.init();
 		proxy.postInit(event);
 		ModHandlers.postInit();
 	}
-	
+
 	@Mod.EventHandler
-	public void serverStarting(FMLServerStartingEvent event)
-	{
+	public void serverStarting(FMLServerStartingEvent event) {
 		event.registerServerCommand(new FlowerCommand());
 	}
 
