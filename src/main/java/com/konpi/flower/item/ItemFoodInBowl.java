@@ -1,7 +1,6 @@
-package com.konpi.flower.item.item;
+package com.konpi.flower.item;
 
-import com.konpi.flower.init.ModFoodBase;
-import com.konpi.flower.item.ItemRegistry;
+import com.konpi.flower.init.ModItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -9,7 +8,7 @@ import net.minecraft.world.World;
 /**
  * 碗里的食物，不能把碗给吃了
  */
-public class ItemFoodInBowl extends ModFoodBase
+public class ItemFoodInBowl extends ItemFoodBase
 {
     /**
      * @param registryName 注册名
@@ -26,7 +25,7 @@ public class ItemFoodInBowl extends ModFoodBase
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
     {
         super.onItemUseFinish(stack, worldIn,entityLiving);
-        return new ItemStack(ItemRegistry.ItemHolder.BOWL);
+        return new ItemStack(ModItems.ItemHolder.BOWL);
     }
 
 }

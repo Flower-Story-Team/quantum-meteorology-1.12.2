@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 /**
  * 农作物的基础类
  */
-public class ModCropsBase extends BlockCrops {
+public class BlockCropsBase extends BlockCrops {
 
     private final Item SEED;
     private final Item CROP;
@@ -17,7 +17,7 @@ public class ModCropsBase extends BlockCrops {
      * @param seed 种子
      * @param crop 收获的农作物
      */
-    public ModCropsBase(String registryName, Item seed, Item crop) {
+    public BlockCropsBase(String registryName, Item seed, Item crop) {
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);
         this.SEED = seed;

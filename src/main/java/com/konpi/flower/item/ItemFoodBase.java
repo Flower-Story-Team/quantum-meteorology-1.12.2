@@ -1,13 +1,13 @@
-package com.konpi.flower.init;
+package com.konpi.flower.item;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.tabs.ModCreativeTabs;
+import com.konpi.flower.init.ModCreativeTabs;
 import net.minecraft.item.ItemFood;
 
 /**
  * 食物的基础类
  */
-public class ModFoodBase extends ItemFood
+public class ItemFoodBase extends ItemFood
 {
     /**
      * @param registryName 注册名
@@ -15,7 +15,7 @@ public class ModFoodBase extends ItemFood
      * @param saturation 回复饱和度
      * @param isWolfFood 是否能给狼吃
      */
-    public ModFoodBase(String registryName, int amount, float saturation, boolean isWolfFood)
+    public ItemFoodBase(String registryName, int amount, float saturation, boolean isWolfFood)
     {
         super(amount, saturation, isWolfFood);
         this.setRegistryName(registryName);

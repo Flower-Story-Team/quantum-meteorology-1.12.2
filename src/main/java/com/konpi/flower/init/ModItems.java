@@ -1,10 +1,7 @@
-package com.konpi.flower.item;
+package com.konpi.flower.init;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.block.BlockRegistry;
-import com.konpi.flower.init.*;
-import com.konpi.flower.item.item.ItemFoodInBowl;
-import com.konpi.flower.tabs.ModCreativeTabs;
+import com.konpi.flower.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -14,8 +11,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 import java.util.ArrayList;
 
+/**
+ * 注册物品的类
+ */
 @Mod.EventBusSubscriber
-public class ItemRegistry
+public class ModItems
 {
 	//装普通物品的容器
     public static final ArrayList<Item> simpleItemList = new ArrayList<>();
@@ -28,26 +28,26 @@ public class ItemRegistry
         
     	
     	//种子
-        simpleItemList.add(new ModItemBase("rice_seed").setCreativeTab(ModCreativeTabs.MISC)); //水稻种子
+        simpleItemList.add(new ItemBase("rice_seed").setCreativeTab(ModCreativeTabs.MISC)); //水稻种子
         
         
         //食材
-        simpleItemList.add(new ModFoodBase("chinese_cabbage", 1, 0.6F, false));		//白菜
-        simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false));                  //番茄	
-        simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false));                  //花生	
-        simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //大米
-        simpleItemList.add(new ModFoodBase("corn", 1, 0.6F, false));                    //玉米	
-        simpleItemList.add(new ModFoodBase("eggplant", 1, 0.6F, false));                //茄子	
-        simpleItemList.add(new ModFoodBase("cabbage", 1, 0.6F, false));                 //卷心菜	
-        simpleItemList.add(new ModFoodBase("scallion", 1, 0.6F, false));                //葱		
-        simpleItemList.add(new ModFoodBase("ginger", 1, 0.6F, false));                  //生姜	
-        simpleItemList.add(new ModFoodBase("cauliflower", 1, 0.6F, false));             //花菜	
-        simpleItemList.add(new ModFoodBase("chili", 1, 0.6F, false));                   //辣椒	
-        simpleItemList.add(new ModFoodBase("pepper", 1, 0.6F, false));                  //花椒	
-        simpleItemList.add(new ModFoodBase("sweet_pepper", 1, 0.6F, false));            //甜椒	
-        simpleItemList.add(new ModFoodBase("onion", 1, 0.6F, false));                   //洋葱	
-        simpleItemList.add(new ModFoodBase("lentil", 1, 0.6F, false));                  //扁豆	
-        simpleItemList.add(new ModFoodBase("garlic", 1, 0.6F, false));                  //大蒜	
+        simpleItemList.add(new ItemFoodBase("chinese_cabbage", 1, 0.6F, false));		//白菜
+        simpleItemList.add(new ItemFoodBase("tomato", 1, 0.6F, false));                  //番茄
+        simpleItemList.add(new ItemFoodBase("peanut", 1, 0.6F, false));                  //花生
+        simpleItemList.add(new ItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //大米
+        simpleItemList.add(new ItemFoodBase("corn", 1, 0.6F, false));                    //玉米
+        simpleItemList.add(new ItemFoodBase("eggplant", 1, 0.6F, false));                //茄子
+        simpleItemList.add(new ItemFoodBase("cabbage", 1, 0.6F, false));                 //卷心菜
+        simpleItemList.add(new ItemFoodBase("scallion", 1, 0.6F, false));                //葱
+        simpleItemList.add(new ItemFoodBase("ginger", 1, 0.6F, false));                  //生姜
+        simpleItemList.add(new ItemFoodBase("cauliflower", 1, 0.6F, false));             //花菜
+        simpleItemList.add(new ItemFoodBase("chili", 1, 0.6F, false));                   //辣椒
+        simpleItemList.add(new ItemFoodBase("pepper", 1, 0.6F, false));                  //花椒
+        simpleItemList.add(new ItemFoodBase("sweet_pepper", 1, 0.6F, false));            //甜椒
+        simpleItemList.add(new ItemFoodBase("onion", 1, 0.6F, false));                   //洋葱
+        simpleItemList.add(new ItemFoodBase("lentil", 1, 0.6F, false));                  //扁豆
+        simpleItemList.add(new ItemFoodBase("garlic", 1, 0.6F, false));                  //大蒜
         
         
         
@@ -57,14 +57,14 @@ public class ItemRegistry
     	
         
     	//餐具
-        simpleItemList.add(new ModTablewareBase("bowl").setMaxStackSize(16)); //碗
+        simpleItemList.add(new ItemTablewareBase("bowl").setMaxStackSize(16)); //碗
         
         
         //实例化方块物品
         Flower.logger.info("initializing block items");
-        for (Block b : BlockRegistry.simpleBlockList)
+        for (Block b : ModBlocks.simpleBlockList)
         {
-            simpleItemList.add(new ModItemBlockBase(b));
+            simpleItemList.add(new ItemBlockBase(b));
         }
 
     }

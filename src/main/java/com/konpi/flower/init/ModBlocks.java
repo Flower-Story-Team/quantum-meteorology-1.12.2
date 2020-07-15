@@ -1,4 +1,4 @@
-package com.konpi.flower.block;
+package com.konpi.flower.init;
 
 import com.konpi.flower.Flower;
 import net.minecraft.block.Block;
@@ -9,8 +9,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 import java.util.ArrayList;
 
+/**
+ * 注册方块的类
+ */
 @Mod.EventBusSubscriber
-public class BlockRegistry
+public class ModBlocks
 {
 
     //有对应ItemBlock但是没有subItem的普通方块

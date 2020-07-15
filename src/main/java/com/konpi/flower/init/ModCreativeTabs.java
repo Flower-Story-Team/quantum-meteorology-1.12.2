@@ -1,7 +1,7 @@
-package com.konpi.flower.tabs;
+package com.konpi.flower.init;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.item.ItemRegistry;
+import com.konpi.flower.init.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
@@ -17,7 +17,7 @@ public class ModCreativeTabs
 	    @Override
 	    public ItemStack createIcon()
 	    {
-	        return new ItemStack(ItemRegistry.ItemHolder.BOWL);
+	        return new ItemStack(ModItems.ItemHolder.BOWL);
 	    }
 	};
 
@@ -27,7 +27,7 @@ public class ModCreativeTabs
         @Override
         public ItemStack createIcon()
         {
-            return new ItemStack(ItemRegistry.ItemHolder.CORN);
+            return new ItemStack(ModItems.ItemHolder.CORN);
         }
     };
 
@@ -37,7 +37,7 @@ public class ModCreativeTabs
         @Override
         public ItemStack createIcon()
         {
-            return new ItemStack(ItemRegistry.ItemHolder.RICE_SEED);
+            return new ItemStack(ModItems.ItemHolder.RICE_SEED);
         }
     };
 
