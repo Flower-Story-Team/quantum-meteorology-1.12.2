@@ -20,6 +20,7 @@ public class ModCreativeTabs
 	        return new ItemStack(ItemRegistry.ItemHolder.BOWL);
 	    }
 	};
+
 	//食物
     public static final CreativeTabs FOOD = new CreativeTabs(getLabel("food"))
     {
@@ -29,6 +30,7 @@ public class ModCreativeTabs
             return new ItemStack(ItemRegistry.ItemHolder.CORN);
         }
     };
+
     //杂项
     public static final CreativeTabs MISC = new CreativeTabs(getLabel("misc"))
     {

@@ -17,7 +17,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 
-public class FlowerComand extends CommandBase {
+public class FlowerCommand extends CommandBase {
 
 	@Override
 	public String getName() {

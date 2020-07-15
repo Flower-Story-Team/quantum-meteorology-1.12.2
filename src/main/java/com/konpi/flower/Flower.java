@@ -4,7 +4,7 @@ import com.konpi.flower.init.ModConfig;
 import com.konpi.flower.init.ModFertility;
 import com.konpi.flower.init.ModHandlers;
 import com.konpi.flower.proxy.CommonProxy;
-import com.konpi.flower.seasons.FlowerComand;
+import com.konpi.flower.seasons.FlowerCommand;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -51,7 +51,7 @@ public class Flower {
 	
 	@Mod.EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
-		event.registerServerCommand(new FlowerComand());
+		event.registerServerCommand(new FlowerCommand());
 	}
 
 }
