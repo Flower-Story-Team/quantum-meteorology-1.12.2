@@ -20,13 +20,13 @@ Thinks from [here](https://www.mcbbs.net/forum.php?mod=viewthread&tid=1063599&pa
 
 ### Build
 
-Gradle Ver：`4.8.1`
+Gradle Ver ：`4.8.1`
 
 ForgeGradle Ver: `2.3`
 
-MCP Ver: `stable_39`
+MCP Ver : `stable_39`
 
-Forge Ver: `1.12.2-14.23.5.2847`
+Forge Ver : `1.12.2-14.23.5.2847`
 
 ### Download Snapshot Artifact
 
