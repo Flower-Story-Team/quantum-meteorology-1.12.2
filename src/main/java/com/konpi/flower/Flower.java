@@ -30,15 +30,14 @@ public class Flower {
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		configDirectory = new File(event.getModConfigurationDirectory(), "flower");
-
+		configDirectory = new File(event.getModConfigurationDirectory(), this.NAME);
+		ModConfig.preInit(configDirectory);
 		proxy.preInit(event);
-		ModHandlers.init();
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		ModConfig.preInit(configDirectory);
+		ModHandlers.init();
 		proxy.init(event);
 	}
 
@@ -48,7 +47,7 @@ public class Flower {
 		proxy.postInit(event);
 		ModHandlers.postInit();
 	}
-	
+
 	@Mod.EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 		event.registerServerCommand(new FlowerCommand());
