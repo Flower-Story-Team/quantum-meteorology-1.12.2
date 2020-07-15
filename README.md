@@ -1,6 +1,6 @@
 # FlowerOfHua 花之物语 (1.12.2)
 ![Java CI with Gradle](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2/workflows/Java%20CI%20with%20Gradle/badge.svg)
-![Download Mod](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2)
+[Download Mod](https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2)
 
 *A* **Flower Team** *Project*
 
@@ -12,6 +12,7 @@
 + tangguoQAQ
 + DoctorIDD
 + shaokeyibb
++ yllllyb
 
 
 Thinks from [here](https://www.mcbbs.net/forum.php?mod=viewthread&tid=1063599&page=1#pid18600862)
