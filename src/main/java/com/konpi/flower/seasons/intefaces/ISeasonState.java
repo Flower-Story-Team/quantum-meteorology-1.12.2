@@ -2,12 +2,7 @@ package com.konpi.flower.seasons.intefaces;
 
 import com.konpi.flower.seasons.Season;
 import com.konpi.flower.seasons.Season.SeasonState;
-import com.konpi.flower.seasons.Season.TropicalSeasonState;
 
-/**
- * according to sereneseason
- *
- */
 public interface ISeasonState {
 	/**
 	 * 一天的tick，默认48000
@@ -64,11 +59,4 @@ public interface ISeasonState {
 	 * @return The current season
 	 */
 	Season getSeason();
-
-	/**
-	 * 获得当前热带季节
-	 * 
-	 * @return The current tropical season
-	 */
-	TropicalSeasonState getTropicalSeasonState();
 }

@@ -5,13 +5,8 @@ import com.konpi.flower.api.config.FlowerOption;
 import com.konpi.flower.api.config.SyncedConfig;
 import com.konpi.flower.seasons.Season;
 import com.konpi.flower.seasons.Season.SeasonState;
-import com.konpi.flower.seasons.Season.TropicalSeasonState;
 import com.konpi.flower.seasons.intefaces.ISeasonState;
-
-/**
- * according to sereneseason
- *
- */
+//
 public final class SeasonTime implements ISeasonState {
 	public static final SeasonTime ZERO = new SeasonTime(0);
 	public final int time;
@@ -60,13 +55,6 @@ public final class SeasonTime implements ISeasonState {
 	@Override
 	public Season getSeason() {
 		return this.getSeasonState().getSeason();
-	}
-
-	@Override
-	public TropicalSeasonState getTropicalSeasonState() {
-		int index = ((((this.time / this.getSeasonStateDuration()) + 11) / 2) + 5)
-				% Season.TropicalSeasonState.VALUES.length;
-		return Season.TropicalSeasonState.VALUES[index];
 	}
 
 }
