@@ -30,20 +30,12 @@ public class ColorHandler {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
-									   int tintIndex) {
+					int tintIndex) {
 				BlockPlanks.EnumType plankstype = (BlockPlanks.EnumType) state.getValue(BlockOldLeaf.VARIANT);
 				int FoliageColor = ColorizerFoliage.getFoliageColorBasic();
 				if (worldIn != null && pos != null && Minecraft.getMinecraft().player.dimension == 0) {
 					if (plankstype == BlockPlanks.EnumType.SPRUCE) {
 						return ColorizerFoliage.getFoliageColorPine();
-					} else if (plankstype == BlockPlanks.EnumType.BIRCH) {
-						Biome biome = worldIn.getBiome(pos);
-						SeasonTime calendar = SeasonHandler.getClientSeasonTime();
-						ISeasonColor colorProvider = biome.canRain() ? calendar.getSeasonState()
-								: calendar.getTropicalSeasonState();
-						FoliageColor = colorProvider.getBirchColor();
-
-						return FoliageColor;
 					} else {
 						Biome biome = worldIn.getBiome(pos);
 						SeasonTime calendar = SeasonHandler.getClientSeasonTime();
@@ -61,20 +53,12 @@ public class ColorHandler {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
-									   int tintIndex) {
+					int tintIndex) {
 				BlockPlanks.EnumType plankstype = (BlockPlanks.EnumType) state.getValue(BlockNewLeaf.VARIANT);
 				int FoliageColor = ColorizerFoliage.getFoliageColorBasic();
 				if (worldIn != null && pos != null && Minecraft.getMinecraft().player.dimension == 0) {
 					if (plankstype == BlockPlanks.EnumType.SPRUCE) {
 						return ColorizerFoliage.getFoliageColorPine();
-					} else if (plankstype == BlockPlanks.EnumType.BIRCH) {
-						Biome biome = worldIn.getBiome(pos);
-						SeasonTime calendar = SeasonHandler.getClientSeasonTime();
-						ISeasonColor colorProvider = biome.canRain() ? calendar.getSeasonState()
-								: calendar.getTropicalSeasonState();
-						FoliageColor = colorProvider.getBirchColor();
-
-						return FoliageColor;
 					} else {
 						Biome biome = worldIn.getBiome(pos);
 						SeasonTime calendar = SeasonHandler.getClientSeasonTime();
@@ -92,7 +76,7 @@ public class ColorHandler {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
-									   int tintIndex) {
+					int tintIndex) {
 				int grassColor = ColorizerGrass.getGrassColor(0.5, 0.5);
 				if (worldIn != null && pos != null && Minecraft.getMinecraft().player.dimension == 0) {
 					Biome biome = worldIn.getBiome(pos);
