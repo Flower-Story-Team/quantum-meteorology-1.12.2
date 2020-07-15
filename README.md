@@ -8,7 +8,6 @@
 + 333konpi333
 + mpecc
 + SQwatermark
-+ tangguoQAQ
 + DoctorIDD
 + shaokeyibb
 + yllllyb
