@@ -1,6 +1,7 @@
 package com.konpi.flower.init;
 
 import com.konpi.flower.seasons.Handler.ColorHandler;
+import com.konpi.flower.seasons.Handler.PacketHandler;
 import com.konpi.flower.seasons.Handler.RandomUpdateHandler;
 import com.konpi.flower.seasons.Handler.SeasonHandler;
 import com.konpi.flower.seasons.Handler.SeasonalCropGrawthHandler;
@@ -18,7 +19,7 @@ public class ModHandlers {
 	private static final SeasonHandler SEASON_HANDLER = new SeasonHandler();
 
 	public static void init() {
-		// PacketHandler.init();
+		PacketHandler.init();
 
 		MinecraftForge.EVENT_BUS.register(SEASON_HANDLER);
 		MinecraftForge.TERRAIN_GEN_BUS.register(SEASON_HANDLER);
