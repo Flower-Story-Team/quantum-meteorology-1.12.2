@@ -29,27 +29,31 @@ public class Flower {
 	public static File configDirectory;
 
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event)
+	{
 		configDirectory = new File(event.getModConfigurationDirectory(), this.NAME);
 		ModConfig.preInit(configDirectory);
 		proxy.preInit(event);
 	}
 
 	@Mod.EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event)
+	{
 		ModHandlers.init();
 		proxy.init(event);
 	}
 
 	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event)
+	{
 		ModFertility.init();
 		proxy.postInit(event);
 		ModHandlers.postInit();
 	}
 
 	@Mod.EventHandler
-	public void serverStarting(FMLServerStartingEvent event) {
+	public void serverStarting(FMLServerStartingEvent event)
+	{
 		event.registerServerCommand(new FlowerCommand());
 	}
 
