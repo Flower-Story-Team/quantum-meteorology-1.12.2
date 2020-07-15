@@ -1,6 +1,7 @@
-package com.konpi.flower.item;
+package com.konpi.flower.item.item;
 
-import com.konpi.flower.init.ItemRegistry;
+import com.konpi.flower.init.ModFoodBase;
+import com.konpi.flower.item.ItemRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

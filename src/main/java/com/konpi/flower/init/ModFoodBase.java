@@ -1,7 +1,7 @@
-package com.konpi.flower.item;
+package com.konpi.flower.init;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.item.creativetab.ModCreativeTabs;
+import com.konpi.flower.tabs.ModCreativeTabs;
 import net.minecraft.item.ItemFood;
 
 /**
