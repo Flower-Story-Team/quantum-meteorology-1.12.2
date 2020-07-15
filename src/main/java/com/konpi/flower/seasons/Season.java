@@ -2,18 +2,14 @@ package com.konpi.flower.seasons;
 
 import com.konpi.flower.seasons.intefaces.ISeasonColor;
 
-/**
- * according to sereneseason
- *
- */
-public enum Season
+public enum Season 
 {
     SPRING, SUMMER, AUTUMN, WINTER;
 
     public enum SeasonState implements ISeasonColor
     {
-        EARLY_SPRING(SPRING, 0x778087, 0x6F818F),
-        MID_SPRING(SPRING, 0x6F818F, 0x5F849F),
+        EARLY_SPRING(SPRING, 0x66CCFF, 0x66CCFF),
+        MID_SPRING(SPRING, 0x66CCFF, 0x5F849F),
         LATE_SPRING(SPRING, 0x678297, 0x3F89BF),
         EARLY_SUMMER(SUMMER, 0x73808B, 0x5F849F),
         MID_SUMMER(SUMMER, 0xFFFFFF, 0xFFFFFF),
@@ -28,32 +24,31 @@ public enum Season
         public static final SeasonState[] VALUES = SeasonState.values();
 
         private Season season;
-        private int grassOverlay;
-        private int foliageOverlay;
-
-
+        private int grassColor;
+        private int foliageColor;
+        
         SeasonState(Season season, int grassColour, int foliageColour)
         {
             this.season = season;
-            this.grassOverlay = grassColour;
-            this.foliageOverlay = foliageColour;
+            this.grassColor = grassColour;
+            this.foliageColor = foliageColour;
         }
-
+        
         public Season getSeason()
         {
             return this.season;
         }
-
+        
         public int getGrassColor()
         {
-            return this.grassOverlay;
+            return this.grassColor;
         }
-
+        
         public int getFoliageColor()
         {
-            return this.foliageOverlay;
+            return this.foliageColor;
         }
-
+        
     }
 
     public enum TropicalSeasonState implements ISeasonColor
@@ -67,23 +62,24 @@ public enum Season
 
         public static final TropicalSeasonState[] VALUES = TropicalSeasonState.values();
 
-        private int grassOverlay;
-        private int foliageOverlay;
+        private int grassColor;
+        private int foliageColor;
 
         TropicalSeasonState(int grassColour, int foliageColour)
         {
-            this.grassOverlay = grassColour;
-            this.foliageOverlay = foliageColour;
+            this.grassColor = grassColour;
+            this.foliageColor = foliageColour;
         }
 
         public int getGrassColor()
         {
-            return this.grassOverlay;
+            return this.grassColor;
         }
 
         public int getFoliageColor()
         {
-            return this.foliageOverlay;
+            return this.foliageColor;
         }
+
     }
 }
