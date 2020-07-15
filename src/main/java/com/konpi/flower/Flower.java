@@ -1,10 +1,10 @@
 package com.konpi.flower;
 
+import com.konpi.flower.command.SeasonCommand;
 import com.konpi.flower.init.ModConfig;
 import com.konpi.flower.init.ModFertility;
 import com.konpi.flower.init.ModHandlers;
 import com.konpi.flower.proxy.CommonProxy;
-import com.konpi.flower.seasons.FlowerCommand;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -29,32 +29,28 @@ public class Flower {
 	public static File configDirectory;
 
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
+	public void preInit(FMLPreInitializationEvent event) {
 		configDirectory = new File(event.getModConfigurationDirectory(), this.NAME);
 		ModConfig.preInit(configDirectory);
 		proxy.preInit(event);
 	}
 
 	@Mod.EventHandler
-	public void init(FMLInitializationEvent event)
-	{
+	public void init(FMLInitializationEvent event) {
 		ModHandlers.init();
 		proxy.init(event);
 	}
 
 	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
+	public void postInit(FMLPostInitializationEvent event) {
 		ModFertility.init();
 		proxy.postInit(event);
 		ModHandlers.postInit();
 	}
 
 	@Mod.EventHandler
-	public void serverStarting(FMLServerStartingEvent event)
-	{
-		event.registerServerCommand(new FlowerCommand());
+	public void serverStarting(FMLServerStartingEvent event) {
+		event.registerServerCommand(new SeasonCommand());
 	}
 
 }
