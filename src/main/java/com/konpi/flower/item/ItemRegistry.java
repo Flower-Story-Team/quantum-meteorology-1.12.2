@@ -1,8 +1,10 @@
-package com.konpi.flower.init;
+package com.konpi.flower.item;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.item.*;
-import com.konpi.flower.item.creativetab.ModCreativeTabs;
+import com.konpi.flower.block.BlockRegistry;
+import com.konpi.flower.init.*;
+import com.konpi.flower.item.item.ItemFoodInBowl;
+import com.konpi.flower.tabs.ModCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -30,7 +32,7 @@ public class ItemRegistry
         
         
         //食材
-        simpleItemList.add(new ModFoodBase("chinese_cabbage", 1, 0.6F, false));		//白菜			
+        simpleItemList.add(new ModFoodBase("chinese_cabbage", 1, 0.6F, false));		//白菜
         simpleItemList.add(new ModFoodBase("tomato", 1, 0.6F, false));                  //番茄	
         simpleItemList.add(new ModFoodBase("peanut", 1, 0.6F, false));                  //花生	
         simpleItemList.add(new ModItemBase("rice").setCreativeTab(ModCreativeTabs.MISC)); //大米

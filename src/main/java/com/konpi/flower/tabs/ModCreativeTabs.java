@@ -1,7 +1,7 @@
-package com.konpi.flower.item.creativetab;
+package com.konpi.flower.tabs;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.init.ItemRegistry;
+import com.konpi.flower.item.ItemRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
