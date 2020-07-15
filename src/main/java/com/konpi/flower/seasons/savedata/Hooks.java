@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import com.konpi.flower.seasons.Season;
 import com.konpi.flower.seasons.Season.SeasonState;
-import com.konpi.flower.seasons.Season.TropicalSeasonState;
 import com.konpi.flower.seasons.intefaces.ISeasonState;
 import com.konpi.flower.seasons.intefaces.SeasonHelper;
 
@@ -18,10 +17,6 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
-/**
- * according to sereneseason
- *
- */
 public class Hooks {
 	///////////////////
 	// World methods //
@@ -112,21 +107,6 @@ public class Hooks {
 	public static boolean isRainingAtInSeason(World world, BlockPos pos, ISeasonState seasonState) {
 		Biome biome = world.getBiome(pos);
 
-		if (!biome.canRain() && world.provider.getDimension() == 0) {
-			TropicalSeasonState tropicalSeason = seasonState.getTropicalSeasonState();
-
-			switch ((TropicalSeasonState) tropicalSeason) {
-			case MID_DRY:
-				return false;
-
-			case MID_WET:
-				return true;
-
-			default:
-				return biome.canRain();
-			}
-		}
-
 		if (biome.getEnableSnow() || (world.canSnowAt(pos, false))) {
 			return false;
 		}
@@ -187,40 +167,10 @@ public class Hooks {
 	////////////////////////////
 
 	public static boolean shouldRenderRainSnow(World world, Biome biome) {
-		if (!biome.canRain() && world.provider.getDimension() == 0) {
-			TropicalSeasonState tropicalSeason = SeasonHelper.getSeasonState(world).getTropicalSeasonState();
-
-			switch ((TropicalSeasonState) tropicalSeason) {
-			case MID_DRY:
-				return false;
-
-			case MID_WET:
-				return true;
-
-			default:
-				return biome.canRain() || biome.getEnableSnow();
-			}
-		}
-
 		return biome.canRain() || biome.getEnableSnow();
 	}
 
 	public static boolean shouldAddRainParticles(World world, Biome biome) {
-		if (!biome.canRain() && world.provider.getDimension() == 0) {
-			TropicalSeasonState tropicalSeason = SeasonHelper.getSeasonState(world).getTropicalSeasonState();
-
-			switch ((TropicalSeasonState) tropicalSeason) {
-			case MID_DRY:
-				return false;
-
-			case MID_WET:
-				return true;
-
-			default:
-				return biome.canRain();
-			}
-		}
-
 		return biome.canRain();
 	}
 }
