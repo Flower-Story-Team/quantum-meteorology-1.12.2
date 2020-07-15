@@ -80,18 +80,19 @@ processResources
         exclude 'mcmod.info'
     }
     
-    
+    /*
     //编译使用utf8
 	tasks.withType(JavaCompile)
 	{
 	    options.encoding = "UTF-8"
-	}
+	}*/
+
 }
 
-/*
-	//编译使用utf8
-	tasks.withType(JavaCompile)
-	{
-	    options.encoding = "UTF-8"
-	}
-*/
+
+//编译使用utf8
+tasks.withType(JavaCompile)
+{
+    options.encoding = "UTF-8"
+}
+

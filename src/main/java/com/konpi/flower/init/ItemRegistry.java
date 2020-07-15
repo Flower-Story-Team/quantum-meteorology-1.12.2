@@ -56,15 +56,15 @@ public class ItemRegistry
         
     	//餐具
         simpleItemList.add(new ModTablewareBase("bowl").setMaxStackSize(16)); //碗
-        
-        
+
+
+
         //实例化方块物品
         Flower.logger.info("initializing block items");
         for (Block b : BlockRegistry.simpleBlockList)
         {
             simpleItemList.add(new ModItemBlockBase(b));
         }
-
     }
     
     /**注册Item*/
