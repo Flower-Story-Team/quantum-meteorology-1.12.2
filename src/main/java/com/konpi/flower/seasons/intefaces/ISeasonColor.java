@@ -8,6 +8,5 @@ public interface ISeasonColor {
 	int getGrassColor();
 
 	int getFoliageColor();
-	
-	int getBirchColor();
+
 }
