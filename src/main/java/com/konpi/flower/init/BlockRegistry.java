@@ -13,8 +13,10 @@ import java.util.ArrayList;
 public class BlockRegistry
 {
 
-    //没有subItem的普通方块
+    //有对应ItemBlock但是没有subItem的普通方块
     public static final ArrayList<Block> simpleBlockList = new ArrayList<>();
+    //无对应ItemBlock的方块，例如农作物
+    public static final ArrayList<Block> noItemBlockList = new ArrayList<>();
 
     static
     {
@@ -28,7 +30,8 @@ public class BlockRegistry
     public static void onBlockRegister(RegistryEvent.Register<Block> event)
     {
         Flower.logger.info("registering blocks");
-        //event.getRegistry().register(...);
+        event.getRegistry().registerAll(simpleBlockList.toArray(new Block[0]));
+        event.getRegistry().registerAll(noItemBlockList.toArray(new Block[0]));
     }
 
     @ObjectHolder(Flower.MODID)
