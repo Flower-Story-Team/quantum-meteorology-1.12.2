@@ -30,5 +30,6 @@ item.flower.garlic.name=大蒜
 
 # 指令
 commands.flower.season.usage=season.usage
-commands.flower.season.setseason.success=season.success
-commands.flower.season.setseason.fail=season.fail
+commands.flower.season.set.success=季节设置成功
+commands.flower.season.set.fail=季节设置失败
+commands.flower.season.query=当前季节为%s
