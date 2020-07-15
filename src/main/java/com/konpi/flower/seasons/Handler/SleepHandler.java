@@ -1,5 +1,7 @@
 package com.konpi.flower.seasons.Handler;
 
+import com.konpi.flower.api.config.FlowerOption;
+import com.konpi.flower.api.config.SyncedConfig;
 import com.konpi.flower.seasons.savedata.SeasonSaveData;
 
 import net.minecraft.world.WorldServer;
@@ -13,6 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
  *
  */
 public class SleepHandler {
+	
+	long t = SyncedConfig.getIntValue(FlowerOption.DAY_DURATION);
+
 	@SubscribeEvent
 	public void onWorldTick(TickEvent.WorldTickEvent event) {
 		if (event.phase == Phase.START && event.side == Side.SERVER) {
@@ -21,9 +26,10 @@ public class SleepHandler {
 			// Called before all players are awoken for the next day
 			if (world.areAllPlayersAsleep()) {
 				SeasonSaveData seasonData = SeasonHandler.getSeasonSavedData(world);
-				long timeDiff = 48000L - ((world.getWorldInfo().getWorldTime() + 48000L) % 48000L);
+				long timeDiff = t - ((world.getWorldInfo().getWorldTime() + t) % t);
 				seasonData.seasonCycleTicks += timeDiff;
 				seasonData.markDirty();
+				SeasonHandler.sendSeasonUpdate(world);
 			}
 		}
 	}
