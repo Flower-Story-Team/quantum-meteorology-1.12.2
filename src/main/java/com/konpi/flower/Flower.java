@@ -30,7 +30,7 @@ public class Flower {
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		configDirectory = new File(event.getModConfigurationDirectory(), "sereneseasons");
+		configDirectory = new File(event.getModConfigurationDirectory(), "flower");
 
 		proxy.preInit(event);
 		ModHandlers.init();

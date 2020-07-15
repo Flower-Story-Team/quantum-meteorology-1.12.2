@@ -31,7 +31,7 @@ public class FlowerCommand extends CommandBase {
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "commands.sereneseasons.usage";
+		return "commands.flower.season.usage";
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class FlowerCommand extends CommandBase {
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length < 1) {
-			throw new WrongUsageException("commands.sereneseasons.usage");
+			throw new WrongUsageException("commands.flower.season.usage");
 		} else if ("setseason".equals(args[0])) {
 			setSeason(sender, args);
 		}
@@ -64,9 +64,9 @@ public class FlowerCommand extends CommandBase {
 			seasonData.seasonCycleTicks = SeasonTime.ZERO.getSeasonStateDuration() * newSeason.ordinal();
 			seasonData.markDirty();
 			// SeasonHandler.sendSeasonUpdate(player.world);
-			sender.sendMessage(new TextComponentTranslation("commands.sereneseasons.setseason.success", args[1]));
+			sender.sendMessage(new TextComponentTranslation("commands.flower.season.setseason.success", args[1]));
 		} else {
-			sender.sendMessage(new TextComponentTranslation("commands.sereneseasons.setseason.fail", args[1]));
+			sender.sendMessage(new TextComponentTranslation("commands.flower.season.setseason.fail", args[1]));
 		}
 	}
 
