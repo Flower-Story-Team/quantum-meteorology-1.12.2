@@ -6,7 +6,7 @@ import com.konpi.flower.api.config.SyncedConfig;
 import com.konpi.flower.seasons.Season;
 import com.konpi.flower.seasons.Season.SeasonState;
 import com.konpi.flower.seasons.intefaces.ISeasonState;
-
+//
 public final class SeasonTime implements ISeasonState {
 	public static final SeasonTime ZERO = new SeasonTime(0);
 	public final int time;
