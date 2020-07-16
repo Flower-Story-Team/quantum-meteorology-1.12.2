@@ -1,9 +1,11 @@
 package com.konpi.flower;
 
 import com.konpi.flower.common.command.SeasonCommand;
+import com.konpi.flower.common.command.TANCommand;
 import com.konpi.flower.common.init.ModConfig;
 import com.konpi.flower.common.init.ModFertility;
 import com.konpi.flower.common.init.ModHandlers;
+import com.konpi.flower.common.init.ModStates;
 import com.konpi.flower.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -32,6 +34,7 @@ public class Flower {
 	public void preInit(FMLPreInitializationEvent event) {
 		configDirectory = new File(event.getModConfigurationDirectory(), this.NAME);
 		ModConfig.preInit(configDirectory);
+		ModStates.init();
 		proxy.preInit(event);
 	}
 
@@ -51,6 +54,7 @@ public class Flower {
 	@Mod.EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 		event.registerServerCommand(new SeasonCommand());
+		event.registerServerCommand(new TANCommand());
 	}
 
 }

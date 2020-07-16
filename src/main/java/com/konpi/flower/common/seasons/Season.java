@@ -2,7 +2,7 @@ package com.konpi.flower.common.seasons;
 
 import java.util.Random;
 
-import com.konpi.flower.common.seasons.intefaces.ISeasonColor;
+import com.konpi.flower.api.season.ISeasonColor;
 
 public enum Season {
 	SPRING, SUMMER, AUTUMN, WINTER;

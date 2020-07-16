@@ -1,6 +1,6 @@
 package com.konpi.flower.common.network;
 
-import com.konpi.flower.common.seasons.Handler.SeasonHandler;
+import com.konpi.flower.common.handler.season.SeasonHandler;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
