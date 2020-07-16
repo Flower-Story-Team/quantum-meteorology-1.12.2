@@ -1,6 +1,6 @@
 package com.konpi.flower.client.init;
 
-import com.konpi.flower.init.ModItems;
+import com.konpi.flower.common.init.ModItems;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;

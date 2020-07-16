@@ -3,11 +3,11 @@ package com.konpi.flower.common.command;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.konpi.flower.seasons.Season.SeasonState;
-import com.konpi.flower.seasons.Season;
-import com.konpi.flower.seasons.Handler.SeasonHandler;
-import com.konpi.flower.seasons.savedata.SeasonSaveData;
-import com.konpi.flower.seasons.savedata.SeasonTime;
+import com.konpi.flower.common.seasons.Season.SeasonState;
+import com.konpi.flower.common.seasons.Season;
+import com.konpi.flower.common.seasons.Handler.SeasonHandler;
+import com.konpi.flower.common.seasons.savedata.SeasonSaveData;
+import com.konpi.flower.common.seasons.savedata.SeasonTime;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
