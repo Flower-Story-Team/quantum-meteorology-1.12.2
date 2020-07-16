@@ -36,7 +36,7 @@ public class flower {
 				"The starting sub season for new worlds.  0 = Random, 1 - 3 = Early/Mid/Late Spring, 4 - 6 = Early/Mid/Late Summer, 7 - 9 = Early/Mid/Late Autumn, 10 - 12 = Early/Mid/Late Winter" })
 		@Config.LangKey("flower.starting_season_state")
 		@Config.RangeInt(min = 0, max = 12)
-		public int starting_season_state = 7;
+		public int starting_season_state = 3;
 
 	}
 

@@ -4,8 +4,10 @@ import com.google.common.base.Preconditions;
 import com.konpi.flower.api.config.FlowerOption;
 import com.konpi.flower.api.config.SyncedConfig;
 import com.konpi.flower.api.season.ISeasonState;
+import com.konpi.flower.common.config.flower;
 import com.konpi.flower.common.seasons.Season;
 import com.konpi.flower.common.seasons.Season.SeasonState;
+
 //
 public final class SeasonTime implements ISeasonState {
 	public static final SeasonTime ZERO = new SeasonTime(0);
@@ -18,12 +20,12 @@ public final class SeasonTime implements ISeasonState {
 
 	@Override
 	public int getDayDuration() {
-		return SyncedConfig.getIntValue(FlowerOption.DAY_DURATION);
+		return flower.general_config.day_duration;
 	}
 
 	@Override
 	public int getSeasonStateDuration() {
-		return this.getDayDuration() * SyncedConfig.getIntValue(FlowerOption.SEASON_STATE_DURATION);
+		return this.getDayDuration() * flower.general_config.season_state_duration;
 	}
 
 	@Override

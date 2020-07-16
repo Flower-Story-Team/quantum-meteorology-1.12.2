@@ -7,6 +7,7 @@ import com.konpi.flower.api.config.SyncedConfig;
 import com.konpi.flower.api.season.ISeasonState;
 import com.konpi.flower.api.season.SeasonHelper;
 import com.konpi.flower.api.season.SeasonHelper.ISeasonDataProvider;
+import com.konpi.flower.common.config.flower;
 import com.konpi.flower.common.handler.PacketHandler;
 import com.konpi.flower.common.network.SeasonCycleMessage;
 import com.konpi.flower.common.savedata.season.Hooks;
@@ -122,7 +123,7 @@ public class SeasonHandler implements ISeasonDataProvider {
 		if (savedData == null) {
 			savedData = new SeasonSaveData(SeasonSaveData.DATA_IDENTIFIER);
 
-			int startingSeason = SyncedConfig.getIntValue(FlowerOption.STARTING_SEASON_STATE);
+			int startingSeason = flower.general_config.season_state_duration;
 
 			if (startingSeason == 0) {
 				savedData.seasonCycleTicks = (world.rand.nextInt(12)) * SeasonTime.ZERO.getSeasonStateDuration();

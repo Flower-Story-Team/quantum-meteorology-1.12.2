@@ -2,6 +2,7 @@ package com.konpi.flower.common.handler.season;
 
 import com.konpi.flower.api.config.FlowerOption;
 import com.konpi.flower.api.config.SyncedConfig;
+import com.konpi.flower.common.config.flower;
 import com.konpi.flower.common.savedata.season.SeasonSaveData;
 
 import net.minecraft.world.WorldServer;
@@ -11,8 +12,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class SleepHandler {
-	
-	long t = SyncedConfig.getIntValue(FlowerOption.DAY_DURATION);
+
+	long t = flower.general_config.day_duration;
 
 	@SubscribeEvent
 	public void onWorldTick(TickEvent.WorldTickEvent event) {
