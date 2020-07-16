@@ -1,4 +1,4 @@
-package com.konpi.flower.proxy.network;
+package com.konpi.flower.common.proxy.network;
 
 import com.konpi.flower.seasons.Handler.SeasonHandler;
 

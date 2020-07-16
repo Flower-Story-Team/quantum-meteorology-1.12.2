@@ -1,4 +1,4 @@
-package com.konpi.flower.block;
+package com.konpi.flower.common.block;
 
 import com.konpi.flower.Flower;
 import net.minecraft.block.BlockCrops;

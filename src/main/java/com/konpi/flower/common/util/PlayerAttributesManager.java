@@ -1,4 +1,4 @@
-package com.konpi.flower.util;
+package com.konpi.flower.common.util;
 
 import net.minecraft.entity.player.EntityPlayer;
 

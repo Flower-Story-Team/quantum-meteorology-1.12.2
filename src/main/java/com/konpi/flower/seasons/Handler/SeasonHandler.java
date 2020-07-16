@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.konpi.flower.api.config.FlowerOption;
 import com.konpi.flower.api.config.SyncedConfig;
-import com.konpi.flower.proxy.network.SeasonCycleMessage;
+import com.konpi.flower.common.proxy.network.SeasonCycleMessage;
 import com.konpi.flower.seasons.Season.SeasonState;
 import com.konpi.flower.seasons.intefaces.ISeasonState;
 import com.konpi.flower.seasons.intefaces.SeasonHelper;
@@ -16,7 +16,6 @@ import com.konpi.flower.seasons.savedata.SeasonTime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.MapStorage;

@@ -1,7 +1,7 @@
 package com.konpi.flower.init;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.item.*;
+import com.konpi.flower.common.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;

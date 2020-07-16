@@ -1,8 +1,8 @@
 package com.konpi.flower.seasons.Handler;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.proxy.network.ConfigMessage;
-import com.konpi.flower.proxy.network.SeasonCycleMessage;
+import com.konpi.flower.common.proxy.network.ConfigMessage;
+import com.konpi.flower.common.proxy.network.SeasonCycleMessage;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;

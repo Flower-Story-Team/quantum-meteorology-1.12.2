@@ -1,4 +1,4 @@
-package com.konpi.flower.proxy;
+package com.konpi.flower.common.proxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

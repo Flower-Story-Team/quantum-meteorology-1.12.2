@@ -1,10 +1,10 @@
 package com.konpi.flower;
 
-import com.konpi.flower.command.SeasonCommand;
+import com.konpi.flower.common.command.SeasonCommand;
 import com.konpi.flower.init.ModConfig;
 import com.konpi.flower.init.ModFertility;
 import com.konpi.flower.init.ModHandlers;
-import com.konpi.flower.proxy.CommonProxy;
+import com.konpi.flower.common.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -23,7 +23,7 @@ public class Flower {
 
 	public static Logger logger = LogManager.getLogger(Flower.NAME);
 
-	@SidedProxy(clientSide = "com.konpi.flower.proxy.ClientProxy", serverSide = "com.konpi.flower.proxy.CommonProxy")
+	@SidedProxy(clientSide = "com.konpi.flower.common.proxy.ClientProxy", serverSide = "com.konpi.flower.common.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
 	public static File configDirectory;

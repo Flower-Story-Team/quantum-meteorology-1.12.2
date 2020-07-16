@@ -1,4 +1,4 @@
-package com.konpi.flower.command;
+package com.konpi.flower.common.command;
 
 import java.util.List;
 

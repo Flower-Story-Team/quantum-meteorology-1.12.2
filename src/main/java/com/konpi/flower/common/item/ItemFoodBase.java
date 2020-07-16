@@ -1,4 +1,4 @@
-package com.konpi.flower.item;
+package com.konpi.flower.common.item;
 
 import com.konpi.flower.Flower;
 import com.konpi.flower.init.ModCreativeTabs;

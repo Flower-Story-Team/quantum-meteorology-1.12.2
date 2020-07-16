@@ -1,24 +1,22 @@
-package com.konpi.flower.item;
+package com.konpi.flower.common.item;
 
 import com.konpi.flower.Flower;
-import com.konpi.flower.init.ModCreativeTabs;
 
 import net.minecraft.item.Item;
 
 /**
- * 餐具的基础类
+ * 物品的基础类
  */
-public class ItemTablewareBase extends Item
+public class ItemBase extends Item
 {
     /**
      * @param registryName 注册名
      */
-    public ItemTablewareBase(String registryName)
+    public ItemBase(String registryName)
     {
         super();
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);
-        this.setCreativeTab(ModCreativeTabs.TABLEWARE);
     }
     
 }
