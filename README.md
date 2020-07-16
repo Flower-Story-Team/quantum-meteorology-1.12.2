@@ -1,8 +1,8 @@
 # FlowerOfHua 花之物语 (1.12.2)
-![MCVersion](https://img.shields.io/badge/MCVersion-1.12.2-success)
-![ForgeVersion](https://img.shields.io/badge/ForgeVersion-1.12.2--14.23.5.2847-success)
-![MCPVersion](https://img.shields.io/badge/MCVersion-stable_39-success)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flower-Story-Team/FlowerOfHua-1.12.2/Java%20CI%20with%20Gradle)
+![MCVersion](https://img.shields.io/badge/MCVersion-1.12.2-successstyle=flat-square)
+![ForgeVersion](https://img.shields.io/badge/ForgeVersion-1.12.2--14.23.5.2847-successstyle=flat-square)
+![MCPVersion](https://img.shields.io/badge/MCVersion-stable__39-successstyle=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flower-Story-Team/FlowerOfHua-1.12.2/Java%20CI%20with%20Gradlestyle=flat-square)
 ![GitHub](https://img.shields.io/github/license/Flower-Story-Team/FlowerOfHua-1.12.2?style=flat-square)
 
 *A* **Flower Team** *Project*
