@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import com.konpi.flower.api.season.SeasonHelper;
-import com.konpi.flower.common.config.PlantConfig;
+import com.konpi.flower.common.config.plant;
 import com.konpi.flower.common.seasons.Season;
 
 import net.minecraft.block.Block;
@@ -21,10 +21,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/**
- * according to sereneseason
- *
- */
 public class ModFertility {
 
 	private static HashSet<String> springPlants = new HashSet<String>();
@@ -38,10 +34,10 @@ public class ModFertility {
 
 	public static void init() {
 		// Store crops in hash sets for quick and easy retrieval
-		initSeasonCrops(PlantConfig.SeasonalPlants.spring_crops, springPlants, 1);
-		initSeasonCrops(PlantConfig.SeasonalPlants.summer_crops, summerPlants, 2);
-		initSeasonCrops(PlantConfig.SeasonalPlants.autumn_crops, autumnPlants, 4);
-		initSeasonCrops(PlantConfig.SeasonalPlants.winter_crops, winterPlants, 8);
+		initSeasonCrops(ModConfig.plant.spring_crops, springPlants, 1);
+		initSeasonCrops(ModConfig.plant.summer_crops, summerPlants, 2);
+		initSeasonCrops(ModConfig.plant.autumn_crops, autumnPlants, 4);
+		initSeasonCrops(ModConfig.plant.winter_crops, winterPlants, 8);
 	}
 
 	public static boolean isCropFertile(String cropName, World world, BlockPos pos) {
