@@ -8,6 +8,9 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * 这个是游戏中显示的配置文件，凡显示的都要订阅这个事件，不显示的都要extends ConfigHandler
+ */
 @Config(modid = Flower.MODID, name = Flower.NAME + "/general", category = "")
 @Mod.EventBusSubscriber
 public class flower {
