@@ -1,13 +1,14 @@
 package com.konpi.flower.common.command;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.konpi.flower.seasons.Season.SeasonState;
-import com.konpi.flower.seasons.Season;
-import com.konpi.flower.seasons.Handler.SeasonHandler;
-import com.konpi.flower.seasons.savedata.SeasonSaveData;
-import com.konpi.flower.seasons.savedata.SeasonTime;
+import com.konpi.flower.common.seasons.Season.SeasonState;
+import com.konpi.flower.common.handler.season.SeasonHandler;
+import com.konpi.flower.common.savedata.season.SeasonSaveData;
+import com.konpi.flower.common.savedata.season.SeasonTime;
+import com.konpi.flower.common.seasons.Season;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -65,7 +66,7 @@ public class SeasonCommand extends CommandBase {
 			return getListOfStringsMatchingLastWord(args, s);
 		}
 
-		return null;
+		return Collections.<String>emptyList();
 	}
 
 	private void setSeason(ICommandSender sender, String[] args) throws CommandException {

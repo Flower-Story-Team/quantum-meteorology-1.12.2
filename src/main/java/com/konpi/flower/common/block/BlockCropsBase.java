@@ -6,33 +6,23 @@ import net.minecraft.item.Item;
 
 /**
  * 农作物的基础类
+ * 抽象类，必须重写getSeed和getCrop方法
+ * 为什么不用构造方法传参？因为构造方法执行时所有的模组物品引用都是null
  */
-public class BlockCropsBase extends BlockCrops {
-
-    private final Item SEED;
-    private final Item CROP;
+public abstract class BlockCropsBase extends BlockCrops {
 
     /**
      * @param registryName 注册名
-     * @param seed 种子
-     * @param crop 收获的农作物
      */
-    public BlockCropsBase(String registryName, Item seed, Item crop) {
+    public BlockCropsBase(String registryName) {
         this.setRegistryName(registryName);
         this.setTranslationKey(Flower.MODID + "." + registryName);
-        this.SEED = seed;
-        this.CROP = crop;
     }
 
     @Override
-    public Item getSeed()
-    {
-        return this.SEED;
-    }
+    public abstract Item getSeed();
 
     @Override
-    public Item getCrop()
-    {
-        return this.CROP;
-    }
+    public abstract Item getCrop();
+
 }

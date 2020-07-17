@@ -1,21 +1,24 @@
 package com.konpi.flower.api.config;
 
-public enum FlowerOption implements ISyncedOption
-{
-    DAY_DURATION("Day Duration"),
-    SEASON_STATE_DURATION("Sub Season Duration"),
-    STARTING_SEASON_STATE("Starting Season State");
-    
-    private final String optionName;
+/**
+ * 这里的是不显示在游戏里的配置文件设置。 凡显示的都要订阅事件，不显示的都要extends ConfigHandler
+ *
+ */
+public enum FlowerOption implements ISyncedOption {
 
-    FlowerOption(String name)
-    {
-        this.optionName = name;
-    }
+	spring_crops("spring_crops"), //
+	summer_crops("summer_crops"), //
+	autumn_crops("autumn_crops"), //
+	winter_crops("winter_crops");//
 
-    @Override
-    public String getOptionName()
-    {
-        return this.optionName;
-    }
+	private final String optionName;
+
+	FlowerOption(String name) {
+		this.optionName = name;
+	}
+
+	@Override
+	public String getOptionName() {
+		return this.optionName;
+	}
 }

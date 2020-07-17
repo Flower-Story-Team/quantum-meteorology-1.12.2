@@ -1,6 +1,6 @@
 package com.konpi.flower.common.item;
 
-import com.konpi.flower.init.ModItems;
+import com.konpi.flower.common.init.ModItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
