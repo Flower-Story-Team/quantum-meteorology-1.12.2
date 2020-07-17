@@ -1,0 +1,16 @@
+[
+{
+  "modid": "flower",
+  "name": "Flower Of Hua",
+  "description": "Just a demo mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2",
+  "updateUrl": "",
+  "authorList": ["Konpi"],
+  "credits": "Konpi(HINKing),",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
