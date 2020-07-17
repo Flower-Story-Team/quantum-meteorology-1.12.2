@@ -1,6 +1,7 @@
 package com.konpi.flower;
 
 import com.konpi.flower.common.command.SeasonCommand;
+import com.konpi.flower.common.fluids.FluidsBase;
 import com.konpi.flower.init.ModConfig;
 import com.konpi.flower.init.ModFertility;
 import com.konpi.flower.init.ModHandlers;
@@ -12,6 +13,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import java.io.File;
+
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,6 +25,10 @@ public class Flower {
 	public static final String VERSION = "1.0.0";
 
 	public static Logger logger = LogManager.getLogger(Flower.NAME);
+
+	static {
+		FluidsBase.register();
+	}
 
 	@SidedProxy(clientSide = "com.konpi.flower.common.proxy.ClientProxy", serverSide = "com.konpi.flower.common.proxy.CommonProxy")
 	public static CommonProxy proxy;
@@ -52,5 +59,14 @@ public class Flower {
 	public void serverStarting(FMLServerStartingEvent event) {
 		event.registerServerCommand(new SeasonCommand());
 	}
+	/*
+	@SubscribeEvent
+	public void onGasTransferred(GasTransferevent event){
+		try{
+			paketHandler.sendToReceivers(new TransmitterUpdateMessage(PacketType.GAS,event.gaasNetwork.firs))
+		}
+		}
+	 */
+
 
 }

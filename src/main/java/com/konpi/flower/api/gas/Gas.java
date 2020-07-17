@@ -58,7 +58,7 @@ public class Gas {
      * @param t - 气体颜色
      */
     public Gas(String s, int t) {
-        this(s, "flower:blocks/liquid/liquid");
+        this(s, "flower:blocks/liquid");
         setTint(t);
     }
 
