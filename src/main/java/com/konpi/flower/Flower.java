@@ -13,25 +13,27 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import java.io.File;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-/**
- * 需要把各种init放进common proxy和client proxy里面去
- */
 @Mod(modid = Flower.MODID, name = Flower.NAME, version = Flower.VERSION, acceptedMinecraftVersions = "1.12.2")
 public class Flower {
 	public static final String MODID = "flower";
 	public static final String NAME = "Flower of Hua";
-	public static final String VERSION = "1.0.1";
+	public static final String VERSION = "1.0.0";
 
 	public static Logger logger = LogManager.getLogger(Flower.NAME);
 
 	@SidedProxy(clientSide = "com.konpi.flower.proxy.ClientProxy", serverSide = "com.konpi.flower.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
+	public static File configDirectory;
+
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		configDirectory = new File(event.getModConfigurationDirectory(), this.NAME);
+		ModConfig.preInit(configDirectory);
 		ModStates.init();
 		proxy.preInit(event);
 	}

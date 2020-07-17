@@ -5,10 +5,6 @@ import java.io.File;
 import com.konpi.flower.Flower;
 import com.konpi.flower.api.config.FlowerOption;
 
-/**
- * 默认的季节生长配置文件
- *
- */
 public class plant extends ConfigHandler {
 
 	public static final String PLANT_SETTINGS = "Plant Seetings";

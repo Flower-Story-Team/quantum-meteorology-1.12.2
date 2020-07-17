@@ -10,9 +10,6 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-/**
- * 这个类用来生成和读取配置文件，凡不显示的都要extends ConfigHandler，显示的都要订阅事件
- */
 public abstract class ConfigHandler {
 
 	public Configuration config;
@@ -24,6 +21,7 @@ public abstract class ConfigHandler {
 
 		MinecraftForge.EVENT_BUS.register(this);
 		this.description = description;
+		ModConfig.configHandlers.add(this);
 	}
 
 	protected abstract void loadConfiguration();
