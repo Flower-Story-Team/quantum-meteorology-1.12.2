@@ -6,7 +6,6 @@ import com.konpi.flower.config.PlantConfig;
 import com.konpi.flower.seasons.Season;
 import com.konpi.flower.seasons.intefaces.SeasonHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.IGrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -24,7 +23,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * according to sereneseason
  *
  */
-public class ModFertility {
+public class ModFertility
+{
 
 	private static HashSet<String> springPlants = new HashSet<String>();
 	private static HashSet<String> summerPlants = new HashSet<String>();
