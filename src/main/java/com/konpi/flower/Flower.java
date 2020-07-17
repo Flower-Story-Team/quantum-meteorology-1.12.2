@@ -23,6 +23,7 @@ public class Flower {
 
 	public static Logger logger = LogManager.getLogger(Flower.NAME);
 
+
 	@SidedProxy(clientSide = "com.konpi.flower.common.proxy.ClientProxy", serverSide = "com.konpi.flower.common.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
