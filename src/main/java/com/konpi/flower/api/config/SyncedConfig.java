@@ -4,6 +4,10 @@ import com.google.common.collect.Maps;
 
 import java.util.Map;
 
+/**
+ * 这个类是用来应对不显示在游戏中的配置文件的
+ *
+ */
 public class SyncedConfig {
 	public static Map<String, SyncedConfigEntry> optionsToSync = Maps.newHashMap();
 
