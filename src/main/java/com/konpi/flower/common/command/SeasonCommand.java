@@ -1,5 +1,6 @@
 package com.konpi.flower.common.command;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.google.common.collect.Lists;
@@ -65,7 +66,7 @@ public class SeasonCommand extends CommandBase {
 			return getListOfStringsMatchingLastWord(args, s);
 		}
 
-		return null;
+		return Collections.<String>emptyList();
 	}
 
 	private void setSeason(ICommandSender sender, String[] args) throws CommandException {
