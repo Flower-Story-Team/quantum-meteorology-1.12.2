@@ -1,6 +1,6 @@
 package com.kongpi.flower.proxy;
 
-import com.kongpi.flower.common.handler.ColorHandler;
+import com.kongpi.flower.client.handler.ColorHandler;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

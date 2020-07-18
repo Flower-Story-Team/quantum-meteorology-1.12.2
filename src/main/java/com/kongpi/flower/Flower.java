@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.kongpi.flower.common.handler.SeasonHandler;
+import com.kongpi.flower.common.command.SeasonCommand;
 import com.kongpi.flower.proxy.CommonProxy;
 
 @Mod(modid = Flower.MODID, name = Flower.NAME, version = Flower.VERSION, acceptedMinecraftVersions = "1.12.2")
@@ -42,10 +42,7 @@ public class Flower {
 
 	@Mod.EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
-	}
-
-	public static void out(String s) {
-		System.out.println("\n" + s);
+		event.registerServerCommand(new SeasonCommand());
 	}
 
 }

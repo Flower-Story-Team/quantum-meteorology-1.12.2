@@ -3,60 +3,61 @@ package com.kongpi.flower.common.config;
 import java.io.File;
 
 import com.kongpi.flower.Flower;
-import com.kongpi.flower.common.config.ConfigHandler;
+import com.kongpi.flower.api.PlantData;
 
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class PlantConfig extends ConfigHandler {
+public class PlantConfig {
 
-	public static final String PLANT_SETTINGS = "Plant Seetings";
+	private static Configuration config;
+	private static String plantname;
 
-	public String[] spring_crops;
-	public String[] summer_crops;
-	public String[] autumn_crops;
-	public String[] winter_crops;
+	private static final String TempMax = "最高生长温度 | Temperature Max";
+	private static final String Temp = "最适温度 | Proference Temperature";
+	private static final String TempMin = "最低生长温度 | Temperature Min";
+	private static final String HumMax = "最高生长湿度 | Humidity Max";
+	private static final String Hum = "最适湿度 | Proference Humidity";
+	private static final String HumMin = "最低生长湿度 | Humidity Min";
+	private static final String NAME = "植物注册名 | The Registry name of plant";
 
-	public PlantConfig(File configFile) {
-		super(configFile, "Flower Settings");
-	}
-
-	@Override
-	protected void loadConfiguration() {
+	private static void loadConfig() {
 		try {
-			this.spring_crops = config.getStringList("spring crops", this.PLANT_SETTINGS,
-					new String[] { "minecraft:potato", "minecraft:carrot", "minecraft:sapling", "minecraft:nether_wart",
-							"minecraft:tallgrass", "minecraft:grass", "minecraft:red_mushroom",
-							"minecraft:brown_mushroom", "flower:tomato", "flower:corn", "flower:chinese_cabbage",
-							"flower:chili", "flower:pepper", "flower:scallion" },
-					"Crops growable in Spring (List either the seed item for the crop, or the crop block itself)");
+			for (PlantData data : PlantData.values()) {
+				plantname = data.toString();
+				data.setPlant_name(config.get(plantname, NAME, data.getPlantName()).getString());
 
-			this.summer_crops = config.getStringList("summer crops", this.PLANT_SETTINGS,
-					new String[] { "minecraft:melon_seeds", "minecraft:wheat_seeds", "minecraft:reeds",
-							"minecraft:cocoa", "minecraft:cactus", "minecraft:sapling", "minecraft:nether_wart",
-							"minecraft:tallgrass", "minecraft:grass", "minecraft:red_mushroom",
-							"minecraft:brown_mushroom", "simplecorn:kernels", "flower:tomato", "flower:eggplant",
-							"flower:chili", "flower:pepper" },
-					"Crops growable in Summer (List either the seed item for the crop, or the crop block itself)");
+				data.setTemperature_min((float) config.get(plantname, TempMin, data.getTemperature_min()).getDouble());
+				data.setTemperature_proference(
+						(float) config.get(plantname, Temp, data.getTemperature_proference()).getDouble());
+				data.setTemperature_max((float) config.get(plantname, TempMax, data.getTemperature_max()).getDouble());
 
-			this.autumn_crops = config.getStringList("autumn crops", this.PLANT_SETTINGS,
-					new String[] { "minecraft:carrot", "minecraft:pumpkin_seeds", "minecraft:wheat_seeds",
-							"minecraft:beetroot_seeds", "minecraft:sapling", "minecraft:nether_wart", "minecraft:grass",
-							"minecraft:red_mushroom", "minecraft:brown_mushroom", "flower:corn" },
-					"Crops growable in Autumn (List either the seed item for the crop, or the crop block itself)");
-
-			this.winter_crops = config.getStringList("winter crops", this.PLANT_SETTINGS,
-					new String[] { "minecraft:sapling", "minecraft:nether_wart", "minecraft:red_mushroom",
-							"minecraft:brown_mushroom" },
-					"Crops growable in Winter (List either the seed item for the crop, or the crop block itself)");
+				data.setAbs_humidity_min((float) config.get(plantname, HumMin, data.getHumidity_min()).getDouble());
+				data.setAbs_humidity_profenerce(
+						(float) config.get(plantname, Hum, data.getHumidity_profenerce()).getDouble());
+				data.setAbs_humidity_max((float) config.get(plantname, HumMax, data.getHumidity_max()).getDouble());
+			}
 		} catch (Exception e) {
-			Flower.logger.error("Serene Seasons has encountered a problem loading seasons.cfg", e);
+			Flower.logger.error("what??");
 		} finally {
 			if (config.hasChanged())
 				config.save();
 		}
 	}
+
+	public static void preinit(File configfile) {
+		config = new Configuration(configfile);
+		loadConfig();
+		MinecraftForge.EVENT_BUS.register(new PlantConfig());
+	}
+
+	@SubscribeEvent
+	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
+		if (event.getModID().equals(Flower.MODID)) {
+			loadConfig();
+		}
+	}
+
 }

@@ -1,30 +1,31 @@
-package com.kongpi.flower.api.Itime;
+package com.kongpi.flower.api;
 
 import java.util.Random;
 
 import com.google.common.base.Preconditions;
-import com.kongpi.flower.common.config.MiscConfig;
+import com.kongpi.flower.Flower;
+import com.kongpi.flower.common.config.ClientConfig;
+import com.kongpi.flower.common.config.CommonConfig;
+
+import net.minecraft.client.resources.I18n;
 
 /**
  * 月份
  */
 public enum Month {
 
+	JANUARY(Season.WINTER, -7, 0xCCCC99, 1, 0, 0, 0xCCCC99), // 1
+	FEBRUARY(Season.WINTER, -5, 0x669966, 1, 0, 0, 0x669966), // 2
 	MARCH(Season.SPRING, -3, 0x66CC33, 3, 0x66CC66, 1, 0x66CC33), // 3
 	APRIL(Season.SPRING, -1, 0x66CC66, 3, 0x66CC33, 1, 0x66CC66), // 4
 	MAY(Season.SPRING, 1, 0x339933, 1, 0x009933, 3, 0x339933), // 5
-
 	JUNE(Season.SUMMER, 3, 0x009933, 3, 0x006600, 1, 0x009933), // 6
 	JULY(Season.SUMMER, 5, 0x006600, 2, 0x6633, 1, 0x006600), // 7
 	AUGUST(Season.SUMMER, 7, 0x669900, 1, 0x006600, 4, 0x669900), // 8
-
 	SEPTEMBER(Season.AUTUMN, 4, 0x666633, 1, 0x669900, 2, 0x666633), // 9
 	OCTOBER(Season.AUTUMN, 1, 0xCCC000, 3, 0x991100, 1, 0x666600), // 10
 	NOVEMBER(Season.AUTUMN, -2, 0xCCC000, 2, 0xCCC099, 1, 0x663300), // 11
-
-	DECEMBER(Season.WINTER, -4, 0xCCCC99, 1, 0, 0, 0xCCCC99), // 12
-	JANUARY(Season.WINTER, -7, 0xCCCC99, 1, 0, 0, 0xCCCC99), // 1
-	FEBRUARY(Season.WINTER, -5, 0x669966, 1, 0, 0, 0x669966);// 2
+	DECEMBER(Season.WINTER, -4, 0xCCCC99, 1, 0, 0, 0xCCCC99); // 12
 
 	public static final Month[] VALUES = Month.values();
 
@@ -33,26 +34,25 @@ public enum Month {
 	}
 
 	public static final int getMonthDuration() {
-		return 24000 * MiscConfig.general_config.month_duration;
+		return 24000 * CommonConfig.Month_Duration;
 	}
 
-	public static final void preinit() {
-		int i = MiscConfig.general_config.staring_month;
-		starting_time = (i == 0 ? new Random().nextInt(12) * 24000 : i * 24000);
-	}
-
-	public static final long getStartingTime() {
-		Preconditions.checkArgument(starting_time > -1, "Month didn't init!");
-		return starting_time;
+	public static final int getYearDuration() {
+		return getMonthDuration() * 12;
 	}
 
 	public static final Month getmonth(long worldtime) {
-		// long i = worldtime / getMonthDuration();
-		long i = worldtime / 800;
+		// 返回季节时间的对应季节
+		// 季节时间 = 补时 + 世界时间
+		int i = ((int) worldtime + ClientConfig.general_config.starting_time) / getMonthDuration();
+		// 区间限定
 		while (i > 11) {
 			i -= 12;
 		}
-		return VALUES[(int) i];
+		while (i < 0) {
+			i += 12;
+		}
+		return VALUES[i];
 	}
 
 	private Season season;
@@ -62,8 +62,6 @@ public enum Month {
 	private int foliageColor2;
 	private int rand2;
 	private int grassColor;
-
-	private static long starting_time = -1;
 
 	/**
 	 * @param season
@@ -109,6 +107,34 @@ public enum Month {
 
 	public int getGrassColor() {
 		return this.grassColor;
+	}
+
+	public void setFoliageColor1(int foliageColor1) {
+		this.foliageColor1 = foliageColor1;
+	}
+
+	public void setFoliageColor2(int foliageColor2) {
+		this.foliageColor2 = foliageColor2;
+	}
+
+	public void setGrassColor(int grassColor) {
+		this.grassColor = grassColor;
+	}
+
+	public void setRand1(int rand1) {
+		this.rand1 = rand1;
+	}
+
+	public void setRand2(int rand2) {
+		this.rand2 = rand2;
+	}
+
+	public void setSeason(Season season) {
+		this.season = season;
+	}
+
+	public void setTemperature(int temperature) {
+		this.temperature = temperature;
 	}
 
 	/**
