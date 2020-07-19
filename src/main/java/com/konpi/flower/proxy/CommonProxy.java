@@ -1,13 +1,12 @@
 package com.konpi.flower.proxy;
 
-import java.io.File;
-
 import com.konpi.flower.Flower;
 import com.konpi.flower.common.init.ModConfig;
-
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.io.File;
 
 public class CommonProxy {
 

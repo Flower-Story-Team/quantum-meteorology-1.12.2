@@ -2,11 +2,13 @@ package com.konpi.flower;
 
 import com.konpi.flower.common.command.SeasonCommand;
 import com.konpi.flower.common.command.TANCommand;
+import com.konpi.flower.common.fluid.FluidBase;
 import com.konpi.flower.common.init.ModConfig;
 import com.konpi.flower.common.init.ModFertility;
 import com.konpi.flower.common.init.ModHandlers;
 import com.konpi.flower.common.init.ModStates;
 import com.konpi.flower.proxy.CommonProxy;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -29,6 +31,12 @@ public class Flower {
 
 	@SidedProxy(clientSide = "com.konpi.flower.proxy.ClientProxy", serverSide = "com.konpi.flower.proxy.CommonProxy")
 	public static CommonProxy proxy;
+
+	static
+	{
+		// 允许万能桶
+		FluidRegistry.enableUniversalBucket();
+	}
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
