@@ -6,7 +6,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import com.kongpi.flower.Flower;
 import com.kongpi.flower.api.Month;
-import com.kongpi.flower.common.config.ClientConfig;
+import com.kongpi.flower.common.config.CommonConfig;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
@@ -60,7 +60,7 @@ public class SeasonCommand extends CommandBase {
 		} else if (args.length == 2 && "set".equals(args[0])) {
 			String s[] = new String[12];
 			int i = 0;
-			for (Month month : Month.VALUES) {
+			for (Month month : Month.values()) {
 				s[i] = month.toString().toLowerCase();
 				i++;
 			}
@@ -72,8 +72,8 @@ public class SeasonCommand extends CommandBase {
 	private void setSeason(ICommandSender sender, String[] args) throws CommandException {
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
 		int t = -1;
-		for (int i = 0; i < Month.VALUES.length; i++) {
-			if (Month.VALUES[i].toString().toLowerCase().equals(args[1].toLowerCase())) {
+		for (int i = 0; i < Month.values().length; i++) {
+			if (Month.values()[i].toString().toLowerCase().equals(args[1].toLowerCase())) {
 				t = i;
 				break;
 			}
@@ -90,8 +90,8 @@ public class SeasonCommand extends CommandBase {
 			while (st > y) {
 				st -= y;
 			}
-			ClientConfig.general_config.starting_time = st;
-			ClientConfig.onConfigChanged(new OnConfigChangedEvent(Flower.MODID, null, true, false));
+			CommonConfig.general_config.starting_time = st;
+			CommonConfig.onConfigChanged(new OnConfigChangedEvent(Flower.MODID, null, true, false));
 			sender.sendMessage(new TextComponentTranslation("commands.flower.season.set.success", args[1]));
 		} else {
 			sender.sendMessage(new TextComponentTranslation("commands.flower.season.set.fail", args[1]));

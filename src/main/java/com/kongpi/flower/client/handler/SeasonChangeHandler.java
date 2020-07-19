@@ -1,4 +1,4 @@
-package com.kongpi.flower.common.handler;
+package com.kongpi.flower.client.handler;
 
 import com.kongpi.flower.Flower;
 import com.kongpi.flower.api.Month;
@@ -11,12 +11,11 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SeasonHandler {
+public class SeasonChangeHandler {
 
 	private Month month = null;
 
 	@SubscribeEvent
-	@SideOnly(Side.CLIENT)
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		// Only do this when in the world
 		if (Minecraft.getMinecraft().player == null)

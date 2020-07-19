@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public enum PlantData {
-	SAPLING("minecraft:sapling", -30, 50, 0, 100);//
+	SAPLING("minecraft:sapling", -30, 70, 0, 100);//
 
 	private PlantData(String PlantName, float temperature_min, float temperature_max, float humidity_min,
 			float humidity_max) {
@@ -58,8 +58,9 @@ public enum PlantData {
 	 */
 	private PlantData(String PlantName, float temperature_min, float temperature_proference, float temperature_max,
 			float humidity_min, float humidity_proference, float humidity_max, boolean usenbt) {
+
 		if (temperature_min > temperature_proference || temperature_proference > temperature_max
-				|| temperature_min > temperature_max) {
+				|| temperature_min > temperature_max || temperature_min < -30 || temperature_max > 70) {
 			Flower.logger.error("temeprature setting error: " + this.toString());
 			this.temperature_min = 20;
 			this.temperature_max = 20;
@@ -69,7 +70,9 @@ public enum PlantData {
 			this.temperature_proference = temperature_proference;
 			this.temperature_max = temperature_max;
 		}
-		if (humidity_min > humidity_max || humidity_min > humidity_proference || humidity_proference > humidity_max) {
+
+		if (humidity_min > humidity_max || humidity_min > humidity_proference || humidity_proference > humidity_max
+				|| humidity_min < 0 || humidity_max > 100) {
 			Flower.logger.error("humidity setting error: " + this.toString());
 			this.abs_humidity_max = 50;
 			this.abs_humidity_min = 50;

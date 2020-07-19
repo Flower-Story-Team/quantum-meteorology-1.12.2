@@ -47,10 +47,10 @@ public class PlantConfig {
 		}
 	}
 
-	public static void preinit(File configfile) {
+	public PlantConfig(File configfile) {
 		config = new Configuration(configfile);
 		loadConfig();
-		MinecraftForge.EVENT_BUS.register(new PlantConfig());
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent

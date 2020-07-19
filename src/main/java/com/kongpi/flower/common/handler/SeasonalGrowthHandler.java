@@ -1,10 +1,12 @@
 package com.kongpi.flower.common.handler;
 
 import com.kongpi.flower.api.PlantData;
+import com.kongpi.flower.common.FlowerUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockReed;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -13,19 +15,20 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SeasonalCropGrawthHandler {
-	 @SubscribeEvent
-	 @SideOnly(Side.CLIENT)
-	 public void onItemTooltipAdded(ItemTooltipEvent event) {
-	 PlantData.setupTooltips(event);
-	 }
+public class SeasonalGrowthHandler {
+	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
+	public void onItemTooltipAdded(ItemTooltipEvent event) {
+		PlantData.setupTooltips(event);
+	}
 
 	@SubscribeEvent
 	public void onCropGrowth(BlockEvent.CropGrowEvent event) {
 		Block plant = event.getState().getBlock();
-		// TODO
-		boolean canGrow = PlantData.canGrow(plant.getRegistryName().toString(), 0, 0);
-		// (plant.getRegistryName().toString(), event.getWorld(),event.getPos());
+		World world = event.getWorld();
+		int temperature = FlowerUtil.BiomeTemperature(world.getBiome(event.getPos()))
+				+ FlowerUtil.DayTemperature(world.getWorldTime()) + FlowerUtil.HeightTemperature(event.getPos().getY());
+		boolean canGrow = PlantData.canGrow(plant.getRegistryName().toString(), temperature, 0);
 
 		if (!canGrow) {
 			if (!(plant instanceof BlockGrass) && !(plant instanceof BlockReed)) {
@@ -39,12 +42,10 @@ public class SeasonalCropGrawthHandler {
 	@SubscribeEvent
 	public void onApplyBonemeal(BonemealEvent event) {
 		Block plant = event.getBlock().getBlock();
-		// TODO
-		boolean canGrow = PlantData.canGrow(plant.getRegistryName().toString(), 0, 0);
-		// boolean isFertile =
-		// ModFertility.isCropFertile(plant.getRegistryName().toString(),
-		// event.getWorld(),event.getPos());
-
+		World world = event.getWorld();
+		int temperature = FlowerUtil.BiomeTemperature(world.getBiome(event.getPos()))
+				+ FlowerUtil.DayTemperature(world.getWorldTime()) + FlowerUtil.HeightTemperature(event.getPos().getY());
+		boolean canGrow = PlantData.canGrow(plant.getRegistryName().toString(), temperature, 0);
 		if (!canGrow) {
 			event.setCanceled(true);
 		}

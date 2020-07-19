@@ -1,6 +1,6 @@
 package com.kongpi.flower.proxy;
 
-import com.kongpi.flower.client.handler.ColorHandler;
+import com.kongpi.flower.common.init.ModHandler;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -20,7 +20,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
 		super.postInit(event);
-		ColorHandler.init();
+		ModHandler.postinit();
 	}
 
 }
