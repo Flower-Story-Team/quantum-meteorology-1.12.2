@@ -1,7 +1,7 @@
 # 物品栏
-itemGroup.quantummeteorology.food=花之物语|食物
-itemGroup.quantummeteorology.misc=花之物语|杂项
-itemGroup.quantummeteorology.tableware=花之物语|餐具
+itemGroup.quantummeteorology.food=量子气象学 | 食物
+itemGroup.quantummeteorology.misc=量子气象学 | 杂项
+itemGroup.quantummeteorology.tableware=量子气象学 | 餐具
 
 # 物品
 item.quantummeteorology.rice_seed.name=水稻种子
