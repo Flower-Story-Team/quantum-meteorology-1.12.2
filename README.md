@@ -1,4 +1,4 @@
-# FlowerOfHua 花之物语 (1.12.2)
+# QuantumMeteorology 量子气象学 (1.12.2)
 ![MCVersion](https://img.shields.io/badge/MCVersion-1.12.2-success?style=flat-square)
 ![ForgeVersion](https://img.shields.io/badge/ForgeVersion-1.12.2--14.23.5.2847-success?style=flat-square)
 ![MCPVersion](https://img.shields.io/badge/MCPVersion-stable__39-success?style=flat-square)
