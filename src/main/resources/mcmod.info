@@ -1,11 +1,11 @@
 [
 {
-  "modid": "flower",
-  "name": "Flower Of Hua",
+  "modid": "quantummeteorology",
+  "name": "Quantum Meteorology",
   "description": "Just a demo mod",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://github.com/Flower-Story-Team/FlowerOfHua-1.12.2",
+  "url": "https://github.com/Flower-Story-Team/QuantumMeteorology-1.12.2",
   "updateUrl": "",
   "authorList": ["Konpi"],
   "credits": "Konpi(HINKing),",

@@ -1,0 +1,35 @@
+# itemGroups
+itemGroup.quantummeteorology.food=Foods
+itemGroup.quantummeteorology.misc=Misc
+itemGroup.quantummeteorology.tableware=Table Ware
+
+# items
+item.quantummeteorology.rice_seed.name=水稻种子
+item.quantummeteorology.bowl.name=碗
+item.quantummeteorology.steamed_rice.name=米饭
+
+# food
+item.quantummeteorology.chinese_cabbage.name=白菜
+item.quantummeteorology.tomato.name=番茄
+item.quantummeteorology.peanut.name=花生
+item.quantummeteorology.rice.name=Rice
+item.quantummeteorology.corn.name=玉米
+item.quantummeteorology.eggplant.name=茄子
+item.quantummeteorology.cabbage.name=卷心菜
+item.quantummeteorology.scallion.name=葱
+item.quantummeteorology.ginger.name=生姜
+item.quantummeteorology.cauliquantummeteorology.name=花菜
+item.quantummeteorology.chili.name=辣椒
+item.quantummeteorology.pepper.name=花椒
+item.quantummeteorology.sweet_pepper.name=甜椒
+item.quantummeteorology.onion.name=洋葱
+item.quantummeteorology.lentil.name=扁豆
+item.quantummeteorology.garlic.name=大蒜
+
+# blocks
+
+# commands
+commands.quantummeteorology.season.usage=season.usage
+commands.quantummeteorology.season.set.success=season set succeed
+commands.quantummeteorology.season.set.fail=season set fail
+commands.quantummeteorology.season.query=current season is %s

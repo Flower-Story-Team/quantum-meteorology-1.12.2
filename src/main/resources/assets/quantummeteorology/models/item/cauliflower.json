@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "flower:items/garlic"
+    "layer0": "quantummeteorology:items/cauliflower"
   }
 }

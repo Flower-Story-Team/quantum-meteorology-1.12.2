@@ -22,7 +22,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //项目基础
 version = "1.0.0"
 group = "com.konpi" 
-archivesBaseName = "Flower of Hua"
+archivesBaseName = "Quantum Meteorology"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava

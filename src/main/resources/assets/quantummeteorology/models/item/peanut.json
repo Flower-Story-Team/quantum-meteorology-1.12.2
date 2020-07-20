@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "flower:items/ginger"
+    "layer0": "quantummeteorology:items/peanut"
   }
 }
