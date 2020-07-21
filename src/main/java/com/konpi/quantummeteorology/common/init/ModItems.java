@@ -87,6 +87,10 @@ public class ModItems {
 		@ObjectHolder("steamed_rice") // 米饭
 		public static final Item STEAMED_RICE = null;
 
+		@ObjectHolder("popcorn")
+		public static final Item POPCORN = null;
+	}
+
 		// 食材
 		@ObjectHolder("chinese_cabbage") // 白菜
 		public static final Item CHINESE_CABBAGE = null;
@@ -138,4 +142,4 @@ public class ModItems {
 
 	}
 
-}
+
