@@ -4,12 +4,11 @@ import java.util.Collections;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.konpi.quantummeteorology.common.seasons.Season.SeasonState;
-import com.konpi.quantummeteorology.common.handler.season.SeasonHandler;
-import com.konpi.quantummeteorology.common.savedata.season.SeasonSaveData;
-import com.konpi.quantummeteorology.common.savedata.season.SeasonTime;
-import com.konpi.quantummeteorology.common.seasons.Season;
+import com.konpi.quantummeteorology.QuantumMeteorology;
+import com.konpi.quantummeteorology.api.data.Month;
+import com.konpi.quantummeteorology.common.config.CommonConfig;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -18,22 +17,19 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 
 public class SeasonCommand extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "flower.season";
-	}
-
-	@Override
-	public List getAliases() {
-		return Lists.newArrayList("ss");
+		return "quantummeteorology.season";
 	}
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "commands.flower.season.usage";
+		return "commands.quantummeteorology.season.usage";
 	}
 
 	@Override
@@ -44,7 +40,7 @@ public class SeasonCommand extends CommandBase {
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length < 1) {
-			throw new WrongUsageException("commands.flower.season.usage");
+			throw new WrongUsageException("commands.quantummeteorology.season.usage");
 		} else if ("set".equals(args[0])) {
 			setSeason(sender, args);
 		} else if ("query".equals(args[0])) {
@@ -59,43 +55,48 @@ public class SeasonCommand extends CommandBase {
 		} else if (args.length == 2 && "set".equals(args[0])) {
 			String s[] = new String[12];
 			int i = 0;
-			for (SeasonState season : SeasonState.VALUES) {
-				s[i] = season.toString().toLowerCase();
+			for (Month month : Month.values()) {
+				s[i] = month.toString().toLowerCase();
 				i++;
 			}
 			return getListOfStringsMatchingLastWord(args, s);
 		}
-
 		return Collections.<String>emptyList();
 	}
 
 	private void setSeason(ICommandSender sender, String[] args) throws CommandException {
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-		SeasonState newSeason = null;
-		for (SeasonState season : SeasonState.VALUES) {
-			if (season.toString().toLowerCase().equals(args[1].toLowerCase())) {
-				newSeason = season;
+		int t = -1;
+		for (int i = 0; i < Month.values().length; i++) {
+			if (Month.values()[i].toString().toLowerCase().equals(args[1].toLowerCase())) {
+				t = i;
 				break;
 			}
 		}
-		if (newSeason != null) {
-			SeasonSaveData seasonData = SeasonHandler.getSeasonSavedData(player.world);
-			seasonData.seasonCycleTicks = SeasonTime.ZERO.getSeasonStateDuration() * newSeason.ordinal();
-			seasonData.markDirty();
-			SeasonHandler.sendSeasonUpdate(player.world);
-			sender.sendMessage(new TextComponentTranslation("commands.flower.season.set.success", args[1]));
+		if (t != -1) {
+			// 把这个作为一个补充的时间
+			// 补时 = 季节时间 - 世界时间
+			int st = (int) (t * Month.getMonthDuration() - player.getEntityWorld().getWorldTime());
+			int y = Month.getYearDuration();
+			// 调整范围
+			while (st < 0) {
+				st += y;
+			}
+			while (st > y) {
+				st -= y;
+			}
+			CommonConfig.general_config.starting_time = st;
+			CommonConfig.onConfigChanged(new OnConfigChangedEvent(QuantumMeteorology.MODID, null, true, false));
+			sender.sendMessage(new TextComponentTranslation("commands.quantummeteorology.season.set.success", args[1]));
 		} else {
-			sender.sendMessage(new TextComponentTranslation("commands.flower.season.set.fail", args[1]));
+			sender.sendMessage(new TextComponentTranslation("commands.quantummeteorology.season.set.fail", args[1]));
 		}
 	}
 
 	private void query(ICommandSender sender, String[] args) throws CommandException {
-		// TODO:热带季节？
-		SeasonSaveData seasonData = SeasonHandler.getSeasonSavedData(sender.getEntityWorld());
-		int i = (seasonData.seasonCycleTicks / SeasonTime.ZERO.getSeasonStateDuration())
-				% Season.SeasonState.VALUES.length;
-		String Season = SeasonState.VALUES[i].toString().toLowerCase();
-		sender.sendMessage(new TextComponentTranslation("commands.flower.season.query", Season));
+		World world = sender.getEntityWorld();
+		String s = Month.getmonth(world.getWorldTime()).toString();
+		sender.sendMessage(new TextComponentTranslation("commands.quantummeteorology.season.query", s));
 	}
 
 }

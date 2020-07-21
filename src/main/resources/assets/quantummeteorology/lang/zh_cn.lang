@@ -30,6 +30,13 @@ item.quantummeteorology.garlic.name=大蒜
 
 # 指令
 commands.quantummeteorology.season.usage=season.usage
-commands.quantummeteorology.season.set.success=季节设置成功
-commands.quantummeteorology.season.set.fail=季节设置失败
+commands.quantummeteorology.player.usege=player.usage
+commands.quantummeteorology.season.set.success=季节设置成功：%s
+commands.quantummeteorology.season.set.fail=季节设置失败：%s
 commands.quantummeteorology.season.query=当前季节为%s
+commands.quantummeteorology.temperature.set.success=体温设置成功：%s
+commands.quantummeteorology.temperature.set.fail=体温设置失败：%s
+commands.quantummeteorology.thirst.set.success=水分设置成功：%s
+commands.quantummeteorology.thirst.set.fail=水分设置失败：%s
+commands.quantummeteorology.temperature.query=当前体温为：%s
+commands.quantummeteorology.thirst.query=当前水分为：%s
