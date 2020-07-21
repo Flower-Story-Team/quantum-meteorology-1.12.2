@@ -48,6 +48,7 @@ public class ModItems {
 
 		// 熟食
 		simpleItemList.add(new ItemFoodInBowl("steamed_rice", 1, 0.6F, false)); // 米饭
+		simpleItemList.add(new ItemFoodBase("popcorn",3,0.6F,false)); //爆米花
 
 		// 餐具
 		simpleItemList.add(new ItemTablewareBase("bowl").setMaxStackSize(16)); // 碗
