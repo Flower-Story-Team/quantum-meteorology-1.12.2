@@ -4,9 +4,9 @@ import net.minecraft.util.DamageSource;
 
 public class FlowerDamageSource {
 
-	public static final DamageSource THIRSE = new DamageSource("flower.thirst").setDamageIsAbsolute();
+	public static final DamageSource THIRSE = new DamageSource("death.quantummeteorology.thirst").setDamageIsAbsolute();
 
-	public static final DamageSource HEAT = new DamageSource("flwoer.heat").setDamageIsAbsolute();
+	public static final DamageSource HEAT = new DamageSource("death.quantummeteorology.heat").setDamageIsAbsolute();
 
-	public static final DamageSource COLD = new DamageSource("flower.cold").setDamageIsAbsolute();
+	public static final DamageSource COLD = new DamageSource("death.quantummeteorology.cold").setDamageIsAbsolute();
 }

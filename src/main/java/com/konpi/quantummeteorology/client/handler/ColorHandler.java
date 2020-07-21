@@ -28,7 +28,8 @@ public class ColorHandler {
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
 					int tintIndex) {
 				int FoliageColor = ColorizerFoliage.getFoliageColorBasic();
-				if (worldIn != null && pos != null && Minecraft.getMinecraft().player.dimension == 0) {
+				if (worldIn != null && pos != null
+						&& CommonConfig.isWhiteListDimension(Minecraft.getMinecraft().player.dimension)) {
 					// Biome biome = worldIn.getBiome(pos);
 					long t = Minecraft.getMinecraft().player.world.getWorldTime();
 					FoliageColor = Month.getmonth(t).getFoliageColor();
@@ -37,30 +38,15 @@ public class ColorHandler {
 					return FoliageColor;
 				}
 			}
-		}, Blocks.LEAVES);
-
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
-			@Override
-			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
-					int tintIndex) {
-				int FoliageColor = ColorizerFoliage.getFoliageColorBasic();
-				if (worldIn != null && pos != null && Minecraft.getMinecraft().player.dimension == 0) {
-					// Biome biome = worldIn.getBiome(pos);
-					long t = Minecraft.getMinecraft().player.world.getWorldTime();
-					FoliageColor = Month.getmonth(t).getFoliageColor();
-					return FoliageColor;
-				} else {
-					return FoliageColor;
-				}
-			}
-		}, Blocks.LEAVES2);
+		}, Blocks.LEAVES, Blocks.LEAVES2, Blocks.VINE);
 
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
 					int tintIndex) {
 				int grassColor = ColorizerGrass.getGrassColor(0.5, 0.5);
-				if (worldIn != null && pos != null && Minecraft.getMinecraft().player.dimension == 0) {
+				if (worldIn != null && pos != null
+						&& CommonConfig.isWhiteListDimension(Minecraft.getMinecraft().player.dimension)) {
 					// Biome biome = worldIn.getBiome(pos);
 					long t = Minecraft.getMinecraft().player.world.getWorldTime();
 					grassColor = Month.getmonth(t).getGrassColor();
@@ -68,6 +54,6 @@ public class ColorHandler {
 				return grassColor;
 			}
 
-		}, Blocks.GRASS, Blocks.TALLGRASS, Blocks.DOUBLE_PLANT, Blocks.VINE);
+		}, Blocks.GRASS, Blocks.TALLGRASS, Blocks.DOUBLE_PLANT);
 	}
 }

@@ -21,7 +21,7 @@ public class SeasonChangeHandler {
 		if (Minecraft.getMinecraft().player == null || !CommonConfig.general_config.seasonal_color_change)
 			return;
 		int dimension = Minecraft.getMinecraft().player.dimension;
-		if (event.phase == TickEvent.Phase.END && dimension == 0) {
+		if (event.phase == TickEvent.Phase.END && CommonConfig.isWhiteListDimension(dimension)) {
 			long t = Minecraft.getMinecraft().player.world.getWorldTime();
 			if (this.month == null) {
 				// 进世界初始

@@ -123,7 +123,6 @@ public class CapabilityHandler {
 				int su = ylllutil.GetTemperature(world, player.getPosition());
 				int temp = player.getCapability(Capabilities.TEMPERATURE, null).getTemperature();
 				int thir = player.getCapability(Capabilities.THIRST, null).getThirst();
-				System.out.println("\n\n" + "环境温度 - " + su + "   体温 - " + temp + "  水分 - " + thir + "\n");
 				b = false;
 			} else {
 				b = true;

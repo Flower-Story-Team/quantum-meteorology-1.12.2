@@ -16,7 +16,7 @@ public class ModStates {
 	public static void init() {
 		CapabilityManager.INSTANCE.register(IThirst.class, new Capability.IStorage<IThirst>() {
 
-			public static final String capname = "flower.thirst";
+			public static final String capname = "quantummeteorology.thirst";
 
 			@Override
 			public NBTBase writeNBT(Capability<IThirst> capability, IThirst instance, EnumFacing side) {
@@ -40,7 +40,7 @@ public class ModStates {
 
 		CapabilityManager.INSTANCE.register(ITemperature.class, new Capability.IStorage<ITemperature>() {
 
-			public static final String capname = "flower.temperature";
+			public static final String capname = "quantummeteorology.temperature";
 
 			@Override
 			public NBTBase writeNBT(Capability<ITemperature> capability, ITemperature instance, EnumFacing side) {
