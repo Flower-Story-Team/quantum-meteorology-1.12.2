@@ -36,20 +36,21 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 	public void update(EntityPlayer player, World world, Phase phase) {
 		if (player.isCreative())
 			return;
-		if (phase == Phase.END && world.getWorldTime() % 100 == 0 && b) {
+		if (phase == Phase.END && world.getWorldTime() % 20 == 0 && b) {
 			int surround = ylllutil.GetTemperature(world, player.getPosition());
-			this.temp = 20 + (surround - temp) / (player.getCapability(Capabilities.THIRST, null).getThirst() + 1);
+			this.temp = temp
+					+ (surround - temp) / (player.getCapability(Capabilities.THIRST, null).getThirst() / 8 + 1);
 
 			if (world.getDifficulty() != EnumDifficulty.PEACEFUL) {
-				if (this.temp > 50) {
+				if (this.temp > 30) {
 					player.attackEntityFrom(FlowerDamageSource.HEAT, 5);
 					// TODO:幻觉，其他
-				} else if (this.temp > 30) {
+				} else if (this.temp > 25) {
 					player.attackEntityFrom(FlowerDamageSource.HEAT, 2);
-				} else if (this.temp < 0) {
+				} else if (this.temp < 10) {
 					player.attackEntityFrom(FlowerDamageSource.COLD, 5);
 					// TODO:减速？
-				} else if (this.temp < 10) {
+				} else if (this.temp < 15) {
 					player.attackEntityFrom(FlowerDamageSource.COLD, 2);
 					// TODO：减速？
 				}
@@ -77,5 +78,10 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 	@Override
 	public void onSendClientUpdate() {
 		this.pretemp = this.temp;
+	}
+
+	@Override
+	public void onjump() {
+		this.temp += 0.2;
 	}
 }

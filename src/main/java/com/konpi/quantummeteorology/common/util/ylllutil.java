@@ -1,8 +1,11 @@
 package com.konpi.quantummeteorology.common.util;
 
 import com.konpi.quantummeteorology.common.config.CommonConfig;
+import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.BlockTemperature;
+import com.konpi.quantummeteorology.api.data.Month;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
@@ -10,6 +13,20 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
 public class ylllutil {
+
+	public static void info(World world, EntityPlayer player) {
+		BlockPos pos = player.getPosition();
+		Biome biome = world.getBiome(pos);
+		long worldtime = world.getWorldTime();
+		System.out.println("\n\nday:" + DayTemperature(worldtime)//
+				+ " height:" + HeightTemperature(pos.getY())//
+				+ " biome:" + BiomeTemperature(biome)//
+				+ " block:" + BlockTemperature(world, pos)//
+				+ " month:" + Month.getmonth(worldtime).getTemperature() + "\n"//
+				+ " surround:" + ylllutil.GetTemperature(world, player.getPosition()) //
+				+ " temp:" + player.getCapability(Capabilities.TEMPERATURE, null).getTemperature()//
+				+ " thirst:" + player.getCapability(Capabilities.THIRST, null).getThirst());
+	}
 
 	public static TextFormatting getTemperatureColor(float temperature) {
 		if (temperature < -10) {
@@ -28,7 +45,7 @@ public class ylllutil {
 		Biome biome = world.getBiome(pos);
 		long worldtime = world.getWorldTime();
 		return 20 + DayTemperature(worldtime) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
-				+ BlockTemperature(world, pos);
+				+ BlockTemperature(world, pos) + Month.getmonth(worldtime).getTemperature();
 	}
 
 	public static int DayTemperature(long worldtime) {
@@ -83,8 +100,7 @@ public class ylllutil {
 			for (int x = -i; x < i; x++) {
 				for (int y = -i; y < i; y++) {
 					for (int z = -i; z < i; z++) {
-						if (world.getBlockState(pos.add(x, y, z)).toString().equals(block.getState())
-								&& Math.sqrt(x * x + y * y + z * z) <= i) {
+						if (world.getBlockState(pos.add(x, y, z)).toString().equals(block.getState())) {
 							temp += block.getTemperatureperblock() * Math.sqrt(x * x + y * y + z * z);
 						}
 					}

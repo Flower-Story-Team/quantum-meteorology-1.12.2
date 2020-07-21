@@ -3,6 +3,7 @@ package com.konpi.quantummeteorology.api.capabilities;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 public class CapabilityProvider<C> implements ICapabilityProvider {
 
@@ -23,5 +24,4 @@ public class CapabilityProvider<C> implements ICapabilityProvider {
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 		return capability != null && capability == this.capability ? (T) this.instance : null;
 	}
-
 }

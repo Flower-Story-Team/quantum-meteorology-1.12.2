@@ -90,7 +90,9 @@ public enum Month {
 	}
 
 	public int getTemperature() {
-		return this.temperature;
+		if (CommonConfig.temperature_dependence.temperature_month)
+			return this.temperature;
+		return 0;
 	}
 
 	public int getFoliageColor1() {

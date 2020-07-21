@@ -3,6 +3,7 @@ package com.konpi.quantummeteorology.api.capabilities.thirst;
 import javax.vecmath.Vector3d;
 
 import com.konpi.quantummeteorology.QuantumMeteorology;
+import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.FlowerDamageSource;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
 import com.konpi.quantummeteorology.common.util.ylllutil;
@@ -41,7 +42,7 @@ public class ThirstHandler implements IPlayerState, IThirst {
 		if (player.isCreative())
 			return;
 		long time = world.getWorldTime();
-		if (phase == Phase.END && time % 20 == 0 && b) {
+		if (phase == Phase.END && time % 10 == 0 && b) {
 			long costtime = 30;
 			int temp = ylllutil.GetTemperature(world, player.getPosition());
 			if (temp > 20) {
@@ -57,7 +58,7 @@ public class ThirstHandler implements IPlayerState, IThirst {
 			}
 
 			// 用来判断玩家速度，正常步行速度为0.22左右，跑步为0.28，跑跳为0.3+
-			double velocity = new Vector3d(player.chasingPosX - player.prevChasingPosX, 0,
+			double velocity = new Vector3d(player.chasingPosX - player.prevChasingPosX, player.motionY,
 					player.chasingPosZ - player.prevChasingPosZ).length();
 			if (velocity > 0.3) {
 				costtime -= 10;
@@ -73,9 +74,9 @@ public class ThirstHandler implements IPlayerState, IThirst {
 					this.thirst = Math.max(thirst - 1, 0);
 					time_1 = time;
 				}
-				if (this.thirst < 0) {
+				if (this.thirst < 10 && time % 20 == 0) {
 					player.attackEntityFrom(FlowerDamageSource.THIRSE, 5);
-				} else if (this.thirst < 10) {
+				} else if (this.thirst < 20 && time % 20 == 0) {
 					player.attackEntityFrom(FlowerDamageSource.THIRSE, 1);
 				}
 			}
@@ -105,6 +106,14 @@ public class ThirstHandler implements IPlayerState, IThirst {
 	@Override
 	public void onSendClientUpdate() {
 		this.prethirst = this.thirst;
+	}
+
+	@Override
+	public void onjump() {
+		this.time_2 += 1;
+		if (time_2 == 10) {
+			this.thirst = Math.max(thirst - 1, 0);
+		}
 	}
 
 }

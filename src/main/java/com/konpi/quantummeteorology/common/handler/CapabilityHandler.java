@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -61,14 +62,14 @@ public class CapabilityHandler {
 		World world = player.world;
 		if (!world.isRemote) {
 			// thirst
-			Capability cap = Capabilities.THIRST;
-			IPlayerState state = (IPlayerState) player.getCapability(cap, null);
-			cap.getStorage().readNBT(cap, state, null, player.getEntityData().getCompoundTag(cap.getName()));
+			Capability cap1 = Capabilities.THIRST;
+			IPlayerState state = (IPlayerState) player.getCapability(cap1, null);
+			cap1.getStorage().readNBT(cap1, state, null, player.getEntityData().getCompoundTag(cap1.getName()));
 			state.onSendClientUpdate();
 			// temperature
-			cap = Capabilities.TEMPERATURE;
-			state = (IPlayerState) player.getCapability(cap, null);
-			cap.getStorage().readNBT(cap, state, null, player.getEntityData().getCompoundTag(cap.getName()));
+			Capability cap2 = Capabilities.TEMPERATURE;
+			state = (IPlayerState) player.getCapability(cap2, null);
+			cap2.getStorage().readNBT(cap2, state, null, player.getEntityData().getCompoundTag(cap2.getName()));
 			state.onSendClientUpdate();
 		}
 	}
@@ -90,8 +91,6 @@ public class CapabilityHandler {
 			state.onSendClientUpdate();
 		}
 	}
-
-	boolean b = false;
 
 	@SubscribeEvent
 	public void onPlayerTick(PlayerTickEvent event) {
@@ -119,14 +118,6 @@ public class CapabilityHandler {
 					state.onSendClientUpdate();
 				}
 			}
-			if (world.getWorldTime() % 40 == 0 && b) {
-				int su = ylllutil.GetTemperature(world, player.getPosition());
-				int temp = player.getCapability(Capabilities.TEMPERATURE, null).getTemperature();
-				int thir = player.getCapability(Capabilities.THIRST, null).getThirst();
-				b = false;
-			} else {
-				b = true;
-			}
 		}
 	}
 
@@ -151,4 +142,21 @@ public class CapabilityHandler {
 		}
 	}
 
+	@SubscribeEvent
+	public void onPlayerJump(LivingJumpEvent event) {
+		World world = event.getEntity().world;
+		if (!world.isRemote && event.getEntity() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.getEntity();
+			if (!player.isCreative()) {
+				// thirst
+				Capability cap = Capabilities.THIRST;
+				IPlayerState state = (IPlayerState) player.getCapability(cap, null);
+				state.onjump();
+				// temperature
+				cap = Capabilities.TEMPERATURE;
+				state = (IPlayerState) player.getCapability(cap, null);
+				state.onjump();
+			}
+		}
+	}
 }

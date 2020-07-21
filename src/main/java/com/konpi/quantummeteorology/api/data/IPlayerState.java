@@ -13,4 +13,6 @@ public interface IPlayerState {
 	public boolean hasChanged();
 
 	public void onSendClientUpdate();
+
+	public void onjump();
 }

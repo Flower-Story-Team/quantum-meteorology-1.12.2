@@ -36,7 +36,12 @@ commands.quantummeteorology.season.set.fail=季节设置失败：%s
 commands.quantummeteorology.season.query=当前季节为%s
 commands.quantummeteorology.temperature.set.success=体温设置成功：%s
 commands.quantummeteorology.temperature.set.fail=体温设置失败：%s
-commands.quantummeteorology.thirst.set.success=水分设置成功：%s
-commands.quantummeteorology.thirst.set.fail=水分设置失败：%s
+commands.quantummeteorology.thirst.set.success=口渴设置成功：%s
+commands.quantummeteorology.thirst.set.fail=口渴设置失败：%s
 commands.quantummeteorology.temperature.query=当前体温为：%s
-commands.quantummeteorology.thirst.query=当前水分为：%s
+commands.quantummeteorology.thirst.query=当前口渴为：%s
+
+#伤害类型
+death.attack.quantummeteorology.thirst=%s渴死了
+death.attack.quantummeteorology.heat=%s热死了
+death.attack.quantummeteorology.cold=%s冷死了
