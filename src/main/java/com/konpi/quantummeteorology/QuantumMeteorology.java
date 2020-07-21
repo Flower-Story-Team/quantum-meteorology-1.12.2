@@ -17,7 +17,7 @@ import org.apache.logging.log4j.Logger;
 public class QuantumMeteorology {
 	public static final String MODID = "quantummeteorology";
 	public static final String NAME = "Quantum Meteorology";
-	public static final String VERSION = "1.0.1";
+	public static final String VERSION = "Beta1.0.1";
 
 	public static Logger logger = LogManager.getLogger(QuantumMeteorology.NAME);
 

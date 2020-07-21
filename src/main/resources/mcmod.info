@@ -3,7 +3,7 @@
   "modid": "quantummeteorology",
   "name": "Quantum Meteorology",
   "description": "Just a demo mod",
-  "version": "${version}",
+  "version": "Beta 1.0.1",
   "mcversion": "${mcversion}",
   "url": "https://github.com/Flower-Story-Team/QuantumMeteorology-1.12.2",
   "updateUrl": "",
