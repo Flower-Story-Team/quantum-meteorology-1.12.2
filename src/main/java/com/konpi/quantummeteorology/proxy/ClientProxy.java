@@ -1,5 +1,7 @@
 package com.konpi.quantummeteorology.proxy;
 
+import com.konpi.quantummeteorology.common.init.ModHandler;
+
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -18,6 +20,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
 		super.postInit(event);
+		ModHandler.postinit();
 	}
 
 }

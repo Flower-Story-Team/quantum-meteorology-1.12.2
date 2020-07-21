@@ -16,34 +16,31 @@ import java.util.ArrayList;
 @Mod.EventBusSubscriber
 public class ModFluid {
 
-    public static final ArrayList<Fluid> fluidList = new ArrayList<>();
+	public static final ArrayList<Fluid> fluidList = new ArrayList<>();
 
-    static
-    {
-        // 允许万能桶
-        FluidRegistry.enableUniversalBucket();
-        fluidList.add(FluidBase.singleTexture("sludge"));
-    }
+	static {
+		// 允许万能桶
+		FluidRegistry.enableUniversalBucket();
+		fluidList.add(FluidBase.singleTexture("sludge"));
+	}
 
-    @SubscribeEvent
-    public static void registerFluids(RegistryEvent.Register<Block> event)
-    {
-        QuantumMeteorology.logger.info("registering fluids");
-        fluidList.forEach(fluid ->
-        {
-            FluidRegistry.registerFluid(fluid);
-            FluidRegistry.addBucketForFluid(fluid);
-        });
+	@SubscribeEvent
+	public static void registerFluids(RegistryEvent.Register<Block> event) {
+		QuantumMeteorology.logger.info("registering fluids");
+		fluidList.forEach(fluid -> {
+			FluidRegistry.registerFluid(fluid);
+			FluidRegistry.addBucketForFluid(fluid);
+		});
 
-        QuantumMeteorology.logger.info("registering fluid blocks");
-        ModFluid.fluidList.forEach(fluid ->
-        {
-            Block blockFluid = fluid.getBlock();
-            if (blockFluid == null) {
-                // 默认的流体方块
-                blockFluid = new BlockFluidClassic(fluid, Material.WATER).setRegistryName(QuantumMeteorology.MODID, fluid.getName());
-            }
-            event.getRegistry().register(blockFluid);
-        });
-    }
+		QuantumMeteorology.logger.info("registering fluid blocks");
+		ModFluid.fluidList.forEach(fluid -> {
+			Block blockFluid = fluid.getBlock();
+			if (blockFluid == null) {
+				// 默认的流体方块
+				blockFluid = new BlockFluidClassic(fluid, Material.WATER).setRegistryName(QuantumMeteorology.MODID,
+						fluid.getName());
+			}
+			event.getRegistry().register(blockFluid);
+		});
+	}
 }
