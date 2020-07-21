@@ -23,16 +23,16 @@ public enum BlockTemperature {
 	public void setState(String state) {
 		this.state = state;
 	}
-
+//获取范围
 	public int getRange() {
 		return range;
 	}
-
+// 获取方块的温度
 	public int getTemperatureperblock() {
 		return temperatureperblock;
 	}
 /*
-* @return 设置范围
+*  设置范围
 */
 	public void setRange(int range) {
 		this.range = range;
