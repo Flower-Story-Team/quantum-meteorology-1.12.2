@@ -44,6 +44,7 @@ public class ModItems {
 		simpleItemList.add(new ItemFoodBase("onion", 1, 0.6F, false)); // 洋葱
 		simpleItemList.add(new ItemFoodBase("lentil", 1, 0.6F, false)); // 扁豆
 		simpleItemList.add(new ItemFoodBase("garlic", 1, 0.6F, false)); // 大蒜
+		simpleItemList.add(new ItemFoodBase("cuke", 1, 0.6F, false)); //黄瓜
 
 		// 熟食
 		simpleItemList.add(new ItemFoodInBowl("steamed_rice", 1, 0.6F, false)); // 米饭
