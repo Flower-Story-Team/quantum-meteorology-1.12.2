@@ -71,16 +71,16 @@ public enum PlantData {
 			float max = plant.getTemperature_max();
 			float proference = plant.getTemperature_proference();
 			event.getToolTip().add(//
-					I18n.format("flower.plant.temperature") + ": "//
+					I18n.format("quantummeteorology.plant.temperature") + ": "//
 							+ ylllutil.getTemperatureColor(min) + min//
 							+ TextFormatting.RESET + " ~ "//
-							+ ylllutil.getTemperatureColor(max) + max//
-							+ TextFormatting.RESET + "("//
-							+ ylllutil.getTemperatureColor(proference) + proference//
-							+ TextFormatting.RESET + ")");
+							+ ylllutil.getTemperatureColor(max) + max);
+			event.getToolTip().add(//
+					I18n.format("quantummeteorology.plant.proferencetemperature") + ": "//
+							+ ylllutil.getTemperatureColor(proference) + proference);
 
 			if (GuiScreen.isShiftKeyDown()) {
-				event.getToolTip().add(I18n.format("flower.plant." + plant.toString().toLowerCase()));
+				event.getToolTip().add(I18n.format("quantummeteorology.plant." + plant.toString().toLowerCase()));
 			}
 		}
 	}
