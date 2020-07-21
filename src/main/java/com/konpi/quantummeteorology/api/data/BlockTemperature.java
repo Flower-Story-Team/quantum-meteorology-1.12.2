@@ -37,7 +37,7 @@ public enum BlockTemperature {
 	public void setRange(int range) {
 		this.range = range;
 	}
-
+// 设置方块温度
 	public void setTemperatureperblock(int temperatureperblock) {
 		this.temperatureperblock = temperatureperblock;
 	}
