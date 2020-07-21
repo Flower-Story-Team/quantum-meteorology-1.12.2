@@ -1,5 +1,5 @@
 package com.konpi.quantummeteorology.common.init;
-
+/*
 import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.fluid.FluidBase;
 import net.minecraft.block.Block;
@@ -22,6 +22,7 @@ public class ModGases {
         // 允许万能桶
         FluidRegistry.enableUniversalBucket();
         fluidList.add(FluidBase.singleTexture("naturalgas"));
+        fluidList.add(FluidBase.singleTexture("coalgas"));
     }
 
     @SubscribeEvent
@@ -44,3 +45,6 @@ public class ModGases {
         });
     }
 }
+
+
+*/

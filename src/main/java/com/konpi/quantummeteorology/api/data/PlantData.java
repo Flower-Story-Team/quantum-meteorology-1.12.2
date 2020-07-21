@@ -22,6 +22,9 @@ public enum PlantData {
 	SAPLING1(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.SPRUCE), -20, 60), //
 	SAPLING2(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.BIRCH), -10, 70);//
 
+	//
+
+
 	private PlantData(IBlockState state, float temperature_min, float temperature_max) {
 		this(state, temperature_min, (temperature_min + temperature_max) / 2, temperature_max);
 	}

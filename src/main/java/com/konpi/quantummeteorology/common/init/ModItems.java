@@ -51,6 +51,9 @@ public class ModItems {
 		// 餐具
 		simpleItemList.add(new ItemTablewareBase("bowl").setMaxStackSize(16)); // 碗
 
+		//
+		simpleItemList.add(new ItemBase("thermometer").setCreativeTab(ModCreativeTabs.MISC)); //温度计 占时没啥用
+
 		// 实例化方块物品
 		QuantumMeteorology.logger.info("initializing block items");
 		for (Block b : ModBlocks.simpleBlockList) {
