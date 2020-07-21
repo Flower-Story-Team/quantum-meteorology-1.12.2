@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.client.init;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.init.ModFluid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -44,5 +44,5 @@ public class FluidMapper
     }
 
     static final ResourceLocation FLUID_STATE_FILE =
-            new ResourceLocation(Flower.MODID, "fluid");
+            new ResourceLocation(QuantumMeteorology.MODID, "fluid");
 }

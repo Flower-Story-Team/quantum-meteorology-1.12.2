@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.handler;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.state.IPlayerState;
 import com.konpi.quantummeteorology.api.state.StateHandlerBase;
 import com.konpi.quantummeteorology.api.state.capability.PlayerStateRegistry;
@@ -24,7 +24,7 @@ public class ExtendedStateHandler {
 			EntityPlayer player = (EntityPlayer) event.getObject();
 
 			for (String identifier : PlayerStateRegistry.getCapabilityMap().keySet()) {
-				ResourceLocation loc = new ResourceLocation(Flower.MODID, identifier);
+				ResourceLocation loc = new ResourceLocation(QuantumMeteorology.MODID, identifier);
 
 				// Each player should have their own instance for each stat, as associated
 				// values may vary

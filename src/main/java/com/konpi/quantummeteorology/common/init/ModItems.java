@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.init;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class ModItems
     static
     {
         //实例化普通物品
-    	Flower.logger.info("initializing normal items");
+    	QuantumMeteorology.logger.info("initializing normal items");
         
     	
     	//种子
@@ -61,7 +61,7 @@ public class ModItems
         
         
         //实例化方块物品
-        Flower.logger.info("initializing block items");
+        QuantumMeteorology.logger.info("initializing block items");
         for (Block b : ModBlocks.simpleBlockList)
         {
             simpleItemList.add(new ItemBlockBase(b));
@@ -74,13 +74,13 @@ public class ModItems
     public static void onItemRegister(RegistryEvent.Register<Item> event)
     {
         //注册普通物品
-        Flower.logger.info("registering items");
+        QuantumMeteorology.logger.info("registering items");
         event.getRegistry().registerAll(simpleItemList.toArray(new Item[0]));
     }
     
     
     /**注册物品后这个会自动变成对应物品的引用*/
-    @ObjectHolder(Flower.MODID)
+    @ObjectHolder(QuantumMeteorology.MODID)
     public static class ItemHolder
     {
     	//种子

@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.proxy;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.init.ModConfig;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -16,7 +16,7 @@ public class CommonProxy {
 	public static File configDirectory;
 
 	public void preInit(FMLPreInitializationEvent event) {
-		configDirectory = new File(event.getModConfigurationDirectory(), Flower.NAME);
+		configDirectory = new File(event.getModConfigurationDirectory(), QuantumMeteorology.NAME);
 		// 生成不显示的配置文件
 		ModConfig.preInit(configDirectory);
 	}

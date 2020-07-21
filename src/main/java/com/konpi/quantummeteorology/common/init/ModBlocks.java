@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.init;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.block.BlockCropsBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -44,12 +44,12 @@ public class ModBlocks
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event)
     {
-        Flower.logger.info("registering blocks");
+        QuantumMeteorology.logger.info("registering blocks");
         event.getRegistry().registerAll(simpleBlockList.toArray(new Block[0]));
         event.getRegistry().registerAll(noItemBlockList.toArray(new Block[0]));
     }
 
-    @ObjectHolder(Flower.MODID)
+    @ObjectHolder(QuantumMeteorology.MODID)
     public static class BlockHolder
     {
 

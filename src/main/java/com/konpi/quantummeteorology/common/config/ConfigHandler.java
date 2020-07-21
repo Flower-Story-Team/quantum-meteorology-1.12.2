@@ -1,7 +1,7 @@
 package com.konpi.quantummeteorology.common.config;
 
 import java.io.File;
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.config.ISyncedOption;
 import com.konpi.quantummeteorology.api.config.SyncedConfig;
 import com.konpi.quantummeteorology.common.init.ModConfig;
@@ -49,7 +49,7 @@ public abstract class ConfigHandler {
 
 	@SubscribeEvent
 	public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
-		if (event.getModID().equalsIgnoreCase(Flower.MODID)) {
+		if (event.getModID().equalsIgnoreCase(QuantumMeteorology.MODID)) {
 			loadConfiguration();
 		}
 	}

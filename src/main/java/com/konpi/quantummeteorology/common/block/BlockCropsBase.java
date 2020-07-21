@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.block;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.item.Item;
 
@@ -16,7 +16,7 @@ public abstract class BlockCropsBase extends BlockCrops {
      */
     public BlockCropsBase(String registryName) {
         this.setRegistryName(registryName);
-        this.setTranslationKey(Flower.MODID + "." + registryName);
+        this.setTranslationKey(QuantumMeteorology.MODID + "." + registryName);
     }
 
     @Override

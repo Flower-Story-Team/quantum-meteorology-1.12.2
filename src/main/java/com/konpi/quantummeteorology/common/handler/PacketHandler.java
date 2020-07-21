@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.handler;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.network.ConfigMessage;
 import com.konpi.quantummeteorology.common.network.MessageDrinkWaterInWorld;
 import com.konpi.quantummeteorology.common.network.MessageTemperatureClient;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class PacketHandler {
-	public static final SimpleNetworkWrapper instance = NetworkRegistry.INSTANCE.newSimpleChannel(Flower.MODID);
+	public static final SimpleNetworkWrapper instance = NetworkRegistry.INSTANCE.newSimpleChannel(QuantumMeteorology.MODID);
 
 	public static void init() {
 		instance.registerMessage(SeasonCycleMessage.class, SeasonCycleMessage.class, 3, Side.CLIENT);

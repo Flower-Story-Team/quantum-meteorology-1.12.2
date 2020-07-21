@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.block;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -15,7 +15,7 @@ public class BlockBase extends Block
     {
         super(blockMaterialIn, blockMapColorIn);
         this.setRegistryName(registryName);
-        this.setTranslationKey(Flower.MODID + "." + registryName);
+        this.setTranslationKey(QuantumMeteorology.MODID + "." + registryName);
     }
 
 }

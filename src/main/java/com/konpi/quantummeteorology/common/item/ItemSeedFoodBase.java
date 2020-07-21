@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.item;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.init.ModCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -20,7 +20,7 @@ public class ItemSeedFoodBase extends ItemSeedFood {
     public ItemSeedFoodBase(String registryName, int healAmount, float saturation, Block crops) {
         super(healAmount, saturation, crops, Blocks.FARMLAND);
         this.setRegistryName(registryName);
-        this.setTranslationKey(Flower.MODID + "." + registryName);
+        this.setTranslationKey(QuantumMeteorology.MODID + "." + registryName);
         this.setCreativeTab(ModCreativeTabs.FOOD);
     }
 

@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.config;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 /**
  * 这个是游戏中显示的配置文件，凡显示的都要订阅这个事件，不显示的都要extends ConfigHandler
  */
-@Config(modid = Flower.MODID, name = Flower.NAME + "/general", category = "")
+@Config(modid = QuantumMeteorology.MODID, name = QuantumMeteorology.NAME + "/general", category = "")
 @Mod.EventBusSubscriber
 public class flower {
 
@@ -19,7 +19,7 @@ public class flower {
 
 	@SubscribeEvent
 	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-		if (event.getModID().equals(Flower.MODID)) {
+		if (event.getModID().equals(QuantumMeteorology.MODID)) {
 			ConfigManager.sync(event.getModID(), Config.Type.INSTANCE); // resync config
 		}
 	}

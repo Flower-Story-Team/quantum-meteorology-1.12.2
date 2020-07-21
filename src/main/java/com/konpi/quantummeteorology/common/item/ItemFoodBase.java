@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.item;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.init.ModCreativeTabs;
 import net.minecraft.item.ItemFood;
 
@@ -19,7 +19,7 @@ public class ItemFoodBase extends ItemFood
     {
         super(amount, saturation, isWolfFood);
         this.setRegistryName(registryName);
-        this.setTranslationKey(Flower.MODID + "." + registryName);
+        this.setTranslationKey(QuantumMeteorology.MODID + "." + registryName);
         this.setCreativeTab(ModCreativeTabs.FOOD);
     }
     

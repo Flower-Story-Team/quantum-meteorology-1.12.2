@@ -19,14 +19,14 @@ import org.apache.logging.log4j.Logger;
 /**
  * 需要把各种init放进common proxy和client proxy里面去
  */
-@Mod(modid = Flower.MODID, name = Flower.NAME, version = Flower.VERSION, acceptedMinecraftVersions = "1.12.2")
-public class Flower
+@Mod(modid = QuantumMeteorology.MODID, name = QuantumMeteorology.NAME, version = QuantumMeteorology.VERSION, acceptedMinecraftVersions = "1.12.2")
+public class QuantumMeteorology
 {
 	public static final String MODID = "quantummeteorology";
 	public static final String NAME = "Quantum Meteorology";
 	public static final String VERSION = "1.0.1";
 	
-	public static Logger logger = LogManager.getLogger(Flower.NAME);
+	public static Logger logger = LogManager.getLogger(QuantumMeteorology.NAME);
 	
 	@SidedProxy(clientSide = "com.konpi.quantummeteorology.proxy.ClientProxy", serverSide = "com.konpi.quantummeteorology.proxy.CommonProxy")
 	public static CommonProxy proxy;
@@ -35,6 +35,8 @@ public class Flower
 	{
 		// 允许万能桶
 		FluidRegistry.enableUniversalBucket();
+		
+		
 	}
 
 	@Mod.EventHandler

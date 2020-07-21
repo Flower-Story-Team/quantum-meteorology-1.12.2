@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.init;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.fluid.FluidBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -28,20 +28,20 @@ public class ModFluid {
     @SubscribeEvent
     public static void registerFluids(RegistryEvent.Register<Block> event)
     {
-        Flower.logger.info("registering fluids");
+        QuantumMeteorology.logger.info("registering fluids");
         fluidList.forEach(fluid ->
         {
             FluidRegistry.registerFluid(fluid);
             FluidRegistry.addBucketForFluid(fluid);
         });
 
-        Flower.logger.info("registering fluid blocks");
+        QuantumMeteorology.logger.info("registering fluid blocks");
         ModFluid.fluidList.forEach(fluid ->
         {
             Block blockFluid = fluid.getBlock();
             if (blockFluid == null) {
                 // 默认的流体方块
-                blockFluid = new BlockFluidClassic(fluid, Material.WATER).setRegistryName(Flower.MODID, fluid.getName());
+                blockFluid = new BlockFluidClassic(fluid, Material.WATER).setRegistryName(QuantumMeteorology.MODID, fluid.getName());
             }
             event.getRegistry().register(blockFluid);
         });

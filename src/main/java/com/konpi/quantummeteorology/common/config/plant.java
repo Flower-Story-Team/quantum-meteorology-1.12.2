@@ -2,7 +2,7 @@ package com.konpi.quantummeteorology.common.config;
 
 import java.io.File;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.config.FlowerOption;
 
 /**
@@ -51,7 +51,7 @@ public class plant extends ConfigHandler {
 							"minecraft:brown_mushroom" },
 					"Crops growable in Winter (List either the seed item for the crop, or the crop block itself)");
 		} catch (Exception e) {
-			Flower.logger.error("Serene Seasons has encountered a problem loading seasons.cfg", e);
+			QuantumMeteorology.logger.error("Serene Seasons has encountered a problem loading seasons.cfg", e);
 		} finally {
 			if (config.hasChanged())
 				config.save();

@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.network;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.config.SyncedConfig;
 
 import io.netty.buffer.ByteBuf;
@@ -39,10 +39,10 @@ public class ConfigMessage implements IMessage, IMessageHandler<ConfigMessage, I
 				SyncedConfig.SyncedConfigEntry entry = SyncedConfig.optionsToSync.get(key);
 
 				if (entry == null)
-					Flower.logger.error("Option " + key + " does not exist locally!");
+					QuantumMeteorology.logger.error("Option " + key + " does not exist locally!");
 
 				entry.value = message.nbtOptions.getString(key);
-				Flower.logger.info("Flower configuration synchronized with the server");
+				QuantumMeteorology.logger.info("Flower configuration synchronized with the server");
 			}
 		}
 

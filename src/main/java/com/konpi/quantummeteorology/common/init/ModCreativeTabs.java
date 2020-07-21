@@ -1,6 +1,6 @@
 package com.konpi.quantummeteorology.common.init;
 
-import com.konpi.quantummeteorology.Flower;
+import com.konpi.quantummeteorology.QuantumMeteorology;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
@@ -42,7 +42,7 @@ public class ModCreativeTabs
 
     public static String getLabel(String name)
     {
-        return Flower.MODID + "." + name;
+        return QuantumMeteorology.MODID + "." + name;
     }
 
 }
