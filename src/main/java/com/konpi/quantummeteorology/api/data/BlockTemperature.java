@@ -31,7 +31,9 @@ public enum BlockTemperature {
 	public int getTemperatureperblock() {
 		return temperatureperblock;
 	}
-
+/*
+* @return范围
+*/
 	public void setRange(int range) {
 		this.range = range;
 	}
