@@ -68,6 +68,6 @@ public class ColorHandler {
 				return grassColor;
 			}
 
-		}, Blocks.GRASS, Blocks.TALLGRASS, Blocks.DOUBLE_PLANT);
+		}, Blocks.GRASS, Blocks.TALLGRASS, Blocks.DOUBLE_PLANT, Blocks.VINE);
 	}
 }
