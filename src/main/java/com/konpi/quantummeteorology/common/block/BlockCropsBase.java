@@ -22,6 +22,8 @@ public abstract class BlockCropsBase extends BlockCrops {
     @Override
     public abstract Item getSeed();
 
+    public abstract Item gerCrop();
+
     @Override
     public abstract Item getCrop();
 

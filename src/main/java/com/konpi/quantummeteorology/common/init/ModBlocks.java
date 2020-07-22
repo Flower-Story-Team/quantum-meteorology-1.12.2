@@ -7,6 +7,7 @@ import com.konpi.quantummeteorology.common.block.CoalGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
@@ -31,19 +32,41 @@ public class ModBlocks
 
 	static
 	{
-		noItemBlockList.add(new BlockCropsBase("peanut")
-		{
+		noItemBlockList.add(new BlockCropsBase("peanut") {
 			@Override
 			public Item getSeed() {
 				return ModItems.ItemHolder.PEANUT;
 			}
 
 			@Override
+			public Item gerCrop() {
+				return ModItems.ItemHolder.PEANUT;
+			}
+
+
+			@Override
 			public Item getCrop() {
 				return ModItems.ItemHolder.PEANUT;
 			}
-		}); // 花生作物
-		
+		});// 花生作物
+
+
+		noItemBlockList.add(new BlockCropsBase("ginger") {
+			@Override
+			public Item getSeed() {
+				return ModItems.ItemHolder.GINGER;
+			}
+
+			@Override
+			public Item gerCrop() {
+				return ModItems.ItemHolder.GINGER;
+			}
+
+			@Override
+			public Item getCrop() {
+				return ModItems.ItemHolder.GINGER;
+			}
+		});//生姜
 		
 		//noItemBlockList.add(new Generator());
 		simpleBlockList.add(new CoalGenerator());
@@ -76,6 +99,9 @@ public class ModBlocks
 		
 		@ObjectHolder("peanut")		//花生植物
 		public static final Block PEANUT = null;
+
+		@ObjectHolder("ginger")    //
+		public static final Block GINGER = null;
 
 		
 		@ObjectHolder("coal_generator")		//燃煤发电机
