@@ -1,5 +1,6 @@
 package com.konpi.quantummeteorology;
 
+import com.konpi.quantummeteorology.api.data.MessageUpdateStat;
 import com.konpi.quantummeteorology.common.command.PlayerCommond;
 import com.konpi.quantummeteorology.common.command.SeasonCommand;
 import com.konpi.quantummeteorology.proxy.CommonProxy;
@@ -10,6 +11,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,9 +29,12 @@ public class QuantumMeteorology {
 	@SidedProxy(clientSide = "com.konpi.quantummeteorology.proxy.ClientProxy", serverSide = "com.konpi.quantummeteorology.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
+	public static final SimpleNetworkWrapper NetIns = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+
 	static {
 		// 允许万能桶
 		FluidRegistry.enableUniversalBucket();
+		NetIns.registerMessage(MessageUpdateStat.class, MessageUpdateStat.class, 0, Side.CLIENT);
 	}
 
 	@Mod.EventHandler

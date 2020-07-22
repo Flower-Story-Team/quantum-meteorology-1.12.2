@@ -48,10 +48,21 @@ public class ylllutil {
 	}
 
 	public static int GetTemperature(World world, BlockPos pos) {
+		int dimension = world.provider.getDimension();
 		Biome biome = world.getBiome(pos);
 		long worldtime = world.getWorldTime();
-		return 20 + DayTemperature(world) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
-				+ BlockTemperature(world, pos) + Month.getmonth(worldtime).getTemperature();
+		if (CommonConfig.isWhiteListDimension(dimension)) {
+			return 20 + DayTemperature(world) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
+					+ BlockTemperature(world, pos) + Month.getmonth(worldtime).getTemperature();
+		} else if (dimension == 1) {
+			return 20 + DayTemperature(world) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
+					+ BlockTemperature(world, pos) + Month.JANUARY.getTemperature();
+		} else if (dimension == -1) {
+			return 20 + DayTemperature(world) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
+					+ BlockTemperature(world, pos) + Month.JULY.getTemperature();
+		} else {
+			return 20;
+		}
 	}
 
 	public static int DayTemperature(World world) {

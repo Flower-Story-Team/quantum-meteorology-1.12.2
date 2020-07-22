@@ -3,14 +3,17 @@ package com.konpi.quantummeteorology.common.handler;
 import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.capabilities.CapabilityProvider;
+import com.konpi.quantummeteorology.api.capabilities.Drawhandler;
 import com.konpi.quantummeteorology.api.capabilities.thirst.IThirst;
 import com.konpi.quantummeteorology.api.data.Drinks;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
+import com.konpi.quantummeteorology.api.data.PlayerStatRegistry;
 import com.konpi.quantummeteorology.common.util.ylllutil;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -30,6 +33,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class CapabilityHandler {
 	@SubscribeEvent
@@ -41,12 +45,14 @@ public class CapabilityHandler {
 			ResourceLocation loc = new ResourceLocation(QuantumMeteorology.MODID, cap.getName());
 			if (!event.getCapabilities().containsKey(loc)) {
 				event.addCapability(loc, new CapabilityProvider(cap));
+				PlayerStatRegistry.registerCapability(cap);
 			}
 			// temperature
 			cap = Capabilities.TEMPERATURE;
 			loc = new ResourceLocation(QuantumMeteorology.MODID, cap.getName());
 			if (!event.getCapabilities().containsKey(loc)) {
 				event.addCapability(loc, new CapabilityProvider(cap));
+				PlayerStatRegistry.registerCapability(cap);
 			}
 		}
 	}
@@ -62,38 +68,40 @@ public class CapabilityHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerLogin(PlayerLoggedInEvent event) {
+	public void onPlyaerRebirth(PlayerRespawnEvent event) {
 		EntityPlayer player = event.player;
 		World world = player.world;
+		// Drawhandler.b = true;
 		if (!world.isRemote) {
 			// thirst
-			Capability cap = Capabilities.THIRST;
-			IPlayerState state = (IPlayerState) player.getCapability(cap, null);
 			player.getCapability(Capabilities.THIRST, null).setThirst(70);
-			state.onSendClientUpdate();
+			QuantumMeteorology.NetIns.sendTo(
+					((IPlayerState) player.getCapability(Capabilities.THIRST, null)).createUpdateMessage(),
+					(EntityPlayerMP) player);
 			// temperature
-			cap = Capabilities.TEMPERATURE;
-			state = (IPlayerState) player.getCapability(cap, null);
 			player.getCapability(Capabilities.TEMPERATURE, null).setTemperature(20);
-			state.onSendClientUpdate();
+			QuantumMeteorology.NetIns.sendTo(
+					((IPlayerState) player.getCapability(Capabilities.TEMPERATURE, null)).createUpdateMessage(),
+					(EntityPlayerMP) player);
 		}
 	}
 
 	@SubscribeEvent
-	public void onPlayerRebirth(PlayerRespawnEvent event) {
+	public void onPlayerLogin(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
 		World world = player.world;
+		Drawhandler.b = true;
 		if (!world.isRemote) {
 			// thirst
-			Capability cap = Capabilities.THIRST;
-			IPlayerState state = (IPlayerState) player.getCapability(cap, null);
 			player.getCapability(Capabilities.THIRST, null).setThirst(70);
-			state.onSendClientUpdate();
+			QuantumMeteorology.NetIns.sendTo(
+					((IPlayerState) player.getCapability(Capabilities.THIRST, null)).createUpdateMessage(),
+					(EntityPlayerMP) player);
 			// temperature
-			cap = Capabilities.TEMPERATURE;
-			state = (IPlayerState) player.getCapability(cap, null);
 			player.getCapability(Capabilities.TEMPERATURE, null).setTemperature(20);
-			state.onSendClientUpdate();
+			QuantumMeteorology.NetIns.sendTo(
+					((IPlayerState) player.getCapability(Capabilities.TEMPERATURE, null)).createUpdateMessage(),
+					(EntityPlayerMP) player);
 		}
 	}
 
@@ -101,28 +109,21 @@ public class CapabilityHandler {
 	public void onPlayerTick(PlayerTickEvent event) {
 		EntityPlayer player = event.player;
 		World world = player.world;
-
 		if (!world.isRemote) {
-			// thirst
-			Capability cap = Capabilities.THIRST;
-			IPlayerState state = (IPlayerState) player.getCapability(cap, null);
-			state.update(player, world, event.phase);
-			if (event.phase == Phase.START) {
-				if (state.hasChanged()) {
-					player.getEntityData().setTag(cap.getName(), cap.getStorage().writeNBT(cap, state, null));
-					state.onSendClientUpdate();
+			for (Capability capability : PlayerStatRegistry.getCapabilityMap().values()) {
+				IPlayerState stat = (IPlayerState) player.getCapability(capability, null);
+				stat.update(player, world, event.phase);
+				if (event.phase == Phase.START) {
+					if (stat.hasChanged()) {
+						player.getEntityData().setTag(capability.getName(),
+								capability.getStorage().writeNBT(capability, stat, null));
+						stat.onSendClientUpdate();
+						QuantumMeteorology.NetIns.sendTo(stat.createUpdateMessage(), (EntityPlayerMP) player);
+					}
 				}
 			}
-			// temperature
-			cap = Capabilities.TEMPERATURE;
-			state = (IPlayerState) player.getCapability(cap, null);
-			state.update(player, world, event.phase);
-			if (event.phase == Phase.START) {
-				if (state.hasChanged()) {
-					player.getEntityData().setTag(cap.getName(), cap.getStorage().writeNBT(cap, state, null));
-					state.onSendClientUpdate();
-				}
-			}
+			// if (world.getWorldTime() % 40 == 0)
+			// ylllutil.info(world, player);
 		}
 	}
 

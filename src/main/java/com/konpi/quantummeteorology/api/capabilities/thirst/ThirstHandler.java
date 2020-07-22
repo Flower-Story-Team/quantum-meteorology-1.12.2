@@ -6,13 +6,16 @@ import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.FlowerDamageSource;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
+import com.konpi.quantummeteorology.api.data.MessageUpdateStat;
 import com.konpi.quantummeteorology.common.util.ylllutil;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class ThirstHandler implements IPlayerState, IThirst {
 
@@ -45,7 +48,7 @@ public class ThirstHandler implements IPlayerState, IThirst {
 
 	@Override
 	public void update(EntityPlayer player, World world, Phase phase) {
-		if (player.isCreative())
+		if (player.isCreative() || player.isDead)
 			return;
 		long time = world.getWorldTime();
 		if (phase == Phase.END && time % 10 == 0 && b) {
@@ -127,6 +130,13 @@ public class ThirstHandler implements IPlayerState, IThirst {
 		if (time_2 == 10) {
 			this.thirst = Math.max(thirst - 1, 0);
 		}
+	}
+
+	@Override
+	public IMessage createUpdateMessage() {
+		NBTTagCompound data = (NBTTagCompound) Capabilities.THIRST.getStorage().writeNBT(Capabilities.THIRST, this,
+				null);
+		return new MessageUpdateStat(Capabilities.THIRST, data);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.konpi.quantummeteorology.api.data;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public interface IPlayerState {
 
@@ -15,4 +16,6 @@ public interface IPlayerState {
 	public void onSendClientUpdate();
 
 	public void onjump();
+
+	public IMessage createUpdateMessage();
 }

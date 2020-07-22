@@ -1,16 +1,21 @@
 package com.konpi.quantummeteorology.api.capabilities.temperature;
 
+import javax.vecmath.Vector3d;
+
 import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.FlowerDamageSource;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
+import com.konpi.quantummeteorology.api.data.MessageUpdateStat;
 import com.konpi.quantummeteorology.common.util.ylllutil;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class TemperatureHandler implements IPlayerState, ITemperature {
 
@@ -36,11 +41,26 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 
 	@Override
 	public void update(EntityPlayer player, World world, Phase phase) {
-		if (player.isCreative())
+		if (player.isCreative() || player.isDead)
 			return;
 		if (phase == Phase.END && world.getWorldTime() % 20 == 0 && b) {
 			int surround = ylllutil.GetTemperature(world, player.getPosition());
-			this.temp = 20 + (surround - temp) / (player.getCapability(Capabilities.THIRST, null).getThirst() / 8 + 1);
+			int thirst = player.getCapability(Capabilities.THIRST, null).getThirst();
+			if (thirst < 60) {
+				this.temp = temp + (surround - temp) / (thirst * 2 + 1);
+			} else {
+				this.temp = 20 + (surround - temp) * 4 / (thirst + 1);
+			}
+
+			double velocity = new Vector3d(player.chasingPosX - player.prevChasingPosX, player.motionY,
+					player.chasingPosZ - player.prevChasingPosZ).length();
+			if (velocity > 0.2) {
+				this.temp += temp * 0.01F;
+			} else {
+				this.temp = temp * 0.99F;
+			}
+
+			System.out.println("\n\nsu " + surround + " tem " + temp + " th " + thirst + "\n");
 
 			if (world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 				if (this.temp > 30) {
@@ -49,14 +69,9 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 				} else if (this.temp > 25) {
 					player.attackEntityFrom(FlowerDamageSource.HEAT, 2);
 				} else if (this.temp > 23) {
-					if (send) {
+					if (this.send) {
 						player.sendMessage(new TextComponentTranslation("quantummeteorology.mention.heat"));
-						send = false;
-					}
-				} else if (this.temp < 17) {
-					if (send) {
-						player.sendMessage(new TextComponentTranslation("quantummeteorology.mention.cold"));
-						send = false;
+						this.send = false;
 					}
 				} else if (this.temp < 10) {
 					player.attackEntityFrom(FlowerDamageSource.COLD, 5);
@@ -64,6 +79,11 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 				} else if (this.temp < 15) {
 					player.attackEntityFrom(FlowerDamageSource.COLD, 2);
 					// TODO：减速？
+				} else if (this.temp < 17) {
+					if (this.send) {
+						player.sendMessage(new TextComponentTranslation("quantummeteorology.mention.cold"));
+						this.send = false;
+					}
 				} else {
 					this.send = true;
 				}
@@ -96,5 +116,12 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 	@Override
 	public void onjump() {
 		this.temp += 0.2;
+	}
+
+	@Override
+	public IMessage createUpdateMessage() {
+		NBTTagCompound data = (NBTTagCompound) Capabilities.TEMPERATURE.getStorage().writeNBT(Capabilities.TEMPERATURE,
+				this, null);
+		return new MessageUpdateStat(Capabilities.TEMPERATURE, data);
 	}
 }
