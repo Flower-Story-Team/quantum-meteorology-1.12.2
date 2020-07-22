@@ -9,7 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class ModHandler {
 
-	public static void preinit() {
+	public static void preInit() {
 
 	}
 
@@ -18,7 +18,7 @@ public class ModHandler {
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 	}
 
-	public static void postinit() {
+	public static void postInit() {
 		MinecraftForge.EVENT_BUS.register(new SeasonChangeHandler());
 		ColorHandler.init();
 	}
