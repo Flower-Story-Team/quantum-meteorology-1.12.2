@@ -28,6 +28,24 @@ item.quantummeteorology.garlic.name=大蒜
 
 # 方块
 
+
+
+
+
+
+
+# 工业
+
+tile.quantummeteorology.coal_generator.name=燃煤发电机
+
+
+
+
+
+
+
+
+
 # 指令
 commands.quantummeteorology.season.usage=season.usage
 commands.quantummeteorology.player.usege=player.usage
