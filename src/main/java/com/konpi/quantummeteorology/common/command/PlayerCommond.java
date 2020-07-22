@@ -18,7 +18,7 @@ public class PlayerCommond extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "quantummeteorology.player";
+		return "player";
 	}
 
 	@Override

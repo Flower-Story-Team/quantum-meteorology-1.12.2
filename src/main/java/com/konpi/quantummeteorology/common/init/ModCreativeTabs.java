@@ -21,7 +21,7 @@ public class ModCreativeTabs {
 	public static final CreativeTabs FOOD = new CreativeTabs(getLabel("food")) {
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(ModItems.ItemHolder.CORN);
+			return new ItemStack(ModItems.CORN);
 		}
 	};
 

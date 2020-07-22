@@ -24,7 +24,7 @@ public class SeasonCommand extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "quantummeteorology.season";
+		return "season";
 	}
 
 	@Override
