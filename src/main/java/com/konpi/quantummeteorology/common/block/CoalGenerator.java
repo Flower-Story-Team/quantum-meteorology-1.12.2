@@ -18,7 +18,7 @@ public class CoalGenerator extends Block
 	public CoalGenerator()
 	{
 		super(Material.ROCK);
-		this.setTranslationKey(QuantumMeteorology.MODID + "." + "test");
+		this.setTranslationKey(QuantumMeteorology.MODID + "." + "coal_generator");
 		
 		
 		this.setRegistryName("coal_generator");		//coal_generator
