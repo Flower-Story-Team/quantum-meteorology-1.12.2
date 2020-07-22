@@ -6,4 +6,6 @@ public interface IThirst {
 
 	public int getThirst();
 
+	public void add(int t);
+
 }

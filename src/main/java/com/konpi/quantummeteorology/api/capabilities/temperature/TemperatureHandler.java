@@ -7,6 +7,7 @@ import com.konpi.quantummeteorology.api.data.IPlayerState;
 import com.konpi.quantummeteorology.common.util.ylllutil;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
@@ -15,6 +16,7 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 
 	private float temp;
 	private float pretemp;
+	private boolean send;
 
 	@Override
 	public void setTemperature(int temperature) {
@@ -38,8 +40,7 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 			return;
 		if (phase == Phase.END && world.getWorldTime() % 20 == 0 && b) {
 			int surround = ylllutil.GetTemperature(world, player.getPosition());
-			this.temp = temp
-					+ (surround - temp) / (player.getCapability(Capabilities.THIRST, null).getThirst() / 8 + 1);
+			this.temp = 20 + (surround - temp) / (player.getCapability(Capabilities.THIRST, null).getThirst() / 8 + 1);
 
 			if (world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 				if (this.temp > 30) {
@@ -47,12 +48,24 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 					// TODO:幻觉，其他
 				} else if (this.temp > 25) {
 					player.attackEntityFrom(FlowerDamageSource.HEAT, 2);
+				} else if (this.temp > 23) {
+					if (send) {
+						player.sendMessage(new TextComponentTranslation("quantummeteorology.mention.heat"));
+						send = false;
+					}
+				} else if (this.temp < 17) {
+					if (send) {
+						player.sendMessage(new TextComponentTranslation("quantummeteorology.mention.cold"));
+						send = false;
+					}
 				} else if (this.temp < 10) {
 					player.attackEntityFrom(FlowerDamageSource.COLD, 5);
 					// TODO:减速？
 				} else if (this.temp < 15) {
 					player.attackEntityFrom(FlowerDamageSource.COLD, 2);
 					// TODO：减速？
+				} else {
+					this.send = true;
 				}
 			}
 			b = false;

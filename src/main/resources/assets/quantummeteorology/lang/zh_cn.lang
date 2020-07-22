@@ -45,3 +45,8 @@ commands.quantummeteorology.thirst.query=当前口渴为：%s
 death.attack.quantummeteorology.thirst=%s渴死了
 death.attack.quantummeteorology.heat=%s热死了
 death.attack.quantummeteorology.cold=%s冷死了
+
+#提示
+quantummeteorology.mention.thirst=你感到有些渴
+quantummeteorology.mention.heat=你感到有些热
+quantummeteorology.mention.cold=你感到有些冷

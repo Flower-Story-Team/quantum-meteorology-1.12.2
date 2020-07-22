@@ -1,5 +1,6 @@
 package com.konpi.quantummeteorology.common.init;
 
+import com.konpi.quantummeteorology.api.capabilities.temperature.DrawSuTemHandler;
 import com.konpi.quantummeteorology.client.handler.ColorHandler;
 import com.konpi.quantummeteorology.client.handler.SeasonChangeHandler;
 import com.konpi.quantummeteorology.common.handler.CapabilityHandler;
@@ -20,6 +21,7 @@ public class ModHandler {
 
 	public static void postinit() {
 		MinecraftForge.EVENT_BUS.register(new SeasonChangeHandler());
+		MinecraftForge.EVENT_BUS.register(new DrawSuTemHandler());
 		ColorHandler.init();
 	}
 
