@@ -3,13 +3,17 @@ package com.konpi.quantummeteorology.common.handler;
 import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.capabilities.CapabilityProvider;
+import com.konpi.quantummeteorology.api.capabilities.thirst.IThirst;
+import com.konpi.quantummeteorology.api.data.Drinks;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
 import com.konpi.quantummeteorology.common.util.ylllutil;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -18,6 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -62,14 +67,14 @@ public class CapabilityHandler {
 		World world = player.world;
 		if (!world.isRemote) {
 			// thirst
-			Capability cap1 = Capabilities.THIRST;
-			IPlayerState state = (IPlayerState) player.getCapability(cap1, null);
-			cap1.getStorage().readNBT(cap1, state, null, player.getEntityData().getCompoundTag(cap1.getName()));
+			Capability cap = Capabilities.THIRST;
+			IPlayerState state = (IPlayerState) player.getCapability(cap, null);
+			player.getCapability(Capabilities.THIRST, null).setThirst(70);
 			state.onSendClientUpdate();
 			// temperature
-			Capability cap2 = Capabilities.TEMPERATURE;
-			state = (IPlayerState) player.getCapability(cap2, null);
-			cap2.getStorage().readNBT(cap2, state, null, player.getEntityData().getCompoundTag(cap2.getName()));
+			cap = Capabilities.TEMPERATURE;
+			state = (IPlayerState) player.getCapability(cap, null);
+			player.getCapability(Capabilities.TEMPERATURE, null).setTemperature(20);
 			state.onSendClientUpdate();
 		}
 	}
@@ -156,6 +161,38 @@ public class CapabilityHandler {
 				cap = Capabilities.TEMPERATURE;
 				state = (IPlayerState) player.getCapability(cap, null);
 				state.onjump();
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onPlayerDrink(LivingEntityUseItemEvent.Finish event) {
+		if (event.getEntityLiving() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			ItemStack stack = event.getItem();
+			IThirst t = player.getCapability(Capabilities.THIRST, null);
+			if (t.getThirst() != 100) {
+				// For some reason the stack size can be zero for water bottles, which breaks
+				// everything.
+				// As a workaround, we temporarily set it to 1
+				boolean zeroStack = false;
+
+				if (stack.getCount() <= 0) {
+					stack.setCount(1);
+					zeroStack = true;
+				}
+
+				if (stack.getItem().equals(Items.POTIONITEM)) {
+					t.add(5);
+				} else {
+					Drinks d = Drinks.getDrink(stack.getItem().getRegistryName().toString());
+					if (d != null) {
+						t.add(d.getThirst());
+					}
+				}
+
+				if (zeroStack)
+					stack.setCount(0);
 			}
 		}
 	}

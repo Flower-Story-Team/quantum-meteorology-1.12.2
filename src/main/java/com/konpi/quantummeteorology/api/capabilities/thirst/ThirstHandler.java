@@ -20,14 +20,20 @@ public class ThirstHandler implements IPlayerState, IThirst {
 	private int prethirst;
 	private long time_1 = -1;
 	private int time_2 = 0;
+	private boolean send;
 
 	@Override
 	public void setThirst(int thirst) {
 		if (thirst < 0 || thirst > 100) {
-			QuantumMeteorology.logger.error("水分设置错误！范围为0~100 ");
+			QuantumMeteorology.logger.error("口渴值设置错误！范围为0~100 ");
 			this.thirst = 50;
 		}
 		this.thirst = thirst;
+	}
+
+	@Override
+	public void add(int t) {
+		this.thirst += t;
 	}
 
 	@Override
@@ -78,6 +84,13 @@ public class ThirstHandler implements IPlayerState, IThirst {
 					player.attackEntityFrom(FlowerDamageSource.THIRSE, 5);
 				} else if (this.thirst < 20 && time % 20 == 0) {
 					player.attackEntityFrom(FlowerDamageSource.THIRSE, 1);
+				} else if (this.thirst < 30) {
+					if (send) {
+						player.sendMessage(new TextComponentTranslation("quantummeteorology.mention.thirst"));
+						send = false;
+					}
+				} else {
+					this.send = true;
 				}
 			}
 			b = false;

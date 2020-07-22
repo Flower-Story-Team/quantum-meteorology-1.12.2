@@ -1,10 +1,16 @@
 package com.konpi.quantummeteorology.common.util;
 
 import com.konpi.quantummeteorology.common.config.CommonConfig;
+
+import org.lwjgl.opengl.GL11;
+
 import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.BlockTemperature;
 import com.konpi.quantummeteorology.api.data.Month;
 
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +24,7 @@ public class ylllutil {
 		BlockPos pos = player.getPosition();
 		Biome biome = world.getBiome(pos);
 		long worldtime = world.getWorldTime();
-		System.out.println("\n\nday:" + DayTemperature(worldtime)//
+		System.out.println("\n\nday:" + DayTemperature(world)//
 				+ " height:" + HeightTemperature(pos.getY())//
 				+ " biome:" + BiomeTemperature(biome)//
 				+ " block:" + BlockTemperature(world, pos)//
@@ -44,26 +50,17 @@ public class ylllutil {
 	public static int GetTemperature(World world, BlockPos pos) {
 		Biome biome = world.getBiome(pos);
 		long worldtime = world.getWorldTime();
-		return 20 + DayTemperature(worldtime) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
+		return 20 + DayTemperature(world) + HeightTemperature(pos.getY()) + BiomeTemperature(biome)
 				+ BlockTemperature(world, pos) + Month.getmonth(worldtime).getTemperature();
 	}
 
-	public static int DayTemperature(long worldtime) {
+	public static int DayTemperature(World world) {
 		if (!CommonConfig.temperature_dependence.temperature_day)
 			return 0;
-		int t = (int) (worldtime % 24000);
-		if (t < 4000) {
-			return -2;
-		} else if (t < 8000) {
-			return -1;
-		} else if (t < 12000) {
-			return 1;
-		} else if (t < 16000) {
-			return 2;
-		} else if (t < 20000) {
-			return 1;
-		}
-		return 0;
+		if (world.isDaytime())
+			return 3;
+		else
+			return 0;
 	}
 
 	public static int HeightTemperature(int y) {
@@ -100,7 +97,7 @@ public class ylllutil {
 			for (int x = -i; x < i; x++) {
 				for (int y = -i; y < i; y++) {
 					for (int z = -i; z < i; z++) {
-						if (world.getBlockState(pos.add(x, y, z)).toString().equals(block.getState())) {
+						if (world.getBlockState(pos.add(x, y, z)).getBlock().toString().equals(block.getname())) {
 							temp += block.getTemperatureperblock() * Math.sqrt(x * x + y * y + z * z);
 						}
 					}
@@ -108,5 +105,36 @@ public class ylllutil {
 			}
 		}
 		return temp;
+	}
+
+	/**
+	 * @param x
+	 *            屏幕上x
+	 * @param y
+	 *            屏幕上y
+	 * @param textureX
+	 *            材质x起始
+	 * @param textureY
+	 *            材质y起始
+	 * @param width
+	 *            材质x
+	 * @param height
+	 *            材质y
+	 * @param scale
+	 *            缩放
+	 */
+	public static void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height,
+			float scale) {
+		float fx = 0.0025F / scale;
+		float fy = 0.0026F / scale;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder buffer = tessellator.getBuffer();
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+		buffer.pos(x * scale, (y + height) * scale, 0.0D).tex(textureX * fx, (textureY + height) * fy).endVertex();
+		buffer.pos((x + width) * scale, (y + height) * scale, 0.0D)
+				.tex((textureX + width) * fx, (textureY + height) * fy).endVertex();
+		buffer.pos((x + width) * scale, y * scale, 0.0D).tex((textureX + width) * fx, textureY * fy).endVertex();
+		buffer.pos(x * scale, y * scale, 0.0D).tex(textureX * fx, textureY * fy).endVertex();
+		tessellator.draw();
 	}
 }

@@ -18,7 +18,7 @@ public class PlayerCommond extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "quantummeteorology.player";
+		return "player";
 	}
 
 	@Override
@@ -60,7 +60,8 @@ public class PlayerCommond extends CommandBase {
 
 	private void settemp(ICommandSender sender, String[] args) throws CommandException {
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-		if (player.hasCapability(Capabilities.TEMPERATURE, null) && Integer.valueOf(args[2]) != null) {
+		if (player.hasCapability(Capabilities.TEMPERATURE, null) && args[2] != null
+				&& Integer.valueOf(args[2]) != null) {
 			player.getCapability(Capabilities.TEMPERATURE, null).setTemperature(Integer.valueOf(args[2]));
 			sender.sendMessage(
 					new TextComponentTranslation("commands.quantummeteorology.temperature.set.success", args[2]));
@@ -72,7 +73,7 @@ public class PlayerCommond extends CommandBase {
 
 	private void setthirst(ICommandSender sender, String[] args) throws CommandException {
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-		if (player.hasCapability(Capabilities.THIRST, null) && Integer.valueOf(args[2]) != null) {
+		if (player.hasCapability(Capabilities.THIRST, null) && args[2] != null && Integer.valueOf(args[2]) != null) {
 			player.getCapability(Capabilities.THIRST, null).setThirst(Integer.valueOf(args[2]));
 			sender.sendMessage(new TextComponentTranslation("commands.quantummeteorology.thirst.set.success", args[2]));
 		} else {

@@ -26,8 +26,7 @@ public class SeasonalGrowthHandler {
 	public void onCropGrowth(BlockEvent.CropGrowEvent event) {
 		IBlockState state = event.getState();
 		World world = event.getWorld();
-		int temperature = ylllutil.BiomeTemperature(world.getBiome(event.getPos()))
-				+ ylllutil.DayTemperature(world.getWorldTime()) + ylllutil.HeightTemperature(event.getPos().getY());
+		int temperature = ylllutil.GetTemperature(world, event.getPos());
 		boolean canGrow = PlantData.canGrow(state.toString(), temperature, 0);
 
 		if (!canGrow) {
@@ -43,8 +42,7 @@ public class SeasonalGrowthHandler {
 	public void onApplyBonemeal(BonemealEvent event) {
 		IBlockState state = event.getBlock();
 		World world = event.getWorld();
-		int temperature = ylllutil.BiomeTemperature(world.getBiome(event.getPos()))
-				+ ylllutil.DayTemperature(world.getWorldTime()) + ylllutil.HeightTemperature(event.getPos().getY());
+		int temperature = ylllutil.GetTemperature(world, event.getPos());
 		boolean canGrow = PlantData.canGrow(state.toString(), temperature, 0);
 		if (!canGrow) {
 			event.setCanceled(true);
