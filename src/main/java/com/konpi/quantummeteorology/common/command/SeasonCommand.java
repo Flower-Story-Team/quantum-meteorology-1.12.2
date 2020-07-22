@@ -68,7 +68,7 @@ public class SeasonCommand extends CommandBase {
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
 		int t = -1;
 		for (int i = 0; i < Month.values().length; i++) {
-			if (Month.values()[i].toString().toLowerCase().equals(args[1].toLowerCase())) {
+			if (args[1] != null && Month.values()[i].toString().toLowerCase().equals(args[1].toLowerCase())) {
 				t = i;
 				break;
 			}

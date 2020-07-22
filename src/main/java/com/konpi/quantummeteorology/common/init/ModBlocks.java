@@ -26,12 +26,12 @@ public class ModBlocks {
 		noItemBlockList.add(new BlockCropsBase("peanut") {
 			@Override
 			public Item getSeed() {
-				return ModItems.PEANUT;
+				return ModItems.ItemHolder.PEANUT;
 			}
 
 			@Override
 			public Item getCrop() {
-				return ModItems.PEANUT;
+				return ModItems.ItemHolder.PEANUT;
 			}
 		}); // 花生作物
 	}
