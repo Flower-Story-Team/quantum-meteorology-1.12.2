@@ -21,6 +21,7 @@ public class ItemFoodBase extends ItemFood
         this.setRegistryName(registryName);
         this.setTranslationKey(QuantumMeteorology.MODID + "." + registryName);
         this.setCreativeTab(ModCreativeTabs.FOOD);
+
     }
     
 }
