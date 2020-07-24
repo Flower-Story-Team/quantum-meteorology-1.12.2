@@ -45,6 +45,7 @@ public class ModItems {
 		simpleItemList.add(new ItemFoodBase("lentil", 1, 0.6F, false)); 		//扁豆
 		simpleItemList.add(new ItemFoodBase("garlic", 1, 0.6F, false)); 		//大蒜
 		simpleItemList.add(new ItemFoodBase("cuke", 1, 0.6F, false)); 			//黄瓜
+		simpleItemList.add(new ItemFoodBase("filteredwater",0,0.3F,false)); //过滤水
 
 		// 熟食
 		simpleItemList.add(new ItemFoodInBowl("steamed_rice", 1, 0.6F, false)); 	//米饭
@@ -149,6 +150,9 @@ public class ModItems {
 
 		@ObjectHolder("cuke") //黄瓜
 		public static final Item CUKE = null;
+
+		@ObjectHolder("filteredwater") //过滤水
+		public static final Item FILTEREDWATER = null;
 
 	}
 }

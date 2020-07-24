@@ -1,5 +1,6 @@
 package com.konpi.quantummeteorology.api.capabilities;
 
+import com.konpi.quantummeteorology.api.capabilities.energy.IEnergy;
 import com.konpi.quantummeteorology.api.capabilities.temperature.ITemperature;
 import com.konpi.quantummeteorology.api.capabilities.thirst.IThirst;
 
@@ -13,5 +14,8 @@ public class Capabilities {
 
 	@CapabilityInject(ITemperature.class)
 	public static final Capability<ITemperature> TEMPERATURE = null;
+
+	@CapabilityInject(IEnergy.class)
+	public static final Capability<IEnergy> ENERGY =null;
 
 }
