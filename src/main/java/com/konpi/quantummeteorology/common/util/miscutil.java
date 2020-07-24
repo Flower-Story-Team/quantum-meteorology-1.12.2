@@ -118,34 +118,4 @@ public class miscutil {
 		return temp;
 	}
 
-	/**
-	 * @param x
-	 *            屏幕上x
-	 * @param y
-	 *            屏幕上y
-	 * @param textureX
-	 *            材质x起始
-	 * @param textureY
-	 *            材质y起始
-	 * @param width
-	 *            材质x
-	 * @param height
-	 *            材质y
-	 * @param scale
-	 *            缩放
-	 */
-	public static void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height,
-			float scale) {
-		float fx = 0.0025F / scale;
-		float fy = 0.0026F / scale;
-		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder buffer = tessellator.getBuffer();
-		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-		buffer.pos(x * scale, (y + height) * scale, 0.0D).tex(textureX * fx, (textureY + height) * fy).endVertex();
-		buffer.pos((x + width) * scale, (y + height) * scale, 0.0D)
-				.tex((textureX + width) * fx, (textureY + height) * fy).endVertex();
-		buffer.pos((x + width) * scale, y * scale, 0.0D).tex((textureX + width) * fx, textureY * fy).endVertex();
-		buffer.pos(x * scale, y * scale, 0.0D).tex(textureX * fx, textureY * fy).endVertex();
-		tessellator.draw();
-	}
 }
