@@ -11,5 +11,6 @@ public interface ITemperature {
 	 * @return 玩家体温
 	 */
 	public int getTemperature();
+	
 
 }
