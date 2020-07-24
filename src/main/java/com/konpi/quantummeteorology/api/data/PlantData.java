@@ -4,14 +4,13 @@ import com.konpi.quantummeteorology.QuantumMeteorology;
 import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -21,6 +20,10 @@ public enum PlantData {
 	SAPLING0(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.OAK), -30, 50), //
 	SAPLING1(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.SPRUCE), -20, 60), //
 	SAPLING2(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.BIRCH), -10, 70);//
+
+
+	/*CROP0(Blocks.SAPLING.getDefaultState().withProperty(BlockS))*/
+
 
 	//
 

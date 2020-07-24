@@ -1,7 +1,9 @@
 package com.konpi.quantummeteorology.api.data;
 
 public enum Drinks {
-	EXAMPLE("ylll:testdrink", 100);// 这是个例子
+	EXAMPLE("ylll:testdrink", 100),// 这是个例子
+
+	FILTEREDWATER("quantummereorology:filteredwater",30) ;
 	/**
 	 * @param name
 	 *            饮料的注册名
