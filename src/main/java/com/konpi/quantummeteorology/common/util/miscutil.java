@@ -18,7 +18,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
-public class ylllutil {
+public class miscutil {
 
 	public static void info(World world, EntityPlayer player) {
 		BlockPos pos = player.getPosition();
@@ -29,7 +29,7 @@ public class ylllutil {
 				+ " biome:" + BiomeTemperature(biome)//
 				+ " block:" + BlockTemperature(world, pos)//
 				+ " month:" + Month.getmonth(worldtime).getTemperature() + "\n"//
-				+ " surround:" + ylllutil.GetTemperature(world, player.getPosition()) //
+				+ " surround:" + miscutil.GetTemperature(world, player.getPosition()) //
 				+ " temp:" + player.getCapability(Capabilities.TEMPERATURE, null).getTemperature()//
 				+ " thirst:" + player.getCapability(Capabilities.THIRST, null).getThirst());
 	}

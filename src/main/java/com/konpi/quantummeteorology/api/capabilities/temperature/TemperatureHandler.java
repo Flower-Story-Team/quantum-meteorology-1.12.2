@@ -7,7 +7,7 @@ import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.FlowerDamageSource;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
 import com.konpi.quantummeteorology.api.data.MessageUpdateStat;
-import com.konpi.quantummeteorology.common.util.ylllutil;
+import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -44,7 +44,7 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 		if (player.isCreative() || player.isDead)
 			return;
 		if (phase == Phase.END && world.getWorldTime() % 20 == 0 && b) {
-			int surround = ylllutil.GetTemperature(world, player.getPosition());
+			int surround = miscutil.GetTemperature(world, player.getPosition());
 			int thirst = player.getCapability(Capabilities.THIRST, null).getThirst();
 			if (thirst < 60) {
 				this.temp = temp + (surround - temp) / (thirst * 2 + 1);

@@ -7,7 +7,7 @@ import com.konpi.quantummeteorology.api.capabilities.Capabilities;
 import com.konpi.quantummeteorology.api.data.FlowerDamageSource;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
 import com.konpi.quantummeteorology.api.data.MessageUpdateStat;
-import com.konpi.quantummeteorology.common.util.ylllutil;
+import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -53,7 +53,7 @@ public class ThirstHandler implements IPlayerState, IThirst {
 		long time = world.getWorldTime();
 		if (phase == Phase.END && time % 10 == 0 && b) {
 			long costtime = 30;
-			int temp = ylllutil.GetTemperature(world, player.getPosition());
+			int temp = miscutil.GetTemperature(world, player.getPosition());
 			if (temp > 20) {
 				while (temp > 24) {
 					temp -= 5;

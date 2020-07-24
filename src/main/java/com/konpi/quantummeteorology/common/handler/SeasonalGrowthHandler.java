@@ -1,7 +1,7 @@
 package com.konpi.quantummeteorology.common.handler;
 
 import com.konpi.quantummeteorology.api.data.PlantData;
-import com.konpi.quantummeteorology.common.util.ylllutil;
+import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockReed;
@@ -26,7 +26,7 @@ public class SeasonalGrowthHandler {
 	public void onCropGrowth(BlockEvent.CropGrowEvent event) {
 		IBlockState state = event.getState();
 		World world = event.getWorld();
-		int temperature = ylllutil.GetTemperature(world, event.getPos());
+		int temperature = miscutil.GetTemperature(world, event.getPos());
 		boolean canGrow = PlantData.canGrow(state.toString(), temperature, 0);
 
 		if (!canGrow) {
@@ -42,7 +42,7 @@ public class SeasonalGrowthHandler {
 	public void onApplyBonemeal(BonemealEvent event) {
 		IBlockState state = event.getBlock();
 		World world = event.getWorld();
-		int temperature = ylllutil.GetTemperature(world, event.getPos());
+		int temperature = miscutil.GetTemperature(world, event.getPos());
 		boolean canGrow = PlantData.canGrow(state.toString(), temperature, 0);
 		if (!canGrow) {
 			event.setCanceled(true);

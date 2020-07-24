@@ -1,7 +1,7 @@
 package com.konpi.quantummeteorology.api.data;
 
 import com.konpi.quantummeteorology.QuantumMeteorology;
-import com.konpi.quantummeteorology.common.util.ylllutil;
+import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
@@ -75,12 +75,12 @@ public enum PlantData {
 			float proference = plant.getTemperature_proference();
 			event.getToolTip().add(//
 					I18n.format("quantummeteorology.plant.temperature") + ": "//
-							+ ylllutil.getTemperatureColor(min) + min//
+							+ miscutil.getTemperatureColor(min) + min//
 							+ TextFormatting.RESET + " ~ "//
-							+ ylllutil.getTemperatureColor(max) + max);
+							+ miscutil.getTemperatureColor(max) + max);
 			event.getToolTip().add(//
 					I18n.format("quantummeteorology.plant.proferencetemperature") + ": "//
-							+ ylllutil.getTemperatureColor(proference) + proference);
+							+ miscutil.getTemperatureColor(proference) + proference);
 
 			if (GuiScreen.isShiftKeyDown()) {
 				event.getToolTip().add(I18n.format("quantummeteorology.plant." + plant.toString().toLowerCase()));

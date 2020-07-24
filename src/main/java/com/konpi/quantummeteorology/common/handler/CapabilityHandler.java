@@ -8,7 +8,7 @@ import com.konpi.quantummeteorology.api.capabilities.thirst.IThirst;
 import com.konpi.quantummeteorology.api.data.Drinks;
 import com.konpi.quantummeteorology.api.data.IPlayerState;
 import com.konpi.quantummeteorology.api.data.PlayerStatRegistry;
-import com.konpi.quantummeteorology.common.util.ylllutil;
+import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
