@@ -1,0 +1,18 @@
+白菜	chinese_cabbage		CHINESE_CABBAGE
+番茄	tomato				TOMATO
+花生	peanut				PEANUT
+大米	rice				RICE
+玉米	corn				CORN
+茄子	eggplant			EGGPLANT	
+卷心菜	cabbage				CABBAGE		
+葱		scallion			SCALLION	
+生姜	ginger				GINGER		
+花菜	cauliflower			CAULIFLOWER		
+辣椒	chili				CHILI		
+花椒	pepper				PEPPER		
+甜椒	sweet_pepper		SWEET_PEPPER
+洋葱	onion				ONION
+扁豆	lentil				LENTIL
+大蒜	garlic				GARLIC
+
+

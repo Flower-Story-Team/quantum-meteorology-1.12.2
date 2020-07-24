@@ -3,10 +3,15 @@ itemGroup.quantummeteorology.food=量子气象学 | 食物
 itemGroup.quantummeteorology.misc=量子气象学 | 杂项
 itemGroup.quantummeteorology.tableware=量子气象学 | 餐具
 
+
 # 物品
 item.quantummeteorology.rice_seed.name=水稻种子
+item.quantummeteorology.thermometer.name=温度计
+
+
+ # 餐具
 item.quantummeteorology.bowl.name=碗
-item.quantummeteorology.steamed_rice.name=米饭
+
 
 # 食物
 item.quantummeteorology.chinese_cabbage.name=白菜
@@ -26,18 +31,18 @@ item.quantummeteorology.onion.name=洋葱
 item.quantummeteorology.lentil.name=扁豆
 item.quantummeteorology.garlic.name=大蒜
 
+item.quantummeteorology.cuke.name=黄瓜
+
+# 熟食
+item.quantummeteorology.steamed_rice.name=米饭
+
 # 方块
-
-
-
-
 
 
 
 # 工业
 
 tile.quantummeteorology.coal_generator.name=燃煤发电机
-
 
 
 

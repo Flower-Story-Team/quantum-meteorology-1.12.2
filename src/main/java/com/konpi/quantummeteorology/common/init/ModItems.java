@@ -44,6 +44,7 @@ public class ModItems {
 		simpleItemList.add(new ItemFoodBase("onion", 1, 0.6F, false)); 			//洋葱
 		simpleItemList.add(new ItemFoodBase("lentil", 1, 0.6F, false)); 		//扁豆
 		simpleItemList.add(new ItemFoodBase("garlic", 1, 0.6F, false)); 		//大蒜
+		
 		simpleItemList.add(new ItemFoodBase("cuke", 1, 0.6F, false)); 			//黄瓜
 		simpleItemList.add(new ItemFoodBase("filteredwater",0,0.3F,false)); //过滤水
 
@@ -61,7 +62,8 @@ public class ModItems {
 		
 		// 实例化方块物品
 		QuantumMeteorology.logger.info("initializing block items");
-		for (Block b : ModBlocks.simpleBlockList) {
+		for (Block b : ModBlocks.simpleBlockList)
+		{
 			simpleItemList.add(new ItemBlockBase(b));
 		}
 
@@ -82,13 +84,16 @@ public class ModItems {
 		// 种子
 		@ObjectHolder("rice_seed") 		//水稻种子
 		public static final Item RICE_SEED = null;
-
-		
 		
 		// 餐具
 		@ObjectHolder("bowl") 			//碗
 		public static final Item BOWL = null;
 
+		//物品
+		@ObjectHolder("thermometer") 			//温度计
+		public static final Item THERMOMETER = null;
+		
+		
 		
 		
 		//熟食
@@ -150,7 +155,7 @@ public class ModItems {
 
 		@ObjectHolder("cuke") //黄瓜
 		public static final Item CUKE = null;
-
+		
 		@ObjectHolder("filteredwater") //过滤水
 		public static final Item FILTEREDWATER = null;
 

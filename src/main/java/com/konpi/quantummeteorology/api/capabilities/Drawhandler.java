@@ -16,7 +16,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class Drawhandler extends Gui {
+public class Drawhandler extends Gui
+{
 
 	public static final ResourceLocation loc = new ResourceLocation("quantummeteorology:textures/gui/guis.png");
 
@@ -25,15 +26,18 @@ public class Drawhandler extends Gui {
 	public static boolean b = true;
 
 	@SubscribeEvent
-	public void onPreRenderOverlay(RenderGameOverlayEvent.Pre event) {
-		if (event.getType() == ElementType.AIR) {
+	public void onPreRenderOverlay(RenderGameOverlayEvent.Pre event)
+	{
+		if (event.getType() == ElementType.AIR)
+		{
 			ScaledResolution scaledresolution = new ScaledResolution(this.minecraft);
 			// ScaledResolution resolution = event.getResolution();
 			// int width = resolution.getScaledWidth();
 			// int height = resolution.getScaledHeight();
 			EntityPlayerSP player = Minecraft.getMinecraft().player;
 			int temp = miscutil.GetTemperature(player.world, player.getPosition());
-			if (b) {
+			if (b)
+			{
 				// 这个是为了解决进游戏不显示的bug，在没有更好的解决办法之前最好不动它
 				player.getCapability(Capabilities.THIRST, null).setThirst(70);
 				b = false;
@@ -42,7 +46,8 @@ public class Drawhandler extends Gui {
 			// ThirstHandler th = (ThirstHandler) player.getCapability(Capabilities.THIRST,
 			// null);
 			// int thirst = th.getThirst();
-			if (minecraft.playerController.gameIsSurvivalOrAdventure()) {
+			if (minecraft.playerController.gameIsSurvivalOrAdventure())
+			{
 				minecraft.getTextureManager().bindTexture(loc);
 				drawSuTemp(temp);
 				drawPlayerThirst(scaledresolution);
@@ -52,7 +57,8 @@ public class Drawhandler extends Gui {
 		}
 	}
 
-	private void drawSuTemp(int temp) {
+	private void drawSuTemp(int temp)
+	{
 		// 79是0°
 
 		// ylllutil.drawTexturedModalRect(3, 3, 0, 0, 7, 126, 0.6F);
