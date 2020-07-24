@@ -31,21 +31,14 @@ public class Drawhandler extends Gui
 		if (event.getType() == ElementType.AIR)
 		{
 			ScaledResolution scaledresolution = new ScaledResolution(this.minecraft);
-			// ScaledResolution resolution = event.getResolution();
-			// int width = resolution.getScaledWidth();
-			// int height = resolution.getScaledHeight();
 			EntityPlayerSP player = Minecraft.getMinecraft().player;
 			int temp = miscutil.GetTemperature(player.world, player.getPosition());
 			if (b)
 			{
-				// 这个是为了解决进游戏不显示的bug，在没有更好的解决办法之前最好不动它
 				player.getCapability(Capabilities.THIRST, null).setThirst(70);
 				b = false;
 			}
 
-			// ThirstHandler th = (ThirstHandler) player.getCapability(Capabilities.THIRST,
-			// null);
-			// int thirst = th.getThirst();
 			if (minecraft.playerController.gameIsSurvivalOrAdventure())
 			{
 				minecraft.getTextureManager().bindTexture(loc);
@@ -59,12 +52,6 @@ public class Drawhandler extends Gui
 
 	private void drawSuTemp(int temp)
 	{
-		// 79是0°
-
-		// ylllutil.drawTexturedModalRect(3, 3, 0, 0, 7, 126, 0.6F);
-
-		// ylllutil.drawTexturedModalRect(5, 79 - temp, 7, 79 - temp, 1, 117, 0.6F);
-
 		this.drawTexturedModalRect(3, 3, 0, 0, 7, 126);
 
 		this.drawTexturedModalRect(3, 3, 7, 0, 7, 126);
