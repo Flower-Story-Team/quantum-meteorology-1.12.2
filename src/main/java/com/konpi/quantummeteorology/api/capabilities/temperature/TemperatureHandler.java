@@ -60,7 +60,8 @@ public class TemperatureHandler implements IPlayerState, ITemperature {
 				this.temp = temp * 0.99F;
 			}
 
-			System.out.println("\n\nsu " + surround + " tem " + temp + " th " + thirst + "\n");
+			// System.out.println("\n\nsu " + surround + " tem " + temp + " th " + thirst +
+			// "\n");
 
 			if (world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 				if (this.temp > 30) {
