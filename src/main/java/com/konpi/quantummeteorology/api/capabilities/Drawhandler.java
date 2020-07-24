@@ -1,7 +1,7 @@
 package com.konpi.quantummeteorology.api.capabilities;
 
 import com.konpi.quantummeteorology.api.capabilities.thirst.ThirstHandler;
-import com.konpi.quantummeteorology.common.util.ylllutil;
+import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -16,8 +16,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class Drawhandler extends Gui
-{
+public class Drawhandler extends Gui {
 
 	public static final ResourceLocation loc = new ResourceLocation("quantummeteorology:textures/gui/guis.png");
 
@@ -26,27 +25,24 @@ public class Drawhandler extends Gui
 	public static boolean b = true;
 
 	@SubscribeEvent
-	public void onPreRenderOverlay(RenderGameOverlayEvent.Pre event)
-	{
-		if (event.getType() == ElementType.AIR)
-		{
+	public void onPreRenderOverlay(RenderGameOverlayEvent.Pre event) {
+		if (event.getType() == ElementType.AIR) {
 			ScaledResolution scaledresolution = new ScaledResolution(this.minecraft);
-			//ScaledResolution resolution = event.getResolution();
-			//int width = resolution.getScaledWidth();
-			//int height = resolution.getScaledHeight();
+			// ScaledResolution resolution = event.getResolution();
+			// int width = resolution.getScaledWidth();
+			// int height = resolution.getScaledHeight();
 			EntityPlayerSP player = Minecraft.getMinecraft().player;
-			int temp = ylllutil.GetTemperature(player.world, player.getPosition());
-			if (b)
-			{
+			int temp = miscutil.GetTemperature(player.world, player.getPosition());
+			if (b) {
 				// 这个是为了解决进游戏不显示的bug，在没有更好的解决办法之前最好不动它
 				player.getCapability(Capabilities.THIRST, null).setThirst(70);
 				b = false;
 			}
-			
-			//ThirstHandler th = (ThirstHandler) player.getCapability(Capabilities.THIRST, null);
-			//int thirst = th.getThirst();
-			if (minecraft.playerController.gameIsSurvivalOrAdventure())
-			{
+
+			// ThirstHandler th = (ThirstHandler) player.getCapability(Capabilities.THIRST,
+			// null);
+			// int thirst = th.getThirst();
+			if (minecraft.playerController.gameIsSurvivalOrAdventure()) {
 				minecraft.getTextureManager().bindTexture(loc);
 				drawSuTemp(temp);
 				drawPlayerThirst(scaledresolution);
@@ -56,60 +52,51 @@ public class Drawhandler extends Gui
 		}
 	}
 
-	private void drawSuTemp(int temp)
-	{
+	private void drawSuTemp(int temp) {
 		// 79是0°
-		
-		
-		//ylllutil.drawTexturedModalRect(3, 3, 0, 0, 7, 126, 0.6F);
-		
-		//ylllutil.drawTexturedModalRect(5, 79 - temp, 7, 79 - temp, 1, 117, 0.6F);
-		
-		
+
+		// ylllutil.drawTexturedModalRect(3, 3, 0, 0, 7, 126, 0.6F);
+
+		// ylllutil.drawTexturedModalRect(5, 79 - temp, 7, 79 - temp, 1, 117, 0.6F);
+
 		this.drawTexturedModalRect(3, 3, 0, 0, 7, 126);
-		
+
 		this.drawTexturedModalRect(3, 3, 7, 0, 7, 126);
-		
+
 	}
 
-	private void drawPlayerThirst(ScaledResolution scaledRes)
-	{
+	private void drawPlayerThirst(ScaledResolution scaledRes) {
 		int y0 = scaledRes.getScaledHeight() - 39 - 10;
 		int x0 = scaledRes.getScaledWidth() / 2 + 91;
-		
+
 		EntityPlayerSP player = Minecraft.getMinecraft().player;
 		ThirstHandler th = (ThirstHandler) player.getCapability(Capabilities.THIRST, null);
 		int thirst = th.getThirst();
-		
-		//----------------------------------------------------------------
-		EntityPlayer entityplayer = (EntityPlayer)this.minecraft.getRenderViewEntity();
+
+		// ----------------------------------------------------------------
+		EntityPlayer entityplayer = (EntityPlayer) this.minecraft.getRenderViewEntity();
 		Entity entity = entityplayer.getRidingEntity();
-		//----------------------------------------------------------------
-		
-		if (entity == null || !(entity instanceof EntityLivingBase))
-        {
-			//this.minecraft.profiler.endStartSection("amods");
-			for (int i6 = 0; i6 < 10; i6++)
-			{
-				//int half = i * 10 + 5;
-				//int x = width + 97 - i * 10;
-				
+		// ----------------------------------------------------------------
+
+		if (entity == null || !(entity instanceof EntityLivingBase)) {
+			// this.minecraft.profiler.endStartSection("amods");
+			for (int i6 = 0; i6 < 10; i6++) {
+				// int half = i * 10 + 5;
+				// int x = width + 97 - i * 10;
+
 				int half = i6 * 10 + 5;
-				
+
 				int y1 = y0;
 				int x1 = x0 - i6 * 8 - 9;
-				
-				if (thirst > half)
-				{
+
+				if (thirst > half) {
 					this.drawTexturedModalRect(x1, y1, 14, 0, 9, 9);
-				} else if (thirst > half - 5)
-				{
+				} else if (thirst > half - 5) {
 					this.drawTexturedModalRect(x1, y1, 23, 0, 9, 9);
-				} else 
-				{
+				} else {
 					this.drawTexturedModalRect(x1, y1, 32, 0, 9, 9);
 				}
 			}
-		}	
+		}
 	}
 }
