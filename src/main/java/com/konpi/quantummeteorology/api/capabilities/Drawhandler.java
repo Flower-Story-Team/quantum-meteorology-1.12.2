@@ -59,8 +59,17 @@ public class Drawhandler extends Gui
 	private void drawSuTemp(int temp)
 	{
 		// 79是0°
-		ylllutil.drawTexturedModalRect(3, 3, 0, 0, 8, 126, 0.6F);
-		ylllutil.drawTexturedModalRect(5, 79 - temp, 8, 79 - temp, 10, 117, 0.6F);
+		
+		
+		//ylllutil.drawTexturedModalRect(3, 3, 0, 0, 7, 126, 0.6F);
+		
+		//ylllutil.drawTexturedModalRect(5, 79 - temp, 7, 79 - temp, 1, 117, 0.6F);
+		
+		
+		this.drawTexturedModalRect(3, 3, 0, 0, 7, 126);
+		
+		this.drawTexturedModalRect(3, 3, 7, 0, 7, 126);
+		
 	}
 
 	private void drawPlayerThirst(ScaledResolution scaledRes)
@@ -92,13 +101,13 @@ public class Drawhandler extends Gui
 				
 				if (thirst > half)
 				{
-					this.drawTexturedModalRect(x1, y1, 11, 0, 9, 9);
+					this.drawTexturedModalRect(x1, y1, 14, 0, 9, 9);
 				} else if (thirst > half - 5)
 				{
-					this.drawTexturedModalRect(x1, y1, 20, 0, 9, 9);
+					this.drawTexturedModalRect(x1, y1, 23, 0, 9, 9);
 				} else 
 				{
-					this.drawTexturedModalRect(x1, y1, 29, 0, 9, 9);
+					this.drawTexturedModalRect(x1, y1, 32, 0, 9, 9);
 				}
 			}
 		}	
