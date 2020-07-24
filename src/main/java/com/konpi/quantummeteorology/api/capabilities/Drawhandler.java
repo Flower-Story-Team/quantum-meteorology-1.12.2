@@ -65,7 +65,8 @@ public class Drawhandler extends Gui {
 
 	}
 
-	private void drawPlayerThirst(ScaledResolution scaledRes) {
+	private void drawPlayerThirst(ScaledResolution scaledRes)
+	{
 		int y0 = scaledRes.getScaledHeight() - 39 - 10;
 		int x0 = scaledRes.getScaledWidth() / 2 + 91;
 
