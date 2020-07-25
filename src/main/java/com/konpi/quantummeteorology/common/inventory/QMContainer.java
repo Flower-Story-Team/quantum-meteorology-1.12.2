@@ -11,12 +11,11 @@ import net.minecraft.item.ItemStack;
 public class QMContainer extends Container
 {
 
+	//EntityCoalGenerator
 	public EntityCoalGenerator tileEntityBclogxz;
     public EntityPlayer entityPlayer;
     public static final int MAX_TIME = 200;
     public int cookTime;
-    
-    
     public QMContainer(EntityPlayer player, EntityCoalGenerator tileEntityBclogxz, int AbenginX, int AbeginY, int BbeginX, int BbeginY)
     {
         this.entityPlayer = player;
@@ -168,5 +167,4 @@ public class QMContainer extends Container
                 break;
         }
     }
-
 }

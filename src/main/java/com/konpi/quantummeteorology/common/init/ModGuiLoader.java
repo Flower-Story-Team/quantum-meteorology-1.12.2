@@ -18,15 +18,9 @@ public class ModGuiLoader implements IGuiHandler
 {
 	public static final int EngineerWorktable = 0;
     public static final int RobotInventory=1;
-    
-    
-    
-    public ModGuiLoader()
-    {
+    public ModGuiLoader(){
         NetworkRegistry.INSTANCE.registerGuiHandler(QuantumMeteorology.instance,this);
     }
-    
-    
     @Nullable
     @Override
     public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
