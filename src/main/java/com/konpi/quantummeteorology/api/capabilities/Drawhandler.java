@@ -32,7 +32,9 @@ public class Drawhandler extends Gui
 		{
 			ScaledResolution scaledresolution = new ScaledResolution(this.minecraft);
 			EntityPlayerSP player = Minecraft.getMinecraft().player;
+			
 			int temp = miscutil.GetTemperature(player.world, player.getPosition());
+			
 			if (b)
 			{
 				player.getCapability(Capabilities.THIRST, null).setThirst(70);
@@ -49,13 +51,15 @@ public class Drawhandler extends Gui
 			}
 		}
 	}
+	
+	int as22 = 10;
 
+	int an11 = 79;
+	
 	private void drawSuTemp(int temp)
 	{
 		this.drawTexturedModalRect(3, 3, 0, 0, 7, 126);
-
-		this.drawTexturedModalRect(3, 3, 7, 0, 7, 126);
-
+		this.drawTexturedModalRect(3, 3 + 79 - temp, 7, 79 - temp, 7, 126);
 	}
 
 	private void drawPlayerThirst(ScaledResolution scaledRes)

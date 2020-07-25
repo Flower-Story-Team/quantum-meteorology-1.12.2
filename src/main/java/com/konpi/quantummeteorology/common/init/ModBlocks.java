@@ -7,7 +7,6 @@ import com.konpi.quantummeteorology.common.block.CoalGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
