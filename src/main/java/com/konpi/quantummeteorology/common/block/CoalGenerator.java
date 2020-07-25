@@ -9,13 +9,18 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.items.ItemStackHandler;
 
 import com.konpi.quantummeteorology.QuantumMeteorology;
+import com.konpi.quantummeteorology.common.block.tileenty.EntityCoalGenerator;
 import com.konpi.quantummeteorology.common.init.ModCreativeTabs;
+import com.konpi.quantummeteorology.common.init.ModGuiLoader;
 
 
 public class CoalGenerator extends BlockContainer
@@ -36,30 +41,79 @@ public class CoalGenerator extends BlockContainer
 		this.setCreativeTab(ModCreativeTabs.MISC);
 	}
 	
-	
-	/*
 	@Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (!worldIn.isRemote)
-        {
-        	TileEntityMiningMachine tile = (TileEntityMiningMachine) worldIn.getTileEntity(pos);
-            if (tile != null)
-            {
-                tile.DeleteMiningTube();
-            }
-        }
-    }
-	*/
+	public TileEntity createNewTileEntity(World worldIn, int meta)
+	{
+		 return new EntityCoalGenerator();
+	}
+		
+		
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	{
+		TileEntity tileEntity = worldIn.getTileEntity(pos);
+		if(tileEntity instanceof EntityCoalGenerator)
+		{
+			EntityCoalGenerator machine = (EntityCoalGenerator)tileEntity;
+			playerIn.openGui(QuantumMeteorology.instance, ModGuiLoader.EngineerWorktable,worldIn,pos.getX(),pos.getY(),pos.getZ());
+		}
+		return true;
+	}
 	
 	
-	
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+	{
+			TileEntity tileentity = worldIn.getTileEntity(pos);
 
+			if (tileentity instanceof EntityCoalGenerator)
+			{
+				ItemStackHandler itemStackHandler = ((EntityCoalGenerator) tileentity).items;
+				for(int i = 0;i<itemStackHandler.getSlots();i++){
+					EntityItem entityItem = new EntityItem(worldIn,pos.getX(),pos.getY(),pos.getZ(),itemStackHandler.getStackInSlot(i));
+					entityItem.setDefaultPickupDelay();
+					worldIn.spawnEntity(entityItem);
+				}
+			}
+
+		super.breakBlock(worldIn, pos, state);
+	}
+	
+	
+	
+	
+	
+	//-------------------------------------------------------------------------
+	
+	
+	
+	
+	
+	@Override
+	public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
+	
+	
 	public boolean isOpaqueCube(IBlockState state)
 	{
 		return false;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/*--------------------------------------------------------------------------*/
     /**
@@ -82,7 +136,7 @@ public class CoalGenerator extends BlockContainer
     @Override
     public TileEntity createTileEntity(World world, IBlockState state)
     {
-        return new TileEntityMiningMachine();
+        return new EntityEngineerWorktable();
     }
     */
     
@@ -176,16 +230,6 @@ public class CoalGenerator extends BlockContainer
     /*--------------------------------------------------------------------------------------*/
 
 
-    
-    
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta)
-	{
-		// TODO 自动生成的方法存根
-		return null;
-	}
-
-
 
    /*--------------------------------------------------------------------------*/
 
@@ -205,6 +249,5 @@ public class CoalGenerator extends BlockContainer
         return BlockFaceShape.SOLID;
     }
 */
-	
 	
 }
