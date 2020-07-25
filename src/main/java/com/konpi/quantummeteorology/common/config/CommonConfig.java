@@ -31,6 +31,8 @@ public class CommonConfig {
 		public int month_duration = 8;
 
 		public int starting_time = 0;
+
+		public boolean bottle_thirst = true;
 	}
 
 	public static boolean isWhiteListDimension(int dimension) {
