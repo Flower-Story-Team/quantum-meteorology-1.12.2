@@ -1,5 +1,7 @@
 package com.konpi.quantummeteorology.api.capabilities;
 
+import org.lwjgl.opengl.GL11;
+
 import com.konpi.quantummeteorology.api.capabilities.thirst.ThirstHandler;
 import com.konpi.quantummeteorology.common.util.miscutil;
 
@@ -7,6 +9,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,14 +57,12 @@ public class Drawhandler extends Gui
 		}
 	}
 	
-	int as22 = 10;
-
-	int an11 = 79;
+	
 	
 	private void drawSuTemp(int temp)
 	{
-		this.drawTexturedModalRect(3, 3, 0, 0, 7, 126);
-		this.drawTexturedModalRect(3, 3 + 79 - temp, 7, 79 - temp, 7, 126);
+		drawTexturedModalRect(3, 3, 0, 0, 7, 126);
+		drawTexturedModalRect(3, 3 + 79 - temp, 7, 79 - temp, 7, 126);
 	}
 
 	private void drawPlayerThirst(ScaledResolution scaledRes)
