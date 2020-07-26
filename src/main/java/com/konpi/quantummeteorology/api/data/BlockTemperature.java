@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 
 public enum BlockTemperature {
 	FIRE(Blocks.FIRE, 3, 3), //
+	WATER(Blocks.WATER, 1, -1),//
 	FURNACE(Blocks.LIT_FURNACE, 5, 2), //
 	ICE(Blocks.ICE, 5, -2);
 
