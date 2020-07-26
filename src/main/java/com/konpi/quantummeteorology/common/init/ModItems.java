@@ -1,6 +1,7 @@
 package com.konpi.quantummeteorology.common.init;
 
 import com.konpi.quantummeteorology.QuantumMeteorology;
+import com.konpi.quantummeteorology.api.capabilities.temperature.ITemperature;
 import com.konpi.quantummeteorology.common.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -57,6 +58,13 @@ public class ModItems {
 
 		//
 		simpleItemList.add(new ItemBase("thermometer").setCreativeTab(ModCreativeTabs.MISC)); //温度计 ,占时没啥用
+		simpleItemList.add(new ItemBase("ironplate").setCreativeTab(ModCreativeTabs.MISC));//
+		simpleItemList.add(new ItemBase("goldplate").setCreativeTab(ModCreativeTabs.MISC));//
+		simpleItemList.add(new ItemBase("aluminumplate").setCreativeTab(ModCreativeTabs.MISC));//
+		simpleItemList.add(new ItemBase("copperplate").setCreativeTab(ModCreativeTabs.MISC));//
+		simpleItemList.add(new ItemBase("tinplate").setCreativeTab(ModCreativeTabs.MISC));//
+		simpleItemList.add(new ItemBase("leadplate").setCreativeTab(ModCreativeTabs.MISC));//
+
 		
 		
 		
@@ -92,10 +100,28 @@ public class ModItems {
 		//物品
 		@ObjectHolder("thermometer") 			//温度计
 		public static final Item THERMOMETER = null;
-		
-		
-		
-		
+
+		@ObjectHolder("ironplate")     //铁板
+		public static final Item PLATEIRON = null;
+
+		@ObjectHolder("goldplate")   //金板
+		public static final Item PLATEGOLD = null;
+
+		@ObjectHolder("copperplate")   //铜板
+		public static final Item PLATECOPPER = null;
+
+		@ObjectHolder("tinplate") //
+		public static final Item PLATETIN = null;
+
+		@ObjectHolder("aluminumplate") //
+		public static final Item PLATEALUMINUM = null;
+
+		@ObjectHolder("leadplate") //
+		public static final Item PLATELEAD = null;
+
+
+
+
 		//熟食
 		@ObjectHolder("steamed_rice")		 //米饭
 		public static final Item STEAMED_RICE = null;
