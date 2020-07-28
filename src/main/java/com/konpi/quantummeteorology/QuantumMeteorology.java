@@ -4,6 +4,7 @@ import com.konpi.quantummeteorology.api.data.MessageUpdateStat;
 import com.konpi.quantummeteorology.common.command.PlayerCommond;
 import com.konpi.quantummeteorology.common.command.SeasonCommand;
 import com.konpi.quantummeteorology.proxy.CommonProxy;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -45,6 +47,7 @@ public class QuantumMeteorology {
 	public void preInit(FMLPreInitializationEvent event) {
 		instance = this;
 		proxy.preInit(event);
+
 	}
 
 	@Mod.EventHandler
@@ -62,5 +65,6 @@ public class QuantumMeteorology {
 		event.registerServerCommand(new SeasonCommand());
 		event.registerServerCommand(new PlayerCommond());
 	}
+
 
 }

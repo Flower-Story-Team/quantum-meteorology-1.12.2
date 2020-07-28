@@ -45,7 +45,7 @@ public class ModItems {
 		simpleItemList.add(new ItemFoodBase("onion", 1, 0.6F, false)); 			//洋葱
 		simpleItemList.add(new ItemFoodBase("lentil", 1, 0.6F, false)); 		//扁豆
 		simpleItemList.add(new ItemFoodBase("garlic", 1, 0.6F, false)); 		//大蒜
-		
+		simpleItemList.add(new ItemFoodBase("bowlwater", 1,0.6F,true)); //一碗水
 		simpleItemList.add(new ItemFoodBase("cuke", 1, 0.6F, false)); 			//黄瓜
 		simpleItemList.add(new ItemFoodBase("purewater",0,0.3F,false)); //过滤水
 
@@ -184,6 +184,9 @@ public class ModItems {
 		
 		@ObjectHolder("purewater") //过滤水
 		public static final Item PUREWATER = null;
+
+		@ObjectHolder("bowlwater") // 一碗水
+		public static final Item BOWLWATER = null;
 
 	}
 }

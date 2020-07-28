@@ -1,15 +1,10 @@
 package com.konpi.quantummeteorology.proxy;
 
+import com.konpi.quantummeteorology.common.init.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import com.konpi.quantummeteorology.common.init.ModGuiLoader;
-import com.konpi.quantummeteorology.common.init.ModHandler;
-import com.konpi.quantummeteorology.common.init.ModPotions;
-import com.konpi.quantummeteorology.common.init.ModStates;
-import com.konpi.quantummeteorology.common.init.ModTileEntityLoader;
 
 public class CommonProxy {
 
@@ -18,6 +13,7 @@ public class CommonProxy {
 		new ModGuiLoader();
 		new ModTileEntityLoader();
 		ModPotions.init();
+
 		
 		
 	}

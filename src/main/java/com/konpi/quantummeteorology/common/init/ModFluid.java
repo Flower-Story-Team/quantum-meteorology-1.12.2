@@ -40,6 +40,7 @@ public class ModFluid {
 				blockFluid = new BlockFluidClassic(fluid, Material.WATER).setRegistryName(QuantumMeteorology.MODID,
 						fluid.getName());
 			}
+		;
 			event.getRegistry().register(blockFluid);
 		});
 	}
