@@ -47,7 +47,7 @@ public class ModGases {
             GasRegistry.register(new OreGas(nameLower, "oregas." + nameLower, resource.tint, clean));
         }
 */
-        FluidRegistry.enableUniversalBucket();
+//        FluidRegistry.enableUniversalBucket();
 /*
         FluidRegistry.addBucketForFluid(HeavyWater);
 */

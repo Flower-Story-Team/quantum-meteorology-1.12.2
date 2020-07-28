@@ -16,24 +16,24 @@ public class FluidBase extends Fluid {
 	 * 多材质流体
 	 */
 	public FluidBase(String name) {
-		this(name, Color.WHITE);
+		this(name, Color.WHITE.getRGB());
 	}
 
 	/**
 	 * 多材质流体
 	 */
-	public FluidBase(String name, Color color) {
+	public FluidBase(String name, int color) {
 		this(name, false, color);
 	}
 
 	/**
 	 * 多材质流体
 	 */
-	public FluidBase(String name, boolean hasOverlay, Color color) {
+	public FluidBase(String name, boolean hasOverlay, int color) {
 		this(name, new ResourceLocation(QuantumMeteorology.MODID, "fluid/" + name + "_still"),
 				new ResourceLocation(QuantumMeteorology.MODID, "fluid/" + name + "_flow"),
 				hasOverlay ? new ResourceLocation(QuantumMeteorology.MODID, "fluid/" + name + "_overlay") : null,
-				color);
+				new Color(color));
 	}
 
 	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,

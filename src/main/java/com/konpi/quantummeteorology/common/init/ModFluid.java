@@ -20,7 +20,7 @@ public class ModFluid {
 
 	static {
 		// 允许万能桶
-		FluidRegistry.enableUniversalBucket();
+//		FluidRegistry.enableUniversalBucket();
 		fluidList.add(FluidBase.singleTexture("sludge"));
 	}
 
