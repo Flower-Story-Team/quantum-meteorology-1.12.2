@@ -5,9 +5,6 @@ import com.konpi.quantummeteorology.common.util.miscutil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSapling;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -17,22 +14,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public enum PlantData {
-	SAPLING0(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.OAK), -30, 50), //
-	SAPLING1(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.SPRUCE), -20, 60), //
-	SAPLING2(Blocks.SAPLING.getDefaultState().withProperty(BlockSapling.TYPE, BlockPlanks.EnumType.BIRCH), -10, 70);//
+	SAPLING(Blocks.SAPLING.getRegistryName().toString(), -10, 70);//
 
-
-	/*CROP0(Blocks.SAPLING.getDefaultState().withProperty(BlockS))*/
-
-
-	//
-
-
-	private PlantData(IBlockState state, float temperature_min, float temperature_max) {
-		this(state, temperature_min, (temperature_min + temperature_max) / 2, temperature_max);
+	private PlantData(String name, float temperature_min, float temperature_max) {
+		this(name, temperature_min, (temperature_min + temperature_max) / 2, temperature_max);
 	}
 
-	private PlantData(IBlockState state, float temperature_min, float temperature_proference, float temperature_max) {
+	private PlantData(String name, float temperature_min, float temperature_proference, float temperature_max) {
 
 		if (temperature_min > temperature_proference || temperature_proference > temperature_max
 				|| temperature_min > temperature_max || temperature_min < -30 || temperature_max > 70) {
@@ -45,7 +33,7 @@ public enum PlantData {
 			this.temperature_proference = temperature_proference;
 			this.temperature_max = temperature_max;
 		}
-		this.plant_name = state.toString();
+		this.plant_name = name;
 	}
 
 	private float temperature_min;
@@ -64,9 +52,9 @@ public enum PlantData {
 	}
 
 	@SideOnly(Side.CLIENT)
+	// TODO
 	public static void setupTooltips(ItemTooltipEvent event) {
-		String name = Block.getBlockFromItem(event.getItemStack().getItem())
-				.getStateFromMeta(event.getItemStack().getMetadata()).toString();
+		String name = Block.getBlockFromItem(event.getItemStack().getItem()).getRegistryName().toString();
 		PlantData plant = null;
 		for (PlantData data : PlantData.values()) {
 			if (data.getPlantName().equals(name))
@@ -91,30 +79,18 @@ public enum PlantData {
 		}
 	}
 
-	/**
-	 * @return 植物的注册id
-	 */
 	public String getPlantName() {
 		return plant_name;
 	}
 
-	/**
-	 * @return 植物能承受的最高温度
-	 */
 	public float getTemperature_max() {
 		return temperature_max;
 	}
 
-	/**
-	 * @return 植物能承受的最低温度
-	 */
 	public float getTemperature_min() {
 		return temperature_min;
 	}
 
-	/**
-	 * @return 植物的最适生长温度
-	 */
 	public float getTemperature_proference() {
 		return temperature_proference;
 	}
