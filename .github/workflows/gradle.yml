@@ -29,4 +29,4 @@ jobs:
       if: success()
       with:
         name: Flower of Hua-1.0.0
-        path: build/libs/Flower of Hua-1.0.0.jar
+        path: build/libs/Quantum Meteorology-1.0.0.jar
